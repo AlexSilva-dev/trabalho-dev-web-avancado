@@ -14,4 +14,4 @@ Cada grupo deverá enviar um vídeo demonstrando a execução de testes da imple
 Somente um integrante do grupo deve fazer o upload da entrega. Os outros podem apenas registrar o nome do responsável pela entrega.
 
 -----------
-[![PDF](Trabalho de DWA.pdf)](Trabalho de DWA.pdf)
+[![PDF](Trabalho_de_DWA.pdf)](Trabalho_de_DWA.pdf)
