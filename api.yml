@@ -38,10 +38,10 @@ tags:
   - name: user
     description: Operations about user
 paths:
-  /pet:
+  /event:
     put:
       tags:
-        - pet
+        - event
       summary: Update an existing pet
       description: Update an existing pet by Id
       operationId: updatePet
@@ -50,13 +50,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/Event'
           application/xml:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/Event'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/Event'
         required: true
       responses:
         '200':
@@ -769,6 +769,23 @@ components:
           type: string
       xml:
         name: '##default'
+    Event:    # Substitua YourModelName pelo nome real do seu modelo
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int32
+            name:
+              type: string
+            acronym:
+              type: string
+            description:
+              type: string
+          required:
+            - name
+            - acronym
+            - description
+            
   requestBodies:
     Pet:
       description: Pet object that needs to be added to the store
