@@ -1,0 +1,105 @@
+
+Swagger Editor - Link do Editor do Swagger
+
+Schemas
+
+Vamos definir os schemas/models do projeto com esse cara, ele vai ser interessante, porque não precisamos ficar falando o objeto events/users e etc… toda vez, a gente só faz referência ao data-model.
+
+https://swagger.io/docs/specification/data-models/data-types/
+
+
+Event
+Space
+Edition
+User 
+Organizador (???)
+Activity
+
+-MemberList
+-SignUp
+
+
+
+
+Endpoints
+
+POST /events - Criar um novo evento
+
+GET /events - Listar todos os eventos
+
+GET /events/{eventId} - Obter detalhes de um evento específico (substituir  {eventId} pelo ID do evento)
+
+PUT /events/{eventId} - Atualizar informações de um evento específico
+
+DELETE /events/{eventId} - Excluir um evento específico (substituir {eventId} pelo ID do evento)
+
+POST /events/{eventId}/editions - Criar uma nova edição para um evento específico
+
+GET /events/{eventId}/editions - Listar todas as edições de um evento específico
+
+GET /events/{eventId}/editions/{editionId} - Obter detalhes de uma edição específica (substituir {eventId} e {editionId} pelos IDs do evento e da edição, respectivamente)
+
+PUT /events/{eventId}/editions/{editionId} - Atualizar informações de uma edição específica
+
+DELETE /events/{eventId}/editions/{editionId} - Excluir uma edição específica (substituir {eventId} e {editionId} pelos IDs do evento e da edição, respectivamente)
+
+POST /events/{eventId}/users - Adicionar um organizador a uma edição de evento
+
+DELETE /events/{eventId}/users/{userId} - Remover um organizador de uma edição de evento (substituir {userId} pelo ID do usuário organizador)
+
+GET /events/{eventId}/users - Obter a lista de usuários que fazem parte de uma edição de evento
+
+POST /spaces - Criar um novo espaço
+
+GET /spaces - Listar todos os espaços disponíveis
+
+GET /spaces/{spaceId} - Obter detalhes de um espaço específico (substituir  {spaceId} pelo ID do espaço)
+
+PUT /spaces/{spaceId} - Atualizar informações de um espaço específico
+
+DELETE /spaces/{spaceId} - Excluir um espaço específico (substituir  {spaceId} pelo ID do espaço)
+
+POST /editions/{editionId}/activities - Criar uma nova atividade para uma edição de evento
+
+GET /editions/{editionId}/activities - Listar todas as atividades de uma edição de evento
+
+GET /editions/{editionId}/activities/{activityId} - Obter detalhes de uma atividade específica (substituir  {editionId} e {activityId} pelos IDs da edição e da atividade, respectivamente)
+
+PUT /editions/{editionId}/activities/{activityId} - Atualizar informações de uma atividade específica
+
+DELETE /editions/{editionId}/activities/{activityId} - Excluir uma atividade específica (substituir  {editionId} e {activityId} pelos IDs da edição e da atividade, respectivamente)
+
+POST /users - Criar um novo usuário
+
+POST /users/login - Autenticar um usuário
+
+GET /users/{userId} - Obter detalhes do perfil de um usuário (substituir  {userId} pelo ID do usuário)
+
+PUT /users/{userId} - Atualizar informações do perfil de um usuário (substituir  {userId} pelo ID do usuário)
+
+POST /users/{userId}/favorites - Adicionar uma atividade aos favoritos de um usuário (substituir  {userId} pelo ID do usuário)
+
+DELETE /users/{userId}/favorites/{activityId} - Remover uma atividade dos favoritos de um usuário (substituir  {userId} pelo ID do usuário e {activityId} pelo ID da atividade)
+
+GET /users/{userId}/favorites - Listar atividades favoritas de um usuário (substituir  {userId} pelo ID do usuário)
+
+POST /users/{userId}/notifications - Enviar mensagens aos usuários cadastrados com informações sobre atividades favoritas (substituir  {userId} pelo ID do usuário)
+–
+
+GET /memberList - Obtém a lista de membros de todos os eventos
+
+GET /memberList/editions/{editionId}/events/{eventId}/activities/{activityId} - Obtém a lista de membros de uma atividade específica.
+
+PUT /memberList/editions/{editionId}/events/{eventId}/activities/{activityId}/users/{userId} - Insere um usuário a uma lista de participantes de uma atividade
+
+POST /memberList/editions/{editionId}/events/{eventId}/activities/{activityId} - Cria uma lista de membros para uma atividade
+
+DELETE /memberList/editions/{editionId}/events/{eventId}/activities/{activityId} - Remove uma lista de membros para uma atividade
+
+POST /signUp/editions/{editionId}/events/{eventId}/activities/{activityId}/users/{userId} - Usuário se inscreve em uma atividade
+
+DELETE /signUp/editions/{editionId}/events/{eventId}/activities/{activityId}/users/{userId} - Usuário se desinscrever da atividade
+
+
+
+
