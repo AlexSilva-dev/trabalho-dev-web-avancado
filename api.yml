@@ -1,819 +1,1360 @@
 openapi: 3.0.3
 info:
-  title: Swagger Petstore - OpenAPI 3.0
-  description: |-
-    This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about
-    Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!
-    You can now help us improve the API whether it's by making changes to the definition itself or to the code.
-    That way, with time, we can improve the API in general, and expose some of the new features in OAS3.
+  version: "1.0.0"
+  title: API de Gerenciamento de Eventos
+  description: >
+    A Sociedade Brasileira de Computação deseja adotar um novo sistema para
+    apoiar os organizadores dos eventos que realiza anualmente na criação dos
+    websites destes eventos. O novo sistema seria um CMS com o objetivo de
+    facilitar o registro pelos organizadores das informações sobre o evento que
+    devem constar do site, em especial, a lista de atividades que compõem o
+    evento, ou seja, a programação. Além disso, o sistema tem o objetivo de
+    permitir que os participantes planejem de quais atividades querem participar,
+    recebendo informações sobre estas.
+    O Administrador do sistema pode cadastrar/criar eventos específicos,
+    fornecendo o nome, uma descrição, uma sigla e um "caminho". Ele pode
+    também cadastrar uma edição anual de um evento, fornecendo o ano, o
+    número da edição, data inicial e data final da edição, e a cidade onde será
+    realizada. Além disso, pode autorizar a um usuário a se tornar responsável por
+    esta edição, assumindo o papel de Organizador da edição. Dessa forma,
+    quando o Organizador fornecer as informações necessárias, um site do evento
+    será disponibilizado no endereço "site do sistema"/"caminho do evento"/"ano da
+    edição".
+    O Organizador poderá fornecer informações adicionais sobre a edição
+    do evento sob a sua responsabilidade:
+    • A chamada de trabalhos do evento, que é um texto que descreve o tipo
+    de trabalhos que serão aceitos pelo evento;
+    • Os prazos para o evento, ou seja, as datas limites para submissão de
+    trabalhos, divulgação dos trabalhos aceitos e entrega da versão final;
+    • Informações sobre inscrições, incluindo os preços por lotes e link para o
+    sistema de inscrições;
+    • A lista de membros da organização do evento.
+    O organizador poderá também cadastrar as atividades que compõem a
+    programação do evento, indicando em que local serão realizadas. Para isso,
+    primeiramente o organizador deverá cadastrar todos os espaços disponíveis
+    (auditórios, anfiteatros, salas, etc). Depois deverá cadastrar cada atividade,
+    indicando o tipo (palestra, painel, sessão técnica, etc), nome, descrição, data,
+    horário inicial, horário final e o local em que será realizada (espaço).
+    Os usuários poderão consultar essas informações de forma anônima,
+    acessando o site do evento, que apresentará o conteúdo estruturado em
+    páginas. Na página principal (home) os usuários poderão ver a descrição, data
+    e local do evento. Na página "chamada" os usuários poderão ver a chamada de
+    trabalhos do evento e prazos. Na página "inscrições" os usuários poderão ver
+    informações gerais sobre como se inscrever no evento. Na página
+    "organização" os usuários poderão ver informações gerais sobre a equipe
+    envolvida na organização do evento.
+    Na página "programação", os usuários poderão ver uma tabela com a
+    programação diária do evento, mas sem detalhamento (sem apresentar a
+    descrição de cada atividade). Esta página deverá oferecer links para páginas
+    de detalhamento de cada atividade, na qual são apresentados todos os
+    detalhes sobre esta.
+    Os usuários poderão se cadastrar no sistema diretamente pela web e
+    quando estiverem logados, terão a opção de "favoritar" uma ou mais
+    atividades. Nesse caso, quando acessarem a página "programação" as
+    atividades favoritadas estarão assinaladas. Além disso, ao visitar a página de
+    detalhamento de uma atividade, ele verá também a lista dos usuários que
+    favoritaram esta atividade. Diariamente, 1 hora antes do início do evento, o
+    usuário cadastrado receberá uma mensagem com a lista de atividades que
+    acontecerão naquele dia e que ele marcou como favoritas.
 
-    _If you're looking for the Swagger 2.0/OAS 2.0 version of Petstore, then click [here](https://editor.swagger.io/?url=https://petstore.swagger.io/v2/swagger.yaml). Alternatively, you can load via the `Edit > Load Petstore OAS 2.0` menu option!_
-    
-    Some useful links:
-    - [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)
-    - [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
-  termsOfService: http://swagger.io/terms/
-  contact:
-    email: apiteam@swagger.io
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.0.11
-externalDocs:
-  description: Find out more about Swagger
-  url: http://swagger.io
 servers:
-  - url: https://petstore3.swagger.io/api/v3
+  - url: http://localhost:8000
+    description: Local server
 tags:
-  - name: pet
-    description: Everything about your Pets
-    externalDocs:
-      description: Find out more
-      url: http://swagger.io
-  - name: store
-    description: Access to Petstore orders
-    externalDocs:
-      description: Find out more about our store
-      url: http://swagger.io
-  - name: user
-    description: Operations about user
+  - name: Event
+    description: Operações relacionadas a eventos
+  - name: Space
+    description: Gerenciamento de espaços para eventos
+  - name: Edition
+    description: Gerenciamento de edições de eventos
+  - name: User
+    description: Operações de usuários
+  - name: Organizer
+    description: Operações específicas do organizador
+  - name: Activity
+    description: Gerenciamento de atividades dos eventos
 paths:
-  /event:
+  /events:
+    post:
+      tags:
+        - Event
+      summary: Criar um novo evento
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Event"
+            examples:
+              newEvent:
+                summary: Exemplo de novo evento
+                value:
+                  name: "Conferência Internacional sobre Computação"
+                  acronym: "CIC"
+                  description: "Evento sobre avanços na área de computação."
+      responses:
+        "201":
+          description: Novo evento criado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+              examples:
+                newEventResponse:
+                  summary: Exemplo de resposta de evento criado
+                  value:
+                    id: 1
+                    name: "Conferência Internacional sobre Computação"
+                    acronym: "CIC"
+                    description: "Evento sobre avanços na área de computação."
+        "400":
+          description: Dados inválidos fornecidos
+
+    get:
+      tags:
+        - Event
+      summary: Listar todos os eventos
+      responses:
+        "200":
+          description: Lista de todos os eventos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Event"
+              examples:
+                eventList:
+                  summary: Exemplo de lista de eventos
+                  value:
+                    - id: 1
+                      name: "Conferência Internacional sobre Computação"
+                      acronym: "CIC"
+                      description: "Evento sobre avanços na área de computação."
+                    - id: 2
+                      name: "Simpósio de Segurança Cibernética"
+                      acronym: "SSC"
+                      description: "Discussão sobre segurança e privacidade na era digital."
+
+  /events/{eventId}:
+    get:
+      tags:
+        - Event
+      summary: Obter detalhes de um evento específico
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID único do evento a ser obtido
+      responses:
+        "200":
+          description: Detalhes do evento
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+              examples:
+                specificEvent:
+                  summary: Exemplo de um evento específico
+                  value:
+                    id: 1
+                    name: "Conferência Internacional sobre Computação"
+                    acronym: "CIC"
+                    description: "Evento sobre avanços na área de computação."
+        "404":
+          description: Evento não encontrado
+
     put:
       tags:
-        - event
-      summary: Update an existing pet
-      description: Update an existing pet by Id
-      operationId: updatePet
-      requestBody:
-        description: Update an existent pet in the store
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Event'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Event'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Event'
-        required: true
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Pet'          
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Pet'
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-      security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
-    post:
-      tags:
-        - pet
-      summary: Add a new pet to the store
-      description: Add a new pet to the store
-      operationId: addPet
-      requestBody:
-        description: Create a new pet in the store
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Pet'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Pet'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Pet'
-        required: true
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Pet'          
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Pet'
-        '405':
-          description: Invalid input
-      security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
-  /pet/findByStatus:
-    get:
-      tags:
-        - pet
-      summary: Finds Pets by status
-      description: Multiple status values can be provided with comma separated strings
-      operationId: findPetsByStatus
+        - Event
+      summary: Atualizar informações de um evento específico
       parameters:
-        - name: status
-          in: query
-          description: Status values that need to be considered for filter
-          required: false
-          explode: true
-          schema:
-            type: string
-            default: available
-            enum:
-              - available
-              - pending
-              - sold
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'          
-            application/xml:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
-        '400':
-          description: Invalid status value
-      security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
-  /pet/findByTags:
-    get:
-      tags:
-        - pet
-      summary: Finds Pets by tags
-      description: Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
-      operationId: findPetsByTags
-      parameters:
-        - name: tags
-          in: query
-          description: Tags to filter by
-          required: false
-          explode: true
-          schema:
-            type: array
-            items:
-              type: string
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'          
-            application/xml:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
-        '400':
-          description: Invalid tag value
-      security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
-  /pet/{petId}:
-    get:
-      tags:
-        - pet
-      summary: Find pet by ID
-      description: Returns a single pet
-      operationId: getPetById
-      parameters:
-        - name: petId
+        - name: eventId
           in: path
-          description: ID of pet to return
           required: true
           schema:
             type: integer
             format: int64
+          description: ID do evento a ser atualizado
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Event"
+            examples:
+              updateEvent:
+                summary: Exemplo de atualização de evento
+                value:
+                  name: "Conferência Internacional de IA"
+                  acronym: "CIIA"
+                  description: "Evento atualizado para focar em Inteligência Artificial."
       responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Pet'          
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Pet'
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-      security:
-        - api_key: []
-        - petstore_auth:
-            - write:pets
-            - read:pets
-    post:
-      tags:
-        - pet
-      summary: Updates a pet in the store with form data
-      description: ''
-      operationId: updatePetWithForm
-      parameters:
-        - name: petId
-          in: path
-          description: ID of pet that needs to be updated
-          required: true
-          schema:
-            type: integer
-            format: int64
-        - name: name
-          in: query
-          description: Name of pet that needs to be updated
-          schema:
-            type: string
-        - name: status
-          in: query
-          description: Status of pet that needs to be updated
-          schema:
-            type: string
-      responses:
-        '405':
-          description: Invalid input
-      security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
+        "200":
+          description: Evento atualizado
+        "400":
+          description: Dados inválidos fornecidos
+        "404":
+          description: Evento não encontrado
+
     delete:
       tags:
-        - pet
-      summary: Deletes a pet
-      description: delete a pet
-      operationId: deletePet
+        - Event
+      summary: Excluir um evento específico
       parameters:
-        - name: api_key
-          in: header
-          description: ''
-          required: false
-          schema:
-            type: string
-        - name: petId
+        - name: eventId
           in: path
-          description: Pet id to delete
           required: true
           schema:
             type: integer
             format: int64
+          description: ID do evento a ser excluído
       responses:
-        '400':
-          description: Invalid pet value
-      security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
-  /pet/{petId}/uploadImage:
+        "200":
+          description: Evento excluído
+        "404":
+          description: Evento não encontrado
+
+  /events/{eventId}/editions:
     post:
       tags:
-        - pet
-      summary: uploads an image
-      description: ''
-      operationId: uploadFile
+        - Event
+      summary: Criar uma nova edição para um evento específico
       parameters:
-        - name: petId
+        - name: eventId
           in: path
-          description: ID of pet to update
           required: true
           schema:
             type: integer
             format: int64
-        - name: additionalMetadata
-          in: query
-          description: Additional Metadata
-          required: false
-          schema:
-            type: string
+          description: ID do evento para o qual a edição está sendo criada
       requestBody:
+        required: true
         content:
-          application/octet-stream:
+          application/json:
             schema:
-              type: string
-              format: binary
+              $ref: "#/components/schemas/Edition"
+            examples:
+              newEdition:
+                summary: Exemplo de uma nova edição
+                value:
+                  number: 5
+                  year: 2023
+                  start_date: "2023-08-01"
+                  end_date: "2023-08-03"
+                  city: "Cidade da Tecnologia"
       responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiResponse'
-      security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
-  /store/inventory:
+        "201":
+          description: Nova edição criada
+        "400":
+          description: Dados inválidos fornecidos
+
     get:
       tags:
-        - store
-      summary: Returns pet inventories by status
-      description: Returns a map of status codes to quantities
-      operationId: getInventory
+        - Event
+      summary: Listar todas as edições de um evento específico
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID do evento para o qual as edições estão sendo listadas
       responses:
-        '200':
-          description: successful operation
+        "200":
+          description: Lista de todas as edições do evento
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Edition"
+              examples:
+                editionList:
+                  summary: Exemplo de lista de edições
+                  value:
+                    - id: 101
+                      number: 4
+                      year: 2022
+                      start_date: "2022-08-01"
+                      end_date: "2022-08-03"
+                      city: "Cidade da Tecnologia"
+                    - id: 102
+                      number: 5
+                      year: 2023
+                      start_date: "2023-08-01"
+                      end_date: "2023-08-03"
+                      city: "Cidade da Tecnologia"
+        "404":
+          description: Evento não encontrado
+
+  /editions/{editionId}:
+    get:
+      tags:
+        - Edition
+      summary: Obter detalhes de uma edição específica
+      parameters:
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID único da edição a ser obtida
+      responses:
+        '200':
+          description: Detalhes da edição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edition'
+              examples:
+                specificEdition:
+                  summary: Exemplo de detalhes de uma edição
+                  value:
+                    id: 1001
+                    number: 5
+                    year: 2023
+                    start_date: "2023-08-01"
+                    end_date: "2023-08-03"
+                    city: "Cidade da Tecnologia"
+        '404':
+          description: Edição não encontrada
+
+    put:
+      tags:
+        - Edition
+      summary: Atualizar informações de uma edição específica
+      parameters:
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da edição a ser atualizada
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Edition'
+            examples:
+              updateEdition:
+                summary: Exemplo de atualização de uma edição
+                value:
+                  number: 6
+                  year: 2024
+                  start_date: "2024-08-15"
+                  end_date: "2024-08-17"
+                  city: "Nova Cidade da Tecnologia"
+      responses:
+        '200':
+          description: Edição atualizada
+        '400':
+          description: Dados inválidos fornecidos
+        '404':
+          description: Edição não encontrada
+
+    delete:
+      tags:
+        - Edition
+      summary: Excluir uma edição específica
+      parameters:
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da edição a ser excluída
+      responses:
+        '200':
+          description: Edição excluída
+        '404':
+          description: Edição não encontrada
+
+
+  /spaces:
+    post:
+      tags:
+        - Space
+      summary: Criar um novo espaço
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Space'
+            examples:
+              newSpace:
+                summary: Exemplo de novo espaço
+                value:
+                  name: "Auditório Principal"
+                  location: "Prédio 5, Campus Central"
+                  capacity: 500
+                  resources: ["Projetor", "Sistema de Som"]
+      responses:
+        '201':
+          description: Novo espaço criado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Space'
+              examples:
+                newSpaceResponse:
+                  summary: Exemplo de resposta de espaço criado
+                  value:
+                    id: 3001
+                    name: "Auditório Principal"
+                    location: "Prédio 5, Campus Central"
+                    capacity: 500
+                    resources: ["Projetor", "Sistema de Som"]
+        '400':
+          description: Dados inválidos fornecidos
+
+    get:
+      tags:
+        - Space
+      summary: Listar todos os espaços disponíveis
+      responses:
+        '200':
+          description: Lista de todos os espaços disponíveis
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Space'
+              examples:
+                spacesList:
+                  summary: Exemplo de lista de espaços
+                  value:
+                    - id: 3001
+                      name: "Auditório Principal"
+                      location: "Prédio 5, Campus Central"
+                      capacity: 500
+                      resources: ["Projetor", "Sistema de Som"]
+                    - id: 3002
+                      name: "Sala de Conferências 2A"
+                      location: "Prédio 3, Campus Norte"
+                      capacity: 100
+                      resources: ["Quadro Branco", "Teleconferência"]
+
+  /spaces/{spaceId}:
+    get:
+      tags:
+        - Space
+      summary: Obter detalhes de um espaço específico
+      parameters:
+        - name: spaceId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID único do espaço a ser obtido
+      responses:
+        '200':
+          description: Detalhes do espaço
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Space'
+              examples:
+                specificSpace:
+                  summary: Exemplo de um espaço específico
+                  value:
+                    id: 3001
+                    name: "Auditório Principal"
+                    location: "Prédio 5, Campus Central"
+                    capacity: 500
+                    resources: ["Projetor", "Sistema de Som"]
+        '404':
+          description: Espaço não encontrado
+
+    put:
+      tags:
+        - Space
+      summary: Atualizar informações de um espaço específico
+      parameters:
+        - name: spaceId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID do espaço a ser atualizado
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Space'
+            examples:
+              updateSpace:
+                summary: Exemplo de atualização de um espaço
+                value:
+                  name: "Auditório Secundário"
+                  location: "Prédio 5, Campus Central - Andar 2"
+                  capacity: 300
+                  resources: ["Projetor", "Sistema de Som", "Lousa Digital"]
+      responses:
+        '200':
+          description: Espaço atualizado
+        '400':
+          description: Dados inválidos fornecidos
+        '404':
+          description: Espaço não encontrado
+
+    delete:
+      tags:
+        - Space
+      summary: Excluir um espaço específico
+      parameters:
+        - name: spaceId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID do espaço a ser excluído
+      responses:
+        '200':
+          description: Espaço excluído
+        '404':
+          description: Espaço não encontrado
+
+  /editions/{editionId}/users:
+    get:
+      tags:
+        - Edition
+      summary: Listar usuários que estão cadastrados em uma edição
+      parameters:
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da edição para listar os usuários
+      responses:
+        '200':
+          description: Lista de usuários cadastrados na edição
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+              examples:
+                usersList:
+                  summary: Exemplo de lista de usuários
+                  value:
+                    - id: 5001
+                      login: "participante01"
+                      email: "participante01@evento.com"
+                      name: "Alex Souza"
+                      affiliation: "Tech Corp"
+                    - id: 5002
+                      login: "participante02"
+                      email: "participante02@evento.com"
+                      name: "Patricia Oliveira"
+                      affiliation: "Inovação LTDA"
+        '404':
+          description: Edição não encontrada
+
+    post:
+      tags:
+        - Edition
+      summary: Cadastrar usuários em uma edição
+      parameters:
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da edição na qual o usuário será cadastrado
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+            examples:
+              newUser:
+                summary: Exemplo de cadastro de um novo usuário em uma edição
+                value:
+                  login: "novo_participante"
+                  email: "novo_participante@evento.com"
+                  name: "João Lima"
+                  affiliation: "Universidade Federal"
+      responses:
+        '201':
+          description: Usuário cadastrado na edição
+        '400':
+          description: Dados inválidos fornecidos
+        '404':
+          description: Edição não encontrada
+
+  /events/{eventId}/organizers:
+    post:
+      tags:
+        - Organizer
+      summary: Adicionar um organizador a uma edição de evento
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID do evento para o qual um organizador está sendo adicionado
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
                   type: integer
-                  format: int32
-      security:
-        - api_key: []
-  /store/order:
-    post:
-      tags:
-        - store
-      summary: Place an order for a pet
-      description: Place a new order in the store
-      operationId: placeOrder
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Order'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Order'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Order'
+                  format: int64
+              required:
+                - userId
+            examples:
+              newOrganizer:
+                summary: Exemplo de adicionar um organizador
+                value:
+                  userId: 4001
       responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Order'
-        '405':
-          description: Invalid input
-  /store/order/{orderId}:
+        '201':
+          description: Organizador adicionado ao evento
+        '400':
+          description: Dados inválidos fornecidos
+        '404':
+          description: Evento não encontrado
+
     get:
       tags:
-        - store
-      summary: Find purchase order by ID
-      description: For valid response try integer IDs with value <= 5 or > 10. Other values will generate exceptions.
-      operationId: getOrderById
+        - Organizer
+      summary: Obter a lista de usuários que fazem parte de uma edição de evento
       parameters:
-        - name: orderId
+        - name: eventId
           in: path
-          description: ID of order that needs to be fetched
           required: true
           schema:
             type: integer
             format: int64
+          description: ID do evento do qual obter os organizadores
       responses:
         '200':
-          description: successful operation
+          description: Lista de organizadores do evento
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Order'          
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Order'
-        '400':
-          description: Invalid ID supplied
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+              examples:
+                organizersList:
+                  summary: Exemplo de lista de organizadores
+                  value:
+                    - id: 4001
+                      login: "organizador01"
+                      email: "organizador01@evento.com"
+                      name: "Carlos Andrade"
+                      affiliation: "Comitê Organizador"
+                    - id: 4002
+                      login: "organizador02"
+                      email: "organizador02@evento.com"
+                      name: "Maria Costa"
+                      affiliation: "Comitê Organizador"
         '404':
-          description: Order not found
+          description: Evento não encontrado
+
+  /events/{eventId}/organizers/{userId}:
     delete:
       tags:
-        - store
-      summary: Delete purchase order by ID
-      description: For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors
-      operationId: deleteOrder
+        - Organizer
+      summary: Remover um organizador de uma edição de evento
       parameters:
-        - name: orderId
+        - name: eventId
           in: path
-          description: ID of the order that needs to be deleted
           required: true
           schema:
             type: integer
             format: int64
-      responses:
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Order not found
-  /user:
-    post:
-      tags:
-        - user
-      summary: Create user
-      description: This can only be done by the logged in user.
-      operationId: createUser
-      requestBody:
-        description: Created user object
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
-      responses:
-        default:
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/User'
-  /user/createWithList:
-    post:
-      tags:
-        - user
-      summary: Creates list of users with given input array
-      description: Creates list of users with given input array
-      operationId: createUsersWithListInput
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/User'
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'          
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/User'
-        default:
-          description: successful operation
-  /user/login:
-    get:
-      tags:
-        - user
-      summary: Logs user into the system
-      description: ''
-      operationId: loginUser
-      parameters:
-        - name: username
-          in: query
-          description: The user name for login
-          required: false
-          schema:
-            type: string
-        - name: password
-          in: query
-          description: The password for login in clear text
-          required: false
-          schema:
-            type: string
-      responses:
-        '200':
-          description: successful operation
-          headers:
-            X-Rate-Limit:
-              description: calls per hour allowed by the user
-              schema:
-                type: integer
-                format: int32
-            X-Expires-After:
-              description: date in UTC when token expires
-              schema:
-                type: string
-                format: date-time
-          content:
-            application/xml:
-              schema:
-                type: string
-            application/json:
-              schema:
-                type: string
-        '400':
-          description: Invalid username/password supplied
-  /user/logout:
-    get:
-      tags:
-        - user
-      summary: Logs out current logged in user session
-      description: ''
-      operationId: logoutUser
-      parameters: []
-      responses:
-        default:
-          description: successful operation
-  /user/{username}:
-    get:
-      tags:
-        - user
-      summary: Get user by user name
-      description: ''
-      operationId: getUserByName
-      parameters:
-        - name: username
+          description: ID do evento do qual o organizador será removido
+        - name: userId
           in: path
-          description: 'The name that needs to be fetched. Use user1 for testing. '
           required: true
           schema:
-            type: string
+            type: integer
+            format: int64
+          description: ID do usuário organizador a ser removido
       responses:
         '200':
-          description: successful operation
+          description: Organizador removido do evento
+        '404':
+          description: Organizador ou evento não encontrado
+
+  /events/{eventId}/users/:
+    get:
+      tags:
+        - User
+      summary: Obtém a lista de membros de todas as edições de um evento
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID do evento do qual obter a lista de membros
+      responses:
+        '200':
+          description: Lista de membros do evento
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'          
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/User'
-        '400':
-          description: Invalid username supplied
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+              examples:
+                usersList:
+                  summary: Exemplo de lista de membros do evento
+                  value:
+                    - id: 5001
+                      login: "membro01"
+                      email: "membro01@evento.com"
+                      name: "Roberto Nunes"
+                      affiliation: "Universidade ABC"
+                    - id: 5002
+                      login: "membro02"
+                      email: "membro02@evento.com"
+                      name: "Juliana Martins"
+                      affiliation: "Empresa XYZ"
         '404':
-          description: User not found
+          description: Evento não encontrado
+
+
+  /editions/{editionId}/activities:
+    post:
+      tags:
+        - Activity
+      summary: Criar uma nova atividade para uma edição de evento
+      parameters:
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da edição na qual a atividade será criada
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Activity'
+            examples:
+              newActivity:
+                summary: Exemplo de uma nova atividade
+                value:
+                  name: "Workshop de Segurança Cibernética"
+                  type: "Workshop"
+                  description: "Um workshop interativo sobre as últimas tendências em segurança cibernética."
+                  date: "2023-08-02"
+                  start_time: "10:00"
+                  end_time: "12:00"
+      responses:
+        '201':
+          description: Nova atividade criada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+              examples:
+                newActivityResponse:
+                  summary: Exemplo de resposta de atividade criada
+                  value:
+                    id: 2001
+                    name: "Workshop de Segurança Cibernética"
+                    type: "Workshop"
+                    description: "Um workshop interativo sobre as últimas tendências em segurança cibernética."
+                    date: "2023-08-02"
+                    start_time: "10:00"
+                    end_time: "12:00"
+        '400':
+          description: Dados inválidos fornecidos
+        '404':
+          description: Edição não encontrada
+
+    get:
+      tags:
+        - Activity
+      summary: Listar todas as atividades de uma edição de evento
+      parameters:
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da edição para listar atividades
+      responses:
+        '200':
+          description: Lista de atividades da edição
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
+              examples:
+                activitiesList:
+                  summary: Exemplo de lista de atividades de uma edição
+                  value:
+                    - id: 2001
+                      name: "Workshop de Segurança Cibernética"
+                      type: "Workshop"
+                      description: "Um workshop interativo sobre as últimas tendências em segurança cibernética."
+                      date: "2023-08-02"
+                      start_time: "10:00"
+                      end_time: "12:00"
+                    - id: 2002
+                      name: "Painel sobre Inovação Tecnológica"
+                      type: "Painel"
+                      description: "Discussão com líderes da indústria sobre o futuro da tecnologia."
+                      date: "2023-08-02"
+                      start_time: "14:00"
+                      end_time: "16:00"
+        '404':
+          description: Edição não encontrada
+
+  /editions/{editionId}/activities/{activityId}:
+    get:
+      tags:
+        - Activity
+      summary: Obter detalhes de uma atividade específica
+      parameters:
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da edição à qual a atividade pertence
+        - name: activityId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da atividade a ser obtida
+      responses:
+        '200':
+          description: Detalhes da atividade
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+              examples:
+                specificActivity:
+                  summary: Exemplo de uma atividade específica
+                  value:
+                    id: 2001
+                    name: "Workshop de Segurança Cibernética"
+                    type: "Workshop"
+                    description: "Um workshop interativo sobre as últimas tendências em segurança cibernética."
+                    date: "2023-08-02"
+                    start_time: "10:00"
+                    end_time: "12:00"
+        '404':
+          description: Atividade ou edição não encontrada
+
     put:
       tags:
-        - user
-      summary: Update user
-      description: This can only be done by the logged in user.
-      operationId: updateUser
+        - Activity
+      summary: Atualizar informações de uma atividade específica
       parameters:
-        - name: username
+        - name: editionId
           in: path
-          description: name that need to be deleted
           required: true
           schema:
-            type: string
+            type: integer
+            format: int64
+          description: ID da edição à qual a atividade pertence
+        - name: activityId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da atividade a ser atualizada
       requestBody:
-        description: Update an existent user in the store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Activity'
+            examples:
+              updateActivity:
+                summary: Exemplo de atualização de uma atividade
+                value:
+                  name: "Workshop de Inteligência Artificial"
+                  type: "Workshop"
+                  description: "Um workshop atualizado para explorar a IA no mundo moderno."
+                  date: "2023-08-03"
+                  start_time: "10:00"
+                  end_time: "13:00"
+      responses:
+        '200':
+          description: Atividade atualizada
+        '400':
+          description: Dados inválidos fornecidos
+        '404':
+          description: Atividade ou edição não encontrada
+
+    delete:
+      tags:
+        - Activity
+      summary: Excluir uma atividade específica
+      parameters:
+        - name: editionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da edição à qual a atividade pertence
+        - name: activityId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da atividade a ser excluída
+      responses:
+        '200':
+          description: Atividade excluída
+        '404':
+          description: Atividade ou edição não encontrada
+  /users:
+    post:
+      tags:
+        - User
+      summary: Criar um novo usuário
+      requestBody:
+        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
+            examples:
+              newUser:
+                summary: Exemplo de um novo usuário
+                value:
+                  login: "novo_usuario"
+                  email: "novo_usuario@exemplo.com"
+                  name: "João Silva"
+                  affiliation: "Universidade X"
       responses:
-        default:
-          description: successful operation
-    delete:
+        '201':
+          description: Novo usuário criado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                newUserResponse:
+                  summary: Exemplo de resposta de usuário criado
+                  value:
+                    id: 4001
+                    login: "novo_usuario"
+                    email: "novo_usuario@exemplo.com"
+                    name: "João Silva"
+                    affiliation: "Universidade X"
+        '400':
+          description: Dados inválidos fornecidos
+
+  /users/login:
+    post:
       tags:
-        - user
-      summary: Delete user
-      description: This can only be done by the logged in user.
-      operationId: deleteUser
+        - User
+      summary: Autenticar um usuário
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                login:
+                  type: string
+                password:
+                  type: string
+              required:
+                - login
+                - password
+            examples:
+              loginCredentials:
+                summary: Exemplo de credenciais de login
+                value:
+                  login: "usuario_existente"
+                  password: "senha123"
+      responses:
+        '200':
+          description: Usuário autenticado com sucesso
+          headers:
+            Set-Cookie:
+              description: Token de sessão para autenticação de usuário
+              schema:
+                type: string
+        '401':
+          description: Credenciais inválidas
+
+  /users/{userId}:
+    get:
+      tags:
+        - User
+      summary: Obter detalhes do perfil de um usuário
       parameters:
-        - name: username
+        - name: userId
           in: path
-          description: The name that needs to be deleted
           required: true
           schema:
-            type: string
+            type: integer
+            format: int64
+          description: ID único do usuário a ser obtido
       responses:
-        '400':
-          description: Invalid username supplied
+        '200':
+          description: Detalhes do perfil do usuário
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                userProfile:
+                  summary: Exemplo do perfil de um usuário
+                  value:
+                    id: 4002
+                    login: "usuario_existente"
+                    email: "usuario_existente@exemplo.com"
+                    name: "Ana Pereira"
+                    affiliation: "Empresa Y"
         '404':
-          description: User not found
+          description: Usuário não encontrado
+
+    put:
+      tags:
+        - User
+      summary: Atualizar informações do perfil de um usuário
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID do usuário a ser atualizado
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+            examples:
+              updateUser:
+                summary: Exemplo de atualização de perfil de usuário
+                value:
+                  name: "Ana Pereira"
+                  email: "ana.pereira@exemplo.com"
+                  affiliation: "Empresa Z"
+      responses:
+        '200':
+          description: Perfil do usuário atualizado
+        '400':
+          description: Dados inválidos fornecidos
+        '404':
+          description: Usuário não encontrado
+
+  /users/{userId}/favorites:
+    post:
+      tags:
+        - User
+      summary: Adicionar uma atividade aos favoritos de um usuário
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID do usuário
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                activityId:
+                  type: integer
+                  format: int64
+              required:
+                - activityId
+            examples:
+              favoriteActivity:
+                summary: Exemplo de adicionar uma atividade aos favoritos
+                value:
+                  activityId: 2001
+      responses:
+        '201':
+          description: Atividade adicionada aos favoritos
+        '400':
+          description: Dados inválidos fornecidos
+        '404':
+          description: Usuário ou atividade não encontrada
+
+    get:
+      tags:
+        - User
+      summary: Listar atividades favoritas de um usuário
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID do usuário
+      responses:
+        '200':
+          description: Lista de atividades favoritas do usuário
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
+              examples:
+                favoriteActivitiesList:
+                  summary: Exemplo de lista de atividades favoritas
+                  value:
+                    - id: 2001
+                      name: "Workshop de Segurança Cibernética"
+                      type: "Workshop"
+                      description: "Um workshop interativo sobre as últimas tendências em segurança cibernética."
+                      date: "2023-08-02"
+                      start_time: "10:00"
+                      end_time: "12:00"
+                    - id: 2002
+                      name: "Painel sobre Inovação Tecnológica"
+                      type: "Painel"
+                      description: "Discussão com líderes da indústria sobre o futuro da tecnologia."
+                      date: "2023-08-03"
+                      start_time: "14:00"
+                      end_time: "16:00"
+        '404':
+          description: Usuário não encontrado
+
+  /users/{userId}/favorites/{activityId}:
+    delete:
+      tags:
+        - User
+      summary: Remover uma atividade dos favoritos de um usuário
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID do usuário
+        - name: activityId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID da atividade a ser removida dos favoritos
+      responses:
+        '200':
+          description: Atividade removida dos favoritos
+        '404':
+          description: Usuário ou atividade não encontrada
+
+  /users/{userId}/notifications:
+    post:
+      tags:
+        - User
+      summary: Enviar mensagens aos usuários cadastrados com informações sobre atividades favoritas
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID do usuário
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+              required:
+                - message
+            examples:
+              notificationMessage:
+                summary: Exemplo de mensagem de notificação
+                value:
+                  message: "Lembrete: Seu workshop favorito começa em uma hora."
+      responses:
+        '200':
+          description: Mensagem enviada com sucesso
+        '400':
+          description: Dados inválidos fornecidos
+        '404':
+          description: Usuário não encontrado
+
+
 components:
   schemas:
-    Order:
+    Event:
       type: object
       properties:
         id:
           type: integer
           format: int64
-          example: 10
-        petId:
-          type: integer
-          format: int64
-          example: 198772
-        quantity:
-          type: integer
-          format: int32
-          example: 7
-        shipDate:
-          type: string
-          format: date-time
-        status:
-          type: string
-          description: Order Status
-          example: approved
-          enum:
-            - placed
-            - approved
-            - delivered
-        complete:
-          type: boolean
-      xml:
-        name: order
-    Customer:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 100000
-        username:
-          type: string
-          example: fehguy
-        address:
-          type: array
-          xml:
-            name: addresses
-            wrapped: true
-          items:
-            $ref: '#/components/schemas/Address'
-      xml:
-        name: customer
-    Address:
-      type: object
-      properties:
-        street:
-          type: string
-          example: 437 Lytton
-        city:
-          type: string
-          example: Palo Alto
-        state:
-          type: string
-          example: CA
-        zip:
-          type: string
-          example: '94301'
-      xml:
-        name: address
-    Category:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 1
+          example: 123456789
         name:
           type: string
-          example: Dogs
-      xml:
-        name: category
+          example: "Conferência Anual de Tecnologia"
+        acronym:
+          type: string
+          example: "CAT"
+        description:
+          type: string
+          example: "Conferência focada nas últimas tendências da tecnologia."
+
+    Space:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 987654321
+        name:
+          type: string
+          example: "Salão Principal"
+        location:
+          type: string
+          example: "Rua Principal 123, Cidade da Tecnologia"
+        capacity:
+          type: integer
+          format: int32
+          example: 250
+        resources:
+          type: array
+          items:
+            type: string
+          example: ["Projetor", "Sistema de Som", "Microfones"]
+
+    Edition:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 112233445
+        number:
+          type: integer
+          format: int32
+          example: 5
+        year:
+          type: integer
+          format: int32
+          example: 2023
+        start_date:
+          type: string
+          format: date
+          example: "2023-08-01"
+        end_date:
+          type: string
+          format: date
+          example: "2023-08-03"
+        city:
+          type: string
+          example: "Cidade da Tecnologia"
+
     User:
       type: object
       properties:
         id:
           type: integer
           format: int64
-          example: 10
-        username:
+          example: 123123123
+        login:
           type: string
-          example: theUser
-        firstName:
-          type: string
-          example: John
-        lastName:
-          type: string
-          example: James
+          example: "entusiasta_tech"
         email:
           type: string
-          example: john@email.com
-        password:
+          example: "usuario@exemplo.com"
+        name:
           type: string
-          example: '12345'
-        phone:
+          example: "Alex Souza"
+        affiliation:
           type: string
-          example: '12345'
-        userStatus:
-          type: integer
-          description: User Status
-          format: int32
-          example: 1
-      xml:
-        name: user
-    Tag:
+          example: "Tech Corp"
+
+    Organizer:
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/User"
+      example:
+        id: 123123124
+        login: "organizador_evento"
+        email: "organizador@exemplo.com"
+        name: "Camila Santos"
+        affiliation: "Serviços de Gestão de Eventos"
+
+    Activity:
       type: object
       properties:
         id:
           type: integer
           format: int64
+          example: 555666777
         name:
           type: string
-      xml:
-        name: tag
-    Pet:
-      required:
-        - name
-        - photoUrls
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 10
-        name:
-          type: string
-          example: doggie
-        category:
-          $ref: '#/components/schemas/Category'
-        photoUrls:
-          type: array
-          xml:
-            wrapped: true
-          items:
-            type: string
-            xml:
-              name: photoUrl
-        tags:
-          type: array
-          xml:
-            wrapped: true
-          items:
-            $ref: '#/components/schemas/Tag'
-        status:
-          type: string
-          description: pet status in the store
-          enum:
-            - available
-            - pending
-            - sold
-      xml:
-        name: pet
-    ApiResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
+          example: "Palestra Principal"
         type:
           type: string
-        message:
+          enum: ["Workshop", "Lecture", "Panel"]
+          example: "Workshop"
+        description:
           type: string
-      xml:
-        name: '##default'
-    Event:    # Substitua YourModelName pelo nome real do seu modelo
-          type: object
-          properties:
-            id:
-              type: integer
-              format: int32
-            name:
-              type: string
-            acronym:
-              type: string
-            description:
-              type: string
-          required:
-            - name
-            - acronym
-            - description
-            
-  requestBodies:
-    Pet:
-      description: Pet object that needs to be added to the store
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Pet'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/Pet'
-    UserArray:
-      description: List of user object
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/User'
-  securitySchemes:
-    petstore_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
-          scopes:
-            write:pets: modify pets in your account
-            read:pets: read your pets
-    api_key:
-      type: apiKey
-      name: api_key
-      in: header
+          example: "Oficina interativa sobre segurança em IoT."
+        date:
+          type: string
+          format: date
+          example: "2023-08-02"
+        start_time:
+          type: string
+          format: time
+          example: "10:00"
+        end_time:
+          type: string
+          format: time
+          example: "12:00"
