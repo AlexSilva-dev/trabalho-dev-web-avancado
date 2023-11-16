@@ -13,5 +13,9 @@ Cada grupo deverá enviar um vídeo demonstrando a execução de testes da imple
 
 Somente um integrante do grupo deve fazer o upload da entrega. Os outros podem apenas registrar o nome do responsável pela entrega.
 
+Requisitos: [![PDF](Trabalho_de_DWA.pdf)](Trabalho_de_DWA.pdf)
 -----------
-[![PDF](Trabalho_de_DWA.pdf)](Trabalho_de_DWA.pdf)
+
+## Entrega 1 - Documentação Swagger
+
+[Click aqui](index.html) para acessar a página da documentação.
