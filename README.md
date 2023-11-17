@@ -18,4 +18,4 @@ Requisitos: [![PDF](Trabalho_de_DWA.pdf)](Trabalho_de_DWA.pdf)
 
 ## Entrega 1 - Documentação Swagger
 
-[Click aqui](index.html) para acessar a página da documentação.
+[Click aqui](https://alexsilva-dev.github.io/trabalho-dev-web-avancado/) para acessar a página da documentação.
