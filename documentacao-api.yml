@@ -58,6 +58,9 @@ info:
     acontecerão naquele dia e que ele marcou como favoritas.
 
 servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0
   - url: http://localhost:8000
     description: Local server
 tags:
@@ -108,7 +111,7 @@ paths:
                     acronym: "CIC"
                     description: "Evento sobre avanços na área de computação."
         "400":
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
 
     get:
       tags:
@@ -165,7 +168,7 @@ paths:
                     acronym: "CIC"
                     description: "Evento sobre avanços na área de computação."
         "404":
-          description: Evento não encontrado
+          $ref: '#/components/responses/NotFound'
 
     put:
       tags:
@@ -196,9 +199,9 @@ paths:
         "200":
           description: Evento atualizado
         "400":
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
         "404":
-          description: Evento não encontrado
+          $ref: '#/components/responses/NotFound'
 
     delete:
       tags:
@@ -216,7 +219,7 @@ paths:
         "200":
           description: Evento excluído
         "404":
-          description: Evento não encontrado
+          $ref: '#/components/responses/NotFound'
 
   /events/{eventId}/editions:
     post:
@@ -250,7 +253,7 @@ paths:
         "201":
           description: Nova edição criada
         "400":
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
 
     get:
       tags:
@@ -290,7 +293,7 @@ paths:
                       end_date: "2023-08-03"
                       city: "Cidade da Tecnologia"
         "404":
-          description: Evento não encontrado
+          $ref: '#/components/responses/NotFound'
 
   /editions/{editionId}:
     get:
@@ -323,7 +326,7 @@ paths:
                     end_date: "2023-08-03"
                     city: "Cidade da Tecnologia"
         '404':
-          description: Edição não encontrada
+          $ref: '#/components/responses/NotFound'
 
     put:
       tags:
@@ -356,9 +359,9 @@ paths:
         '200':
           description: Edição atualizada
         '400':
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
         '404':
-          description: Edição não encontrada
+          $ref: '#/components/responses/NotFound'
 
     delete:
       tags:
@@ -376,7 +379,7 @@ paths:
         '200':
           description: Edição excluída
         '404':
-          description: Edição não encontrada
+          $ref: '#/components/responses/NotFound'
 
 
   /spaces:
@@ -415,7 +418,7 @@ paths:
                     capacity: 500
                     resources: ["Projetor", "Sistema de Som"]
         '400':
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
 
     get:
       tags:
@@ -475,7 +478,7 @@ paths:
                     capacity: 500
                     resources: ["Projetor", "Sistema de Som"]
         '404':
-          description: Espaço não encontrado
+          $ref: '#/components/responses/NotFound'
 
     put:
       tags:
@@ -507,9 +510,9 @@ paths:
         '200':
           description: Espaço atualizado
         '400':
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
         '404':
-          description: Espaço não encontrado
+          $ref: '#/components/responses/NotFound'
 
     delete:
       tags:
@@ -527,7 +530,7 @@ paths:
         '200':
           description: Espaço excluído
         '404':
-          description: Espaço não encontrado
+          $ref: '#/components/responses/NotFound'
 
   /editions/{editionId}/users:
     get:
@@ -566,7 +569,7 @@ paths:
                       name: "Patricia Oliveira"
                       affiliation: "Inovação LTDA"
         '404':
-          description: Edição não encontrada
+          $ref: '#/components/responses/NotFound'
 
     post:
       tags:
@@ -598,9 +601,9 @@ paths:
         '201':
           description: Usuário cadastrado na edição
         '400':
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
         '404':
-          description: Edição não encontrada
+          $ref: '#/components/responses/NotFound'
 
   /events/{eventId}/organizers:
     post:
@@ -636,9 +639,9 @@ paths:
         '201':
           description: Organizador adicionado ao evento
         '400':
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
         '404':
-          description: Evento não encontrado
+          $ref: '#/components/responses/NotFound'
 
     get:
       tags:
@@ -676,7 +679,7 @@ paths:
                       name: "Maria Costa"
                       affiliation: "Comitê Organizador"
         '404':
-          description: Evento não encontrado
+          $ref: '#/components/responses/NotFound'
 
   /events/{eventId}/organizers/{userId}:
     delete:
@@ -702,7 +705,7 @@ paths:
         '200':
           description: Organizador removido do evento
         '404':
-          description: Organizador ou evento não encontrado
+          $ref: '#/components/responses/NotFound'
 
   /events/{eventId}/users/:
     get:
@@ -741,7 +744,7 @@ paths:
                       name: "Juliana Martins"
                       affiliation: "Empresa XYZ"
         '404':
-          description: Evento não encontrado
+          $ref: '#/components/responses/NotFound'
 
 
   /editions/{editionId}/activities:
@@ -792,9 +795,9 @@ paths:
                     start_time: "10:00"
                     end_time: "12:00"
         '400':
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
         '404':
-          description: Edição não encontrada
+          $ref: '#/components/responses/NotFound'
 
     get:
       tags:
@@ -836,7 +839,7 @@ paths:
                       start_time: "14:00"
                       end_time: "16:00"
         '404':
-          description: Edição não encontrada
+          $ref: '#/components/responses/NotFound'
 
   /editions/{editionId}/activities/{activityId}:
     get:
@@ -877,7 +880,7 @@ paths:
                     start_time: "10:00"
                     end_time: "12:00"
         '404':
-          description: Atividade ou edição não encontrada
+          $ref: '#/components/responses/NotFound'
 
     put:
       tags:
@@ -918,9 +921,9 @@ paths:
         '200':
           description: Atividade atualizada
         '400':
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
         '404':
-          description: Atividade ou edição não encontrada
+          $ref: '#/components/responses/NotFound'
 
     delete:
       tags:
@@ -945,7 +948,7 @@ paths:
         '200':
           description: Atividade excluída
         '404':
-          description: Atividade ou edição não encontrada
+          $ref: '#/components/responses/NotFound'
   /users:
     post:
       tags:
@@ -982,7 +985,7 @@ paths:
                     name: "João Silva"
                     affiliation: "Universidade X"
         '400':
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
 
   /users/login:
     post:
@@ -1018,7 +1021,7 @@ paths:
               schema:
                 type: string
         '401':
-          description: Credenciais inválidas
+          $ref: '#/components/responses/invalidCredentials'
 
   /users/{userId}:
     get:
@@ -1050,7 +1053,7 @@ paths:
                     name: "Ana Pereira"
                     affiliation: "Empresa Y"
         '404':
-          description: Usuário não encontrado
+          $ref: '#/components/responses/NotFound'
 
     put:
       tags:
@@ -1081,9 +1084,9 @@ paths:
         '200':
           description: Perfil do usuário atualizado
         '400':
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
         '404':
-          description: Usuário não encontrado
+          $ref: '#/components/responses/NotFound'
 
   /users/{userId}/favorites:
     post:
@@ -1119,9 +1122,9 @@ paths:
         '201':
           description: Atividade adicionada aos favoritos
         '400':
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
         '404':
-          description: Usuário ou atividade não encontrada
+          $ref: '#/components/responses/NotFound'
 
     get:
       tags:
@@ -1163,7 +1166,7 @@ paths:
                       start_time: "14:00"
                       end_time: "16:00"
         '404':
-          description: Usuário não encontrado
+          $ref: '#/components/responses/NotFound'
 
   /users/{userId}/favorites/{activityId}:
     delete:
@@ -1189,7 +1192,7 @@ paths:
         '200':
           description: Atividade removida dos favoritos
         '404':
-          description: Usuário ou atividade não encontrada
+          $ref: '#/components/responses/NotFound'
 
   /users/{userId}/notifications:
     post:
@@ -1224,13 +1227,50 @@ paths:
         '200':
           description: Mensagem enviada com sucesso
         '400':
-          description: Os dados fornecidos são inválidos
+          $ref: '#/components/responses/InvalidData'
         '404':
-          description: Usuário não encontrado
+          $ref: '#/components/responses/NotFound'
 
 
 components:
+
+  responses:
+    NotFound:
+      description: Recurso não foi encontrado.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    InvalidData:
+      description: Dados fornecidos não são validos
+      content:
+        aplication/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    invalidCredentials:
+      description: As credenciais fornecidas são invalidas.
+      content:
+        aplication/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+
   schemas:
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: "404"
+        message:
+          type: string
+          example: "Recurso não foi encontrado."
+      required:
+        - code
+        - message
+
     Event:
       type: object
       properties:

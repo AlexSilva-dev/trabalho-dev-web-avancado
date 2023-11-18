@@ -761,6 +761,20 @@
     }
   }
 };
+            defs["Error"] = {
+  "required" : [ "code", "message" ],
+  "type" : "object",
+  "properties" : {
+    "code" : {
+      "type" : "string",
+      "example" : "404"
+    },
+    "message" : {
+      "type" : "string",
+      "example" : "Recurso não foi encontrado."
+    }
+  }
+};
             defs["Event"] = {
   "type" : "object",
   "properties" : {
@@ -1071,7 +1085,8 @@
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Activity-editionsEditionIdActivitiesActivityIdDelete-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
-"http://localhost:8000/editions/{editionId}/activities/{activityId}"</code></pre>
+-H "Accept: application/json"\
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/editions/{editionId}/activities/{activityId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Activity-editionsEditionIdActivitiesActivityIdDelete-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -1318,12 +1333,52 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 404 - Atividade ou edição não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdActivitiesActivityIdDelete-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdActivitiesActivityIdDelete-404-schema">
+                                  <div id='responses-editionsEditionIdActivitiesActivityIdDelete-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdActivitiesActivityIdDelete-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdActivitiesActivityIdDelete-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdActivitiesActivityIdDelete-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -1363,7 +1418,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Activity-editionsEditionIdActivitiesActivityIdGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/editions/{editionId}/activities/{activityId}"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/editions/{editionId}/activities/{activityId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Activity-editionsEditionIdActivitiesActivityIdGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -1673,12 +1728,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 404 - Atividade ou edição não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdActivitiesActivityIdGet-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdActivitiesActivityIdGet-404-schema">
+                                  <div id='responses-editionsEditionIdActivitiesActivityIdGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdActivitiesActivityIdGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdActivitiesActivityIdGet-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdActivitiesActivityIdGet-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -1717,8 +1812,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Activity-editionsEditionIdActivitiesActivityIdPut-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+-H "Accept: aplication/json,application/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/editions/{editionId}/activities/{activityId}"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/editions/{editionId}/activities/{activityId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Activity-editionsEditionIdActivitiesActivityIdPut-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2090,20 +2186,100 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdActivitiesActivityIdPut-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdActivitiesActivityIdPut-400-schema">
+                                  <div id='responses-editionsEditionIdActivitiesActivityIdPut-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdActivitiesActivityIdPut-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdActivitiesActivityIdPut-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdActivitiesActivityIdPut-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
-                            <h3> Status: 404 - Atividade ou edição não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdActivitiesActivityIdPut-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdActivitiesActivityIdPut-404-schema">
+                                  <div id='responses-editionsEditionIdActivitiesActivityIdPut-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdActivitiesActivityIdPut-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdActivitiesActivityIdPut-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdActivitiesActivityIdPut-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -2143,7 +2319,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Activity-editionsEditionIdActivitiesGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/editions/{editionId}/activities"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/editions/{editionId}/activities"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Activity-editionsEditionIdActivitiesGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2431,12 +2607,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 404 - Edição não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdActivitiesGet-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdActivitiesGet-404-schema">
+                                  <div id='responses-editionsEditionIdActivitiesGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdActivitiesGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdActivitiesGet-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdActivitiesGet-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -2475,9 +2691,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Activity-editionsEditionIdActivitiesPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
--H "Accept: application/json"\
+-H "Accept: application/json,aplication/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/editions/{editionId}/activities"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/editions/{editionId}/activities"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Activity-editionsEditionIdActivitiesPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2878,20 +3094,100 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdActivitiesPost-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdActivitiesPost-400-schema">
+                                  <div id='responses-editionsEditionIdActivitiesPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdActivitiesPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdActivitiesPost-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdActivitiesPost-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
-                            <h3> Status: 404 - Edição não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdActivitiesPost-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdActivitiesPost-404-schema">
+                                  <div id='responses-editionsEditionIdActivitiesPost-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdActivitiesPost-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdActivitiesPost-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdActivitiesPost-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -2933,7 +3229,8 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Edition-editionsEditionIdDelete-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
-"http://localhost:8000/editions/{editionId}"</code></pre>
+-H "Accept: application/json"\
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/editions/{editionId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Edition-editionsEditionIdDelete-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -3146,12 +3443,52 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 404 - Edição não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdDelete-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdDelete-404-schema">
+                                  <div id='responses-editionsEditionIdDelete-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdDelete-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdDelete-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdDelete-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -3191,7 +3528,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Edition-editionsEditionIdGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/editions/{editionId}"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/editions/{editionId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Edition-editionsEditionIdGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -3466,12 +3803,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 404 - Edição não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdGet-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdGet-404-schema">
+                                  <div id='responses-editionsEditionIdGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdGet-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdGet-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -3510,8 +3887,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Edition-editionsEditionIdPut-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+-H "Accept: aplication/json,application/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/editions/{editionId}"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/editions/{editionId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Edition-editionsEditionIdPut-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -3842,20 +4220,100 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdPut-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdPut-400-schema">
+                                  <div id='responses-editionsEditionIdPut-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdPut-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdPut-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdPut-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
-                            <h3> Status: 404 - Edição não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdPut-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdPut-404-schema">
+                                  <div id='responses-editionsEditionIdPut-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdPut-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdPut-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdPut-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -3895,7 +4353,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Edition-editionsEditionIdUsersGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/editions/{editionId}/users"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/editions/{editionId}/users"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Edition-editionsEditionIdUsersGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -4179,12 +4637,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 404 - Edição não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdUsersGet-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdUsersGet-404-schema">
+                                  <div id='responses-editionsEditionIdUsersGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdUsersGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdUsersGet-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdUsersGet-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -4223,8 +4721,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Edition-editionsEditionIdUsersPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: aplication/json,application/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/editions/{editionId}/users"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/editions/{editionId}/users"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Edition-editionsEditionIdUsersPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -4548,20 +5047,100 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdUsersPost-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdUsersPost-400-schema">
+                                  <div id='responses-editionsEditionIdUsersPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdUsersPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdUsersPost-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdUsersPost-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
-                            <h3> Status: 404 - Edição não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-editionsEditionIdUsersPost-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-editionsEditionIdUsersPost-404-schema">
+                                  <div id='responses-editionsEditionIdUsersPost-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-editionsEditionIdUsersPost-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionsEditionIdUsersPost-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-editionsEditionIdUsersPost-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -4603,7 +5182,8 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Event-eventsEventIdDelete-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
-"http://localhost:8000/events/{eventId}"</code></pre>
+-H "Accept: application/json"\
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Event-eventsEventIdDelete-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -4816,12 +5396,52 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 404 - Evento não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsEventIdDelete-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsEventIdDelete-404-schema">
+                                  <div id='responses-eventsEventIdDelete-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsEventIdDelete-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsEventIdDelete-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsEventIdDelete-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -4861,7 +5481,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Event-eventsEventIdEditionsGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/events/{eventId}/editions"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}/editions"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Event-eventsEventIdEditionsGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -5147,12 +5767,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 404 - Evento não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsEventIdEditionsGet-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsEventIdEditionsGet-404-schema">
+                                  <div id='responses-eventsEventIdEditionsGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsEventIdEditionsGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsEventIdEditionsGet-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsEventIdEditionsGet-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -5191,8 +5851,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Event-eventsEventIdEditionsPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: aplication/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/events/{eventId}/editions"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}/editions"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Event-eventsEventIdEditionsPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -5523,12 +6184,52 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsEventIdEditionsPost-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsEventIdEditionsPost-400-schema">
+                                  <div id='responses-eventsEventIdEditionsPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsEventIdEditionsPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsEventIdEditionsPost-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsEventIdEditionsPost-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -5568,7 +6269,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Event-eventsEventIdGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/events/{eventId}"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Event-eventsEventIdGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -5841,12 +6542,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 404 - Evento não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsEventIdGet-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsEventIdGet-404-schema">
+                                  <div id='responses-eventsEventIdGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsEventIdGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsEventIdGet-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsEventIdGet-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -5885,8 +6626,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Event-eventsEventIdPut-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+-H "Accept: aplication/json,application/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/events/{eventId}"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Event-eventsEventIdPut-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -6203,20 +6945,100 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsEventIdPut-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsEventIdPut-400-schema">
+                                  <div id='responses-eventsEventIdPut-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsEventIdPut-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsEventIdPut-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsEventIdPut-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
-                            <h3> Status: 404 - Evento não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsEventIdPut-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsEventIdPut-404-schema">
+                                  <div id='responses-eventsEventIdPut-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsEventIdPut-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsEventIdPut-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsEventIdPut-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -6256,7 +7078,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Event-eventsGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/events"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Event-eventsGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -6533,9 +7355,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Event-eventsPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
--H "Accept: application/json"\
+-H "Accept: application/json,aplication/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/events"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Event-eventsPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -6871,12 +7693,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsPost-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsPost-400-schema">
+                                  <div id='responses-eventsPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsPost-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsPost-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -6919,7 +7781,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Organizer-eventsEventIdOrganizersGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/events/{eventId}/organizers"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}/organizers"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -7203,12 +8065,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 404 - Evento não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersGet-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersGet-404-schema">
+                                  <div id='responses-eventsEventIdOrganizersGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsEventIdOrganizersGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsEventIdOrganizersGet-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsEventIdOrganizersGet-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -7247,8 +8149,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Organizer-eventsEventIdOrganizersPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: aplication/json,application/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/events/{eventId}/organizers"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}/organizers"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -7551,20 +8454,100 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersPost-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersPost-400-schema">
+                                  <div id='responses-eventsEventIdOrganizersPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsEventIdOrganizersPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsEventIdOrganizersPost-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsEventIdOrganizersPost-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
-                            <h3> Status: 404 - Evento não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersPost-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersPost-404-schema">
+                                  <div id='responses-eventsEventIdOrganizersPost-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsEventIdOrganizersPost-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsEventIdOrganizersPost-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsEventIdOrganizersPost-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -7603,7 +8586,8 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
-"http://localhost:8000/events/{eventId}/organizers/{userId}"</code></pre>
+-H "Accept: application/json"\
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}/organizers/{userId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -7850,12 +8834,52 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 404 - Organizador ou evento não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersUserIdDelete-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersUserIdDelete-404-schema">
+                                  <div id='responses-eventsEventIdOrganizersUserIdDelete-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsEventIdOrganizersUserIdDelete-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsEventIdOrganizersUserIdDelete-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsEventIdOrganizersUserIdDelete-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -7898,7 +8922,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Space-spacesGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/spaces"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/spaces"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Space-spacesGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -8177,9 +9201,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Space-spacesPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
--H "Accept: application/json"\
+-H "Accept: application/json,aplication/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/spaces"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/spaces"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Space-spacesPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -8523,12 +9547,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-spacesPost-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-spacesPost-400-schema">
+                                  <div id='responses-spacesPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-spacesPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-spacesPost-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-spacesPost-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -8567,7 +9631,8 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Space-spacesSpaceIdDelete-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
-"http://localhost:8000/spaces/{spaceId}"</code></pre>
+-H "Accept: application/json"\
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/spaces/{spaceId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Space-spacesSpaceIdDelete-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -8780,12 +9845,52 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 404 - Espaço não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-spacesSpaceIdDelete-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-spacesSpaceIdDelete-404-schema">
+                                  <div id='responses-spacesSpaceIdDelete-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-spacesSpaceIdDelete-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-spacesSpaceIdDelete-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-spacesSpaceIdDelete-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -8825,7 +9930,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Space-spacesSpaceIdGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/spaces/{spaceId}"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/spaces/{spaceId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Space-spacesSpaceIdGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -9099,12 +10204,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 404 - Espaço não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-spacesSpaceIdGet-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-spacesSpaceIdGet-404-schema">
+                                  <div id='responses-spacesSpaceIdGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-spacesSpaceIdGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-spacesSpaceIdGet-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-spacesSpaceIdGet-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -9143,8 +10288,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Space-spacesSpaceIdPut-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+-H "Accept: aplication/json,application/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/spaces/{spaceId}"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/spaces/{spaceId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Space-spacesSpaceIdPut-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -9468,20 +10614,100 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-spacesSpaceIdPut-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-spacesSpaceIdPut-400-schema">
+                                  <div id='responses-spacesSpaceIdPut-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-spacesSpaceIdPut-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-spacesSpaceIdPut-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-spacesSpaceIdPut-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
-                            <h3> Status: 404 - Espaço não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-spacesSpaceIdPut-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-spacesSpaceIdPut-404-schema">
+                                  <div id='responses-spacesSpaceIdPut-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-spacesSpaceIdPut-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-spacesSpaceIdPut-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-spacesSpaceIdPut-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -9524,7 +10750,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-User-eventsEventIdUsersGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/events/{eventId}/users/"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}/users/"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-eventsEventIdUsersGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -9808,12 +11034,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 404 - Evento não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-eventsEventIdUsersGet-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-eventsEventIdUsersGet-404-schema">
+                                  <div id='responses-eventsEventIdUsersGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-eventsEventIdUsersGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-eventsEventIdUsersGet-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-eventsEventIdUsersGet-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -9852,8 +11118,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-User-usersLoginPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: aplication/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/users/login"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/users/login"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-usersLoginPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -10141,12 +11408,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 401 - Credenciais inválidas </h3>
+                            <h3> Status: 401 - As credenciais fornecidas são invalidas. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersLoginPost-401-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersLoginPost-401-schema">
+                                  <div id='responses-usersLoginPost-401-schema-401' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "As credenciais fornecidas são invalidas.",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersLoginPost-401-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersLoginPost-401-schema-401');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersLoginPost-401-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -10185,9 +11492,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-User-usersPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
--H "Accept: application/json"\
+-H "Accept: application/json,aplication/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/users"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/users"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-usersPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -10531,12 +11838,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersPost-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersPost-400-schema">
+                                  <div id='responses-usersPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersPost-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersPost-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -10575,7 +11922,8 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-User-usersUserIdFavoritesActivityIdDelete-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
-"http://localhost:8000/users/{userId}/favorites/{activityId}"</code></pre>
+-H "Accept: application/json"\
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/users/{userId}/favorites/{activityId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-usersUserIdFavoritesActivityIdDelete-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -10822,12 +12170,52 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 404 - Usuário ou atividade não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersUserIdFavoritesActivityIdDelete-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersUserIdFavoritesActivityIdDelete-404-schema">
+                                  <div id='responses-usersUserIdFavoritesActivityIdDelete-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersUserIdFavoritesActivityIdDelete-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersUserIdFavoritesActivityIdDelete-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersUserIdFavoritesActivityIdDelete-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -10867,7 +12255,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-User-usersUserIdFavoritesGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/users/{userId}/favorites"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/users/{userId}/favorites"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-usersUserIdFavoritesGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -11155,12 +12543,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 404 - Usuário não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersUserIdFavoritesGet-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersUserIdFavoritesGet-404-schema">
+                                  <div id='responses-usersUserIdFavoritesGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersUserIdFavoritesGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersUserIdFavoritesGet-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersUserIdFavoritesGet-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -11199,8 +12627,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-User-usersUserIdFavoritesPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: aplication/json,application/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/users/{userId}/favorites"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/users/{userId}/favorites"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-usersUserIdFavoritesPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -11503,20 +12932,100 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersUserIdFavoritesPost-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersUserIdFavoritesPost-400-schema">
+                                  <div id='responses-usersUserIdFavoritesPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersUserIdFavoritesPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersUserIdFavoritesPost-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersUserIdFavoritesPost-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
-                            <h3> Status: 404 - Usuário ou atividade não encontrada </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersUserIdFavoritesPost-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersUserIdFavoritesPost-404-schema">
+                                  <div id='responses-usersUserIdFavoritesPost-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersUserIdFavoritesPost-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersUserIdFavoritesPost-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersUserIdFavoritesPost-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -11556,7 +13065,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-User-usersUserIdGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"http://localhost:8000/users/{userId}"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/users/{userId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-usersUserIdGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -11830,12 +13339,52 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 404 - Usuário não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersUserIdGet-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersUserIdGet-404-schema">
+                                  <div id='responses-usersUserIdGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersUserIdGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersUserIdGet-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersUserIdGet-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -11874,8 +13423,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-User-usersUserIdNotificationsPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: aplication/json,application/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/users/{userId}/notifications"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/users/{userId}/notifications"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-usersUserIdNotificationsPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -12178,20 +13728,100 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersUserIdNotificationsPost-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersUserIdNotificationsPost-400-schema">
+                                  <div id='responses-usersUserIdNotificationsPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersUserIdNotificationsPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersUserIdNotificationsPost-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersUserIdNotificationsPost-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
-                            <h3> Status: 404 - Usuário não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersUserIdNotificationsPost-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersUserIdNotificationsPost-404-schema">
+                                  <div id='responses-usersUserIdNotificationsPost-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersUserIdNotificationsPost-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersUserIdNotificationsPost-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersUserIdNotificationsPost-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -12230,8 +13860,9 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-User-usersUserIdPut-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+-H "Accept: aplication/json,application/json"\
 -H "Content-Type: application/json"\
-"http://localhost:8000/users/{userId}"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/users/{userId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-usersUserIdPut-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -12548,20 +14179,100 @@ except ApiException as e:
                             <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
-                            <h3> Status: 400 - Os dados fornecidos são inválidos </h3>
+                            <h3> Status: 400 - Dados fornecidos não são validos </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersUserIdPut-400-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersUserIdPut-400-schema">
+                                  <div id='responses-usersUserIdPut-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Dados fornecidos não são validos",
+  "content" : {
+    "aplication/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["aplication/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersUserIdPut-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersUserIdPut-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersUserIdPut-400-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
-                            <h3> Status: 404 - Usuário não encontrado </h3>
+                            <h3> Status: 404 - Recurso não foi encontrado. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersUserIdPut-404-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersUserIdPut-404-schema">
+                                  <div id='responses-usersUserIdPut-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Recurso não foi encontrado.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Error"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersUserIdPut-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersUserIdPut-404-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersUserIdPut-404-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
