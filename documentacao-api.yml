@@ -402,7 +402,7 @@ paths:
                   capacity: 500
                   resources: ["Projetor", "Sistema de Som"]
       responses:
-        '201':
+        '200':
           description: Novo espaço criado
           content:
             application/json:
