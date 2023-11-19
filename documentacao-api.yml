@@ -96,7 +96,7 @@ paths:
                   acronym: "CIC"
                   description: "Evento sobre avanços na área de computação."
       responses:
-        "201":
+        "200":
           description: Novo evento criado
           content:
             application/json:
