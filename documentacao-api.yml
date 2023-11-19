@@ -96,7 +96,7 @@ paths:
                   acronym: "CIC"
                   description: "Evento sobre avanços na área de computação."
       responses:
-        "200":
+        "201":
           description: Novo evento criado
           content:
             application/json:
@@ -112,6 +112,8 @@ paths:
                     description: "Evento sobre avanços na área de computação."
         "400":
           $ref: '#/components/responses/InvalidData'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     get:
       tags:
@@ -169,6 +171,8 @@ paths:
                     description: "Evento sobre avanços na área de computação."
         "404":
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     put:
       tags:
@@ -202,6 +206,8 @@ paths:
           $ref: '#/components/responses/InvalidData'
         "404":
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     delete:
       tags:
@@ -220,6 +226,8 @@ paths:
           description: Evento excluído
         "404":
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /events/{eventId}/editions:
     post:
@@ -252,8 +260,23 @@ paths:
       responses:
         "201":
           description: Nova edição criada
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Edition"
+              examples:
+                newEditionResponse:
+                  summary: Exemplo de uma nova edição
+                  value:
+                    number: 7
+                    year: 2023
+                    start_date: "2023-10-01"
+                    end_date: "2023-10-03"
+                    city: "Cidade da Inovação"
         "400":
           $ref: '#/components/responses/InvalidData'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     get:
       tags:
@@ -294,6 +317,8 @@ paths:
                       city: "Cidade da Tecnologia"
         "404":
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /editions/{editionId}:
     get:
@@ -327,6 +352,8 @@ paths:
                     city: "Cidade da Tecnologia"
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     put:
       tags:
@@ -362,6 +389,8 @@ paths:
           $ref: '#/components/responses/InvalidData'
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     delete:
       tags:
@@ -380,6 +409,8 @@ paths:
           description: Edição excluída
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
 
   /spaces:
@@ -419,6 +450,8 @@ paths:
                     resources: ["Projetor", "Sistema de Som"]
         '400':
           $ref: '#/components/responses/InvalidData'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     get:
       tags:
@@ -479,6 +512,8 @@ paths:
                     resources: ["Projetor", "Sistema de Som"]
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     put:
       tags:
@@ -513,6 +548,8 @@ paths:
           $ref: '#/components/responses/InvalidData'
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     delete:
       tags:
@@ -531,6 +568,8 @@ paths:
           description: Espaço excluído
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /editions/{editionId}/users:
     get:
@@ -570,6 +609,8 @@ paths:
                       affiliation: "Inovação LTDA"
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     post:
       tags:
@@ -599,11 +640,25 @@ paths:
                   affiliation: "Universidade Federal"
       responses:
         '201':
-          description: Usuário cadastrado na edição
+          description: Usuário Cadastrado na Edição
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+              examples:
+                newUserResponse:
+                  summary: Exemplo de cadastro de novo usuário
+                  value:
+                    login: "novo_participante"
+                    email: "novo_participante@evento.com"
+                    name: "Lucas Cavalcanti"
+                    affiliation: "Instituto Federal"
         '400':
           $ref: '#/components/responses/InvalidData'
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /events/{eventId}/organizers:
     post:
@@ -642,6 +697,8 @@ paths:
           $ref: '#/components/responses/InvalidData'
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     get:
       tags:
@@ -680,6 +737,8 @@ paths:
                       affiliation: "Comitê Organizador"
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /events/{eventId}/organizers/{userId}:
     delete:
@@ -706,6 +765,8 @@ paths:
           description: Organizador removido do evento
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /events/{eventId}/users/:
     get:
@@ -745,6 +806,8 @@ paths:
                       affiliation: "Empresa XYZ"
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
 
   /editions/{editionId}/activities:
@@ -798,6 +861,8 @@ paths:
           $ref: '#/components/responses/InvalidData'
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     get:
       tags:
@@ -840,6 +905,8 @@ paths:
                       end_time: "16:00"
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /editions/{editionId}/activities/{activityId}:
     get:
@@ -881,6 +948,8 @@ paths:
                     end_time: "12:00"
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     put:
       tags:
@@ -924,6 +993,8 @@ paths:
           $ref: '#/components/responses/InvalidData'
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     delete:
       tags:
@@ -949,6 +1020,8 @@ paths:
           description: Atividade excluída
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
   /users:
     post:
       tags:
@@ -986,6 +1059,8 @@ paths:
                     affiliation: "Universidade X"
         '400':
           $ref: '#/components/responses/InvalidData'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /users/login:
     post:
@@ -1022,6 +1097,8 @@ paths:
                 type: string
         '401':
           $ref: '#/components/responses/invalidCredentials'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /users/{userId}:
     get:
@@ -1054,6 +1131,8 @@ paths:
                     affiliation: "Empresa Y"
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     put:
       tags:
@@ -1087,6 +1166,8 @@ paths:
           $ref: '#/components/responses/InvalidData'
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /users/{userId}/favorites:
     post:
@@ -1119,12 +1200,14 @@ paths:
                 value:
                   activityId: 2001
       responses:
-        '201':
+        '201': 
           description: Atividade adicionada aos favoritos
         '400':
           $ref: '#/components/responses/InvalidData'
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
     get:
       tags:
@@ -1167,6 +1250,8 @@ paths:
                       end_time: "16:00"
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /users/{userId}/favorites/{activityId}:
     delete:
@@ -1193,6 +1278,8 @@ paths:
           description: Atividade removida dos favoritos
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
   /users/{userId}/notifications:
     post:
@@ -1230,6 +1317,8 @@ paths:
           $ref: '#/components/responses/InvalidData'
         '404':
           $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
 
 
 components:
@@ -1241,6 +1330,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+
     InvalidData:
       description: Dados fornecidos não são validos
       content:
@@ -1248,8 +1338,15 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
 
-    invalidCredentials:
+    InvalidCredentials:
       description: As credenciais fornecidas são invalidas.
+      content:
+        aplication/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    ServiceUnavailable:
+      description: Serviço Indisponível.
       content:
         aplication/json:
           schema:
