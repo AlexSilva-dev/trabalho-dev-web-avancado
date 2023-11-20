@@ -111,9 +111,29 @@ paths:
                     acronym: "CIC"
                     description: "Evento sobre avanços na área de computação."
         "400":
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     get:
       tags:
@@ -170,9 +190,29 @@ paths:
                     acronym: "CIC"
                     description: "Evento sobre avanços na área de computação."
         "404":
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     put:
       tags:
@@ -203,11 +243,41 @@ paths:
         "200":
           description: Evento atualizado
         "400":
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         "404":
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     delete:
       tags:
@@ -225,9 +295,29 @@ paths:
         "200":
           description: Evento excluído
         "404":
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /events/{eventId}/editions:
     post:
@@ -274,9 +364,29 @@ paths:
                     end_date: "2023-10-03"
                     city: "Cidade da Inovação"
         "400":
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     get:
       tags:
@@ -316,9 +426,29 @@ paths:
                       end_date: "2023-08-03"
                       city: "Cidade da Tecnologia"
         "404":
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /editions/{editionId}:
     get:
@@ -351,9 +481,29 @@ paths:
                     end_date: "2023-08-03"
                     city: "Cidade da Tecnologia"
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     put:
       tags:
@@ -386,11 +536,41 @@ paths:
         '200':
           description: Edição atualizada
         '400':
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     delete:
       tags:
@@ -408,9 +588,29 @@ paths:
         '200':
           description: Edição excluída
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
 
   /spaces:
@@ -449,9 +649,29 @@ paths:
                     capacity: 500
                     resources: ["Projetor", "Sistema de Som"]
         '400':
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     get:
       tags:
@@ -511,9 +731,29 @@ paths:
                     capacity: 500
                     resources: ["Projetor", "Sistema de Som"]
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     put:
       tags:
@@ -545,11 +785,41 @@ paths:
         '200':
           description: Espaço atualizado
         '400':
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     delete:
       tags:
@@ -567,9 +837,29 @@ paths:
         '200':
           description: Espaço excluído
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /editions/{editionId}/users:
     get:
@@ -608,9 +898,29 @@ paths:
                       name: "Patricia Oliveira"
                       affiliation: "Inovação LTDA"
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     post:
       tags:
@@ -654,11 +964,41 @@ paths:
                     name: "Lucas Cavalcanti"
                     affiliation: "Instituto Federal"
         '400':
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /events/{eventId}/organizers:
     post:
@@ -694,11 +1034,41 @@ paths:
         '201':
           description: Organizador adicionado ao evento
         '400':
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     get:
       tags:
@@ -736,9 +1106,29 @@ paths:
                       name: "Maria Costa"
                       affiliation: "Comitê Organizador"
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /events/{eventId}/organizers/{userId}:
     delete:
@@ -764,9 +1154,29 @@ paths:
         '200':
           description: Organizador removido do evento
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /events/{eventId}/users/:
     get:
@@ -805,9 +1215,29 @@ paths:
                       name: "Juliana Martins"
                       affiliation: "Empresa XYZ"
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
 
   /editions/{editionId}/activities:
@@ -858,11 +1288,41 @@ paths:
                     start_time: "10:00"
                     end_time: "12:00"
         '400':
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     get:
       tags:
@@ -904,9 +1364,29 @@ paths:
                       start_time: "14:00"
                       end_time: "16:00"
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /editions/{editionId}/activities/{activityId}:
     get:
@@ -947,9 +1427,29 @@ paths:
                     start_time: "10:00"
                     end_time: "12:00"
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     put:
       tags:
@@ -990,11 +1490,41 @@ paths:
         '200':
           description: Atividade atualizada
         '400':
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     delete:
       tags:
@@ -1019,9 +1549,29 @@ paths:
         '200':
           description: Atividade excluída
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
   /users:
     post:
       tags:
@@ -1058,9 +1608,29 @@ paths:
                     name: "João Silva"
                     affiliation: "Universidade X"
         '400':
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /users/login:
     post:
@@ -1096,9 +1666,29 @@ paths:
               schema:
                 type: string
         '401':
-          $ref: '#/components/responses/invalidCredentials'
+          description: Credenciais de acesso inválidas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
+              examples:
+                newUserResponse:
+                  summary: Credenciais de acesso inválidas
+                  value:
+                    code: 401
+                    error: "As credenciais fornecidas são invalidas."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /users/{userId}:
     get:
@@ -1130,9 +1720,29 @@ paths:
                     name: "Ana Pereira"
                     affiliation: "Empresa Y"
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     put:
       tags:
@@ -1163,11 +1773,41 @@ paths:
         '200':
           description: Perfil do usuário atualizado
         '400':
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /users/{userId}/favorites:
     post:
@@ -1203,11 +1843,41 @@ paths:
         '201': 
           description: Atividade adicionada aos favoritos
         '400':
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
     get:
       tags:
@@ -1249,9 +1919,29 @@ paths:
                       start_time: "14:00"
                       end_time: "16:00"
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /users/{userId}/favorites/{activityId}:
     delete:
@@ -1277,9 +1967,29 @@ paths:
         '200':
           description: Atividade removida dos favoritos
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
   /users/{userId}/notifications:
     post:
@@ -1314,48 +2024,49 @@ paths:
         '200':
           description: Mensagem enviada com sucesso
         '400':
-          $ref: '#/components/responses/InvalidData'
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: "Dados fornecidos não são validos."
         '404':
-          $ref: '#/components/responses/NotFound'
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: "Recurso não encontrado."
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: "Servidor Indisponível."
 
 
 components:
 
-  responses:
-    NotFound:
-      description: Recurso não foi encontrado.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-
-    InvalidData:
-      description: Dados fornecidos não são validos
-      content:
-        aplication/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-
-    InvalidCredentials:
-      description: As credenciais fornecidas são invalidas.
-      content:
-        aplication/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-
-    ServiceUnavailable:
-      description: Serviço Indisponível.
-      content:
-        aplication/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-
 
   schemas:
 
-    Error:
+    ErrorNotFound:
       type: object
       properties:
         code:
@@ -1364,6 +2075,45 @@ components:
         message:
           type: string
           example: "Recurso não foi encontrado."
+      required:
+        - code
+        - message
+        
+    ErrorInvalidData:
+      type: object
+      properties:
+        code:
+          type: string
+          example: "400"
+        message:
+          type: string
+          example: "Dados fornecidos não são validos."
+      required:
+        - code
+        - message
+        
+    ErrorInvalidCredentials:
+      type: object
+      properties:
+        code:
+          type: string
+          example: "401"
+        message:
+          type: string
+          example: "As credenciais fornecidas são invalidas."
+      required:
+        - code
+        - message
+        
+    ErrorServiceUnavailable:
+      type: object
+      properties:
+        code:
+          type: string
+          example: "503"
+        message:
+          type: string
+          example: "Serviço Indisponível."
       required:
         - code
         - message
