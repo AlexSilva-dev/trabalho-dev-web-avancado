@@ -1,13 +1,13 @@
-package com.uff.trabalhodevwebavancado;
+package com.example.eventouff;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TrabalhoDevWebAvancadoApplication {
+public class EventoUffApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TrabalhoDevWebAvancadoApplication.class, args);
+		SpringApplication.run(EventoUffApplication.class, args);
 	}
 
 }
