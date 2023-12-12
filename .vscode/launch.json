@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-EventoUffApplication<evento-uff>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.eventouff.EventoUffApplication",
+            "projectName": "evento-uff",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
