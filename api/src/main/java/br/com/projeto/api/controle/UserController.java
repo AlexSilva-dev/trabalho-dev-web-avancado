@@ -20,8 +20,6 @@ public class UserController {
         return userRepository.save(u);
     }
 
-
-
     @GetMapping("/users")
     public Iterable<User> searchAll() {
         return userRepository.findAll();

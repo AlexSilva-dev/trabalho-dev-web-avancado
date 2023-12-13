@@ -1,5 +1,13 @@
 {
     "configurations": [
+        
+        {
+            "type": "java",
+            "name": "ApiApplication",
+            "request": "launch",
+            "mainClass": "br.com.projeto.api.ApiApplication",
+            "projectName": "api"
+        },
         {
             "type": "java",
             "name": "Spring Boot-EventoUffApplication<evento-uff>",
