@@ -12,7 +12,7 @@ public class ActivitiesRepository {
 
     @Lazy
     @Autowired
-    private IActivitiesRepository repository;
+    private static IActivitiesRepository repository;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -25,7 +25,7 @@ public class ActivitiesRepository {
         return repository.findAll();
     }
 
-    public Activities findById(int id) {
+    public  Activities findById(int id) {
         return repository.findById(id).get();
     }
 

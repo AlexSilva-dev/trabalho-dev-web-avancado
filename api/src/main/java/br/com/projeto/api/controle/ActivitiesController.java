@@ -18,15 +18,24 @@ public class ActivitiesController {
     private ActivitiesRepository activitiesRepository;
 
     @PostMapping("/editions/{editionId}/activities")
-    public Activities save(@RequestBody Activities a) {
+    public Activities save(@PathVariable int editionId,@RequestBody Activities a) {
+        Edition edition = editionRepository.findById(editionId);
+
+        if (edition != null) {
+            a.setEdition(edition); // Configura a edição na atividade
+            edition.getAtividades().add(a); // Adiciona a atividade à lista de atividades da edição
+            editionRepository.save(edition); // Atualiza a edição no banco de dados 
+        }
         return activitiesRepository.save(a);
     }
 
+    //pecriso do metodo de edition que pega a lista de atividades de uma edition
     @GetMapping("/editions/{editionId}/activities")
     public Iterable<Activities> searchAll() {
         return activitiesRepository.findAll();
     }
-
+    
+    //pecriso do metodo de edition para pegar users
     @GetMapping("/editions/{editionId}/activities/{activitiesId}")
     public Activities searchUser(@PathVariable int activitiesId) {
         return activitiesRepository.findById(activitiesId);
@@ -46,7 +55,13 @@ public class ActivitiesController {
     }
     
     @DeleteMapping("/editions/{editionId}/activities/{activitiesId}")
-    public void delete(@PathVariable int activitiesId) {
+    public void delete(@PathVariable int editionId,@PathVariable int activitiesId) {
+        Activities a = activitiesRepository.findById(activitiesId)
+        Edition edition = findEditionofActivities(a);
+            if (edition != null) {
+                edition.getAtividades().remove(a); // Remove a atividade da lista de atividades da edição
+                editionRepository.save(edition); // Atualiza a edição no banco de dados
+            }
         activitiesRepository.deleteById(activitiesId);
     }
     

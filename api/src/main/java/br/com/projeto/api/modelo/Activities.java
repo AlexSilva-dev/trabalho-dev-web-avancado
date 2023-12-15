@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +24,8 @@ public class Activities {
     private Date date;
     private Time start_time;
     private Time end_time;
+    @OneToOne
+    private Space space;
 
     //GET e SET
     public int getId() {
