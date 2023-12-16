@@ -24,7 +24,7 @@ public class ActivitiesController {
         if (edition != null) {
             a.setEdition(edition); // Configura a edição na atividade
             edition.getAtividades().add(a); // Adiciona a atividade à lista de atividades da edição
-            editionRepository.save(edition); // Atualiza a edição no banco de dados 
+            editionRepository.save(edition); // Atualiza a edição no banco de dados
         }
         return activitiesRepository.save(a);
     }
@@ -34,7 +34,7 @@ public class ActivitiesController {
     public Iterable<Activities> searchAll() {
         return activitiesRepository.findAll();
     }
-    
+
     //pecriso do metodo de edition para pegar users
     @GetMapping("/editions/{editionId}/activities/{activitiesId}")
     public Activities searchUser(@PathVariable int activitiesId) {
@@ -53,16 +53,16 @@ public class ActivitiesController {
 
         return activitiesRepository.save(activities);
     }
-    
+
     @DeleteMapping("/editions/{editionId}/activities/{activitiesId}")
     public void delete(@PathVariable int editionId,@PathVariable int activitiesId) {
         Activities a = activitiesRepository.findById(activitiesId)
         Edition edition = findEditionofActivities(a);
-            if (edition != null) {
-                edition.getAtividades().remove(a); // Remove a atividade da lista de atividades da edição
-                editionRepository.save(edition); // Atualiza a edição no banco de dados
-            }
+        if (edition != null) {
+            edition.getAtividades().remove(a); // Remove a atividade da lista de atividades da edição
+            editionRepository.save(edition); // Atualiza a edição no banco de dados
+        }
         activitiesRepository.deleteById(activitiesId);
     }
-    
+
 }
