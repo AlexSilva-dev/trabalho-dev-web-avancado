@@ -1,5 +1,7 @@
 package br.com.projeto.api.controle;
 
+import br.com.projeto.api.modelo.Activitie;
+import br.com.projeto.api.modelo.Event;
 import br.com.projeto.api.repositorio.UserRepository;
 import br.com.projeto.api.responses.MessageResponse;
 import org.springframework.web.bind.annotation.*;
@@ -7,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import br.com.projeto.api.modelo.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -29,7 +33,6 @@ public class UserController {
     public User searchUser(@PathVariable int userId) {
         return userRepository.findById(userId);
     }
-
 
     @PutMapping("/users/{userId}")
     public User update(@PathVariable int userId, @RequestBody User p) {
@@ -59,8 +62,10 @@ public class UserController {
 
 
     @PostMapping("/users/{userId}/favorites")
-    public User saveFavorite(@PathVariable int userId, @RequestBody User p) {
-        return p;
+    public void saveFavorite(@PathVariable int userId, @RequestBody Activitie a) {
+        User u = userRepository.findById(userId);
+        u.appendFavorites(a);
+        userRepository.save(u);
     }
 
     @DeleteMapping("/users/{userId}/favorites/{activityId}")
@@ -70,14 +75,14 @@ public class UserController {
     }
 
     @GetMapping("/users/{userId}/favorites")
-    public User buscarFavoritos(@PathVariable int userId) {
-        return new User();
+    public List<Activitie> buscarFavoritos(@PathVariable int userId) {
+        return userRepository.findById(userId).getFavorites();
     }
 
-    @PostMapping("/users/{userId}/notifications")
-    public User enviarNotificacao(@PathVariable int userId, @RequestBody User p) {
-        return p;
+    @GetMapping("/users/{userId}/notifications")
+    public MessageResponse enviarNotificacao(@PathVariable int userId) {
+        User u = userRepository.findById(userId);
+        return new MessageResponse("Enviando notificação para o usuário " + u.getName() + " do e-mail " + u.getEmail());
     }
-
 
 }
