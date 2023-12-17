@@ -16,6 +16,8 @@ import br.com.projeto.api.modelo.User;
 import br.com.projeto.api.repositorio.EditionRepository;
 import br.com.projeto.api.repositorio.UserRepository;
 
+import java.util.Map;
+
 
 @RestController
 public class EditionController {
@@ -60,16 +62,15 @@ public class EditionController {
     }
 
     @GetMapping("/edition/{editionId}/organizer")
-    public Edition editionById(@PathVariable("editionId") int editionId) {
-        return editionRepository.findById(editionId);
+    public User editionById(@PathVariable("editionId") int editionId) {
+        return editionRepository.findById(editionId).getOrganizer();
     }
 
     @PostMapping("/edition/{editionId}/organizer")
-    public void organizerSave(@PathVariable("editionId") int editionId, @RequestBody int userId){
-        editionRepository.organizerSave(userId, editionId);
+    public void organizerSave(@PathVariable("editionId") int editionId, @RequestBody Map<String, Integer> data){
 
+        editionRepository.organizerSave(data.get("userId"), editionId);
     }
-
 
     @DeleteMapping("/edition/{editionId}/organizers/{userId}")
     public void organizerDelete(@PathVariable("editionId") int editionId, @PathVariable("userId") int userId){
