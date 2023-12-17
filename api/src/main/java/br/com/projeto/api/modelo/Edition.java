@@ -127,7 +127,7 @@ public class Edition{
         return null;
     }
 
-    public Edition getEventInEdition(Event e){
+    public Edition getEventInEdition(Iterable<Edition> ed, int id){
         return null;
     }
 

@@ -16,6 +16,8 @@ import br.com.projeto.api.modelo.User;
 import br.com.projeto.api.repositorio.EditionRepository;
 import br.com.projeto.api.repositorio.UserRepository;
 
+import java.util.List;
+
 
 @RestController
 public class EditionController {
@@ -24,6 +26,8 @@ public class EditionController {
     private ActivitieRepository activitiesRepository;
     @Autowired
     private EditionRepository editionRepository;
+    @Autowired
+    private UserRepository userRepository;
 
 
 
@@ -70,10 +74,30 @@ public class EditionController {
 
     }
 
-
     @DeleteMapping("/edition/{editionId}/organizers/{userId}")
     public void organizerDelete(@PathVariable("editionId") int editionId, @PathVariable("userId") int userId){
         editionRepository.organizerDelete(editionId, userId);
     }
+
+    @GetMapping("/editions/{editionId}/users")
+    public List<User> buscarFavoritos(@PathVariable int editionId) {
+        return editionRepository.findById(editionId).getUsers();
+    }
+
+    @PostMapping("/editions/{editionId}/users")
+    public void signInUser(@PathVariable("editionId") int editionId, @RequestBody User user){
+        var u = editionRepository.findById(editionId);
+        u.adicionaUsuario(user);
+        editionRepository.save(u);
+    }
+
+    @GetMapping("/events/{eventId}/editions")
+    public List<Edition> buscaEdicoes(@PathVariable int eventId) {
+        var u = editionRepository.findAll();
+        var edition = new Edition();
+        edition.getEventInEdition(u, eventId);
+        return null;
+    }
+
 
 }
