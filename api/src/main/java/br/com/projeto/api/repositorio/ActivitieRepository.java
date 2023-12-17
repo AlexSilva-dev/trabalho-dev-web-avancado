@@ -12,7 +12,7 @@ public class ActivitieRepository {
 
     @Lazy
     @Autowired
-    private static IActivitieRepository repository;
+    private IActivitieRepository repository;
 
     @PersistenceContext
     private EntityManager entityManager;

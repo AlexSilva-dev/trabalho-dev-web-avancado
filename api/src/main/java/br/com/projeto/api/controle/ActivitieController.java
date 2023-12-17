@@ -1,5 +1,6 @@
 package br.com.projeto.api.controle;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,17 @@ public class ActivitieController {
     private ActivitieRepository activitiesRepository;
     @Autowired
     private EditionRepository editionRepository;
+
+    @PostMapping("/activities")
+    public void save(HttpServletResponse response, @RequestBody Activitie activitie){
+        activitiesRepository.save(activitie);
+        response.setStatus(201);
+    }
+
+    @GetMapping("/activities")
+    public Iterable<Activitie> searchAll() {
+        return activitiesRepository.findAll();
+    }
 
     @PostMapping("/editions/{editionId}/activities")
     public Activitie save(@PathVariable int editionId,@RequestBody Activitie a) {

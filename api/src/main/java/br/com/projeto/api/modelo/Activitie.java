@@ -19,8 +19,12 @@ public class Activitie {
     private Date date;
     private Time start_time;
     private Time end_time;
+
     @OneToOne
     private Space space;
+
+    public Activitie() {
+    }
 
     //GET e SET
     public int getId() {
@@ -73,5 +77,13 @@ public class Activitie {
 
     public void setEnd_time(Time end_time) {
         this.end_time = end_time;
+    }
+
+    public Space getSpace() {
+        return space;
+    }
+
+    public void setSpace(Space space) {
+        this.space = space;
     }
 }

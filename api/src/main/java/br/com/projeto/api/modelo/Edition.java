@@ -8,6 +8,7 @@ package br.com.projeto.api.modelo;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,12 +26,16 @@ public class Edition{
     private User organizer;
 
     @OneToMany
-    @JoinColumn(name = "User_ID", referencedColumnName = "ID")
-    private List<User> users;
+    @JoinColumn(name = "User_ID", referencedColumnName = "id")
+    private List<User> users = new ArrayList<>();
 
     @OneToMany
-    @JoinColumn(name = "Edition_ID", referencedColumnName = "ID")
-    private List<Activitie> activities;
+    @JoinColumn(name = "Edition_ID", referencedColumnName = "id")
+    private List<Activitie> activities = new ArrayList<>();
+
+    @OneToMany
+    @JoinColumn(name = "Events_ID", referencedColumnName = "id")
+    private List<Event> events = new ArrayList<>();
 
     public Edition() {
     }
@@ -87,9 +92,6 @@ public class Edition{
         this.organizer = user;
     }
 
-    public List<Activitie> getActivities() {
-        return this.activities;
-    }
 
     public List<User> getUsers() {
         return users;
@@ -99,8 +101,20 @@ public class Edition{
         this.users = users;
     }
 
+    public List<Activitie> getActivities() {
+        return activities;
+    }
+
     public void setActivities(List<Activitie> activities) {
         this.activities = activities;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 
     public Activitie getActivitieById(int id) {
@@ -111,6 +125,18 @@ public class Edition{
         }
         // Retorna null se nenhuma atividade com o ID especificado for encontrada.
         return null;
+    }
+
+    public Edition getEventInEdition(Event e){
+        return null;
+    }
+
+    public void adicionaUsuario(User user){
+        users.add(user);
+    }
+
+    public void addActivities(Activitie activitie){
+        activities.add(activitie);
     }
 
     public void addActivitie(Activitie activitie) {
