@@ -12,7 +12,7 @@ public class Activitie {
     //Atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String name;
     //private Enum type;
     private String description;
@@ -23,7 +23,7 @@ public class Activitie {
     private Space space;
 
     //GET e SET
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
