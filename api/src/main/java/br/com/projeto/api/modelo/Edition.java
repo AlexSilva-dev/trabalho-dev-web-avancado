@@ -11,7 +11,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "edition")
+@Table(name = "editions")
 public class Edition{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,11 @@ public class Edition{
     private Date end_date;
     private String city;
     @OneToOne
-    private User users;
+    private User organizer;
+
+    @OneToMany
+    @JoinColumn(name = "User_ID", referencedColumnName = "ID")
+    private List<User> users;
 
     @OneToMany
     @JoinColumn(name = "Edition_ID", referencedColumnName = "ID")
@@ -75,16 +79,24 @@ public class Edition{
         this.city = city;
     }
 
-    public User getUsers() {
-        return this.users;
+    public User getOrganizer() {
+        return this.organizer;
     }
 
-    public void setUsers(User user) {
-        this.users = user;
+    public void setOrganizer(User user) {
+        this.organizer = user;
     }
 
     public List<Activitie> getActivities() {
         return this.activities;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public void setActivities(List<Activitie> activities) {
