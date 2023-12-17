@@ -44,6 +44,7 @@ public class EditionRepository {
         User user = userRepository.findById(userId);
         Edition editionNew = edition.get();
         editionNew.setOrganizer(user);
+        System.out.print(editionNew);
         repository.save(editionNew);
     }
 
@@ -52,6 +53,7 @@ public class EditionRepository {
         if (rEdition.isPresent()) {
             Edition edition = rEdition.get();
             edition.setUsers(null);
+            repository.save(edition);
         }
     }
 
