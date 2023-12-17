@@ -6,7 +6,7 @@ import java.sql.Time;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "activitie")
+@Table(name = "activities")
 public class Activitie {
 
     //Atributos

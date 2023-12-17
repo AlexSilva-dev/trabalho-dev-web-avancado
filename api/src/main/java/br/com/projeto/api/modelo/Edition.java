@@ -11,7 +11,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "edition")
+@Table(name = "editions")
 public class Edition{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
