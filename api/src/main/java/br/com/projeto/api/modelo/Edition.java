@@ -5,13 +5,8 @@
 
 package br.com.projeto.api.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.sql.Date;
 import java.util.List;
 
@@ -28,7 +23,9 @@ public class Edition{
     private String city;
     @OneToOne
     private User users;
-    @JoinColumn(name = "Id_Edition")
+
+    @OneToMany
+    @JoinColumn(name = "Edition_ID", referencedColumnName = "ID")
     private List<Activitie> activities;
 
     public Edition() {

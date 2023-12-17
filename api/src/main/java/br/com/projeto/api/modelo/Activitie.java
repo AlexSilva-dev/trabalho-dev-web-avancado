@@ -3,12 +3,7 @@ package br.com.projeto.api.modelo;
 import java.sql.Date;
 import java.sql.Time;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "activitie")
@@ -17,7 +12,7 @@ public class Activitie {
     //Atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     //private Enum type;
     private String description;
@@ -28,7 +23,7 @@ public class Activitie {
     private Space space;
 
     //GET e SET
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
