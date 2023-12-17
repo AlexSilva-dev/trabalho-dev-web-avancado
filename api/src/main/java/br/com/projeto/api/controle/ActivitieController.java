@@ -35,7 +35,6 @@ public class ActivitieController {
         return activitiesRepository.save(a);
     }
 
-    //pecriso do metodo de edition que pega a lista de atividades de uma edition
     @GetMapping("/editions/{editionId}/activities")
     public Iterable<Activitie> searchAll(@PathVariable int editionId) {
         Edition edition = editionRepository.findById(editionId);
