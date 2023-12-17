@@ -8,42 +8,47 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.projeto.api.modelo.Activities;
-import br.com.projeto.api.repositorio.ActivitiesRepository;
+import br.com.projeto.api.modelo.Activitie;
+import br.com.projeto.api.modelo.Edition;
+import br.com.projeto.api.modelo.User;
+import br.com.projeto.api.repositorio.ActivitieRepository;
+import br.com.projeto.api.repositorio.EditionRepository;
 
 @RestController
-public class ActivitiesController {
+public class ActivitieController {
 
     @Autowired
-    private ActivitiesRepository activitiesRepository;
+    private ActivitieRepository activitiesRepository;
+    private EditionRepository editionRepository;
 
     @PostMapping("/editions/{editionId}/activities")
-    public Activities save(@PathVariable int editionId,@RequestBody Activities a) {
+    public Activitie save(@PathVariable int editionId,@RequestBody Activitie a) {
         Edition edition = editionRepository.findById(editionId);
 
         if (edition != null) {
-            a.setEdition(edition); // Configura a edição na atividade
-            edition.getAtividades().add(a); // Adiciona a atividade à lista de atividades da edição
+            //a.setEdition(edition); // Configura a edição na atividade
+            edition.addActivitie(a);// Adiciona a atividade à lista de atividades da edição
             editionRepository.save(edition); // Atualiza a edição no banco de dados 
         }
         return activitiesRepository.save(a);
     }
 
-    //pecriso do metodo de edition que pega a lista de atividades de uma edition
     @GetMapping("/editions/{editionId}/activities")
-    public Iterable<Activities> searchAll() {
-        return activitiesRepository.findAll();
+    public Iterable<Activitie> searchAll(@PathVariable int editionId) {
+        Edition edition = editionRepository.findById(editionId);
+        return edition.getActivities();
     }
     
-    //pecriso do metodo de edition para pegar users
+    //precisa adequar o metodo para pegar as activities favoritadas pelo user
     @GetMapping("/editions/{editionId}/activities/{activitiesId}")
-    public Activities searchUser(@PathVariable int activitiesId) {
-        return activitiesRepository.findById(activitiesId);
+    public User[] searchUser(@PathVariable int editionId,@PathVariable int activitiesId) {
+        Edition edition = editionRepository.findById(editionId);
+        return edition.getUsers();
     }
 
     @PutMapping("/editions/{editionId}/activities/{activitiesId}")
-    public Activities update(@PathVariable int activitiesId, @RequestBody Activities a) {
-        Activities activities = activitiesRepository.findById(activitiesId);
+    public Activitie update(@PathVariable int activitiesId, @RequestBody Activitie a) {
+        Activitie activities = activitiesRepository.findById(activitiesId);
         activities.setName(a.getName());
         //activities.setType(a.getType());
         activities.setDescription(a.getDescription());
@@ -56,10 +61,10 @@ public class ActivitiesController {
     
     @DeleteMapping("/editions/{editionId}/activities/{activitiesId}")
     public void delete(@PathVariable int editionId,@PathVariable int activitiesId) {
-        Activities a = activitiesRepository.findById(activitiesId)
-        Edition edition = findEditionofActivities(a);
+        Activitie a = activitiesRepository.findById(activitiesId);
+        Edition edition = editionRepository.findById(editionId);
             if (edition != null) {
-                edition.getAtividades().remove(a); // Remove a atividade da lista de atividades da edição
+                edition.removeActivitie(a);; // Remove a atividade da lista de atividades da edição
                 editionRepository.save(edition); // Atualiza a edição no banco de dados
             }
         activitiesRepository.deleteById(activitiesId);
