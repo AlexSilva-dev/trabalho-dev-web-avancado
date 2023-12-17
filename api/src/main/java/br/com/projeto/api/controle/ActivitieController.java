@@ -18,9 +18,7 @@ public class ActivitieController {
 
     @Autowired
     private ActivitieRepository activitiesRepository;
-    /**
-     *
-     */
+    @Autowired
     private EditionRepository editionRepository;
 
     @PostMapping("/editions/{editionId}/activities")
@@ -28,23 +26,21 @@ public class ActivitieController {
         Edition edition = editionRepository.findById(editionId);
 
         if (edition != null) {
-            //a.setEdition(edition); // Configura a edição na atividade
             edition.addActivitie(a); // Adiciona a atividade à lista de atividades da edição
             editionRepository.save(edition); // Atualiza a edição no banco de dados 
         }
         return activitiesRepository.save(a);
     }
 
-    //pecriso do metodo de edition que pega a lista de atividades de uma edition
     @GetMapping("/editions/{editionId}/activities")
     public Iterable<Activitie> searchAll(@PathVariable int editionId) {
         Edition edition = editionRepository.findById(editionId);
         return edition.getActivities();
     }
     
-    //pecriso do metodo de edition para pegar users
+    //precisa ser visto como pegar users que favoritam a aquela atividade de uma edição de evento
     @GetMapping("/editions/{editionId}/activities/{activitiesId}")
-    public Activitie searchUser(@PathVariable int activitiesId) {
+    public Activitie searchUser(@PathVariable int editionId,@PathVariable int activitiesId) {
         return activitiesRepository.findById(activitiesId);
     }
 

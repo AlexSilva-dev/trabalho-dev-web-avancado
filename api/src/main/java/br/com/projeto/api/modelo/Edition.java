@@ -10,27 +10,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(
-        name = "edition"
-)
+@Table(name = "edition")
 public class Edition{
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int number;
     private int year;
     private Date start_date;
     private Date end_date;
     private String city;
-    @JoinColumn(name = "Id_Edition")
-    private User[] users;
+    @OneToOne
+    private User users;
     @JoinColumn(name = "Id_Edition")
     private List<Activitie> activities;
 
@@ -81,11 +78,11 @@ public class Edition{
         this.city = city;
     }
 
-    public User[] getUsers() {
+    public User getUsers() {
         return this.users;
     }
 
-    public void setUsers(User[] user) {
+    public void setUsers(User user) {
         this.users = user;
     }
 
