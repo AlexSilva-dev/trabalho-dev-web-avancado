@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "space")
+@Table(name = "spaces")
 public class Space {
 
     //Atributos

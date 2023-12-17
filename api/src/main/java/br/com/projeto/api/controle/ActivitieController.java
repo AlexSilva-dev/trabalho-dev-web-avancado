@@ -38,10 +38,12 @@ public class ActivitieController {
         return edition.getActivities();
     }
     
-    //precisa ser visto como pegar users que favoritam a aquela atividade de uma edição de evento
+    
     @GetMapping("/editions/{editionId}/activities/{activitiesId}")
-    public Activitie searchUser(@PathVariable int editionId,@PathVariable int activitiesId) {
-        return activitiesRepository.findById(activitiesId);
+    public String searchActivitieDescription(@PathVariable int editionId,@PathVariable int activitiesId) {
+        Edition edition = editionRepository.findById(editionId);
+        Activitie activitie = edition.getActivitieById(activitiesId);
+        return activitie.getDescription();
     }
 
     @PutMapping("/editions/{editionId}/activities/{activitiesId}")

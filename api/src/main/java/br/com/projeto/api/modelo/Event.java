@@ -3,7 +3,7 @@ package br.com.projeto.api.modelo;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "event")
+@Table(name = "events")
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
