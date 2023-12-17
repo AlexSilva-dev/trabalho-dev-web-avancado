@@ -81,7 +81,7 @@ public class UserController {
         return userRepository.findById(userId).getFavorites();
     }
 
-    @GetMapping("/users/{userId}/notifications")
+    @PostMapping("/users/{userId}/notifications")
     public MessageResponse enviarNotificacao(@PathVariable int userId) {
         User u = userRepository.findById(userId);
         return new MessageResponse("Enviando notificação para o usuário " + u.getName() + " do e-mail " + u.getEmail() + " sobre as suas atividades favoritas.");
