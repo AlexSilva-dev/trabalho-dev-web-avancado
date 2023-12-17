@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 public class UserController {
 
-
     @Autowired
     private UserRepository userRepository;
 
@@ -70,8 +69,11 @@ public class UserController {
 
     @DeleteMapping("/users/{userId}/favorites/{activityId}")
     public void removerFavorito(@PathVariable int userId, @PathVariable int activityId) {
-        System.out.println("Removendo favorito " + activityId + " do usuário " + userId);
-
+        User u = userRepository.findById(userId);
+        List<Activitie> favorites = u.getFavorites();
+        favorites.removeIf(activitie -> activitie.getId() == activityId);
+        userRepository.save(u);
+        System.out.println("Removendo favorito " + activityId + " do usuário " + u.getName());
     }
 
     @GetMapping("/users/{userId}/favorites")
@@ -82,7 +84,6 @@ public class UserController {
     @GetMapping("/users/{userId}/notifications")
     public MessageResponse enviarNotificacao(@PathVariable int userId) {
         User u = userRepository.findById(userId);
-        return new MessageResponse("Enviando notificação para o usuário " + u.getName() + " do e-mail " + u.getEmail());
+        return new MessageResponse("Enviando notificação para o usuário " + u.getName() + " do e-mail " + u.getEmail() + " sobre as suas atividades favoritas.");
     }
-
 }
