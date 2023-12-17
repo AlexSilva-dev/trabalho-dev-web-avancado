@@ -1,7 +1,6 @@
 package br.com.projeto.api.controle;
 
 import br.com.projeto.api.modelo.Activitie;
-import br.com.projeto.api.modelo.Event;
 import br.com.projeto.api.repositorio.ActivitieRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +15,6 @@ import br.com.projeto.api.modelo.Edition;
 import br.com.projeto.api.modelo.User;
 import br.com.projeto.api.repositorio.EditionRepository;
 import br.com.projeto.api.repositorio.UserRepository;
-
-import java.util.List;
 
 
 @RestController
@@ -70,6 +67,7 @@ public class EditionController {
     @PostMapping("/edition/{editionId}/organizer")
     public void organizerSave(@PathVariable("editionId") int editionId, @RequestBody int userId){
         editionRepository.organizerSave(userId, editionId);
+
     }
 
 
@@ -77,15 +75,5 @@ public class EditionController {
     public void organizerDelete(@PathVariable("editionId") int editionId, @PathVariable("userId") int userId){
         editionRepository.organizerDelete(editionId, userId);
     }
-
-
-
-
-
-
-
-
-
-
 
 }
