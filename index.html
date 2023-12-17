@@ -761,6 +761,16 @@
     }
   }
 };
+            defs["editionId_organizer_body"] = {
+  "required" : [ "userId" ],
+  "type" : "object",
+  "properties" : {
+    "userId" : {
+      "type" : "integer",
+      "format" : "int64"
+    }
+  }
+};
             defs["ErrorInvalidCredentials"] = {
   "required" : [ "code", "message" ],
   "type" : "object",
@@ -836,16 +846,6 @@
     "description" : {
       "type" : "string",
       "example" : "Conferência focada nas últimas tendências da tecnologia."
-    }
-  }
-};
-            defs["eventId_organizers_body"] = {
-  "required" : [ "userId" ],
-  "type" : "object",
-  "properties" : {
-    "userId" : {
-      "type" : "integer",
-      "format" : "int64"
     }
   }
 };
@@ -1020,14 +1020,14 @@
                       <a href="#api-Event-eventsPost">eventsPost</a>
                     </li>
                   <li class="nav-header" data-group="Organizer"><a href="#api-Organizer">API Methods - Organizer</a></li>
-                    <li data-group="Organizer" data-name="eventsEventIdOrganizersGet" class="">
-                      <a href="#api-Organizer-eventsEventIdOrganizersGet">eventsEventIdOrganizersGet</a>
+                    <li data-group="Organizer" data-name="editionEditionIdOrganizerGet" class="">
+                      <a href="#api-Organizer-editionEditionIdOrganizerGet">editionEditionIdOrganizerGet</a>
                     </li>
-                    <li data-group="Organizer" data-name="eventsEventIdOrganizersPost" class="">
-                      <a href="#api-Organizer-eventsEventIdOrganizersPost">eventsEventIdOrganizersPost</a>
+                    <li data-group="Organizer" data-name="editionEditionIdOrganizerPost" class="">
+                      <a href="#api-Organizer-editionEditionIdOrganizerPost">editionEditionIdOrganizerPost</a>
                     </li>
-                    <li data-group="Organizer" data-name="eventsEventIdOrganizersUserIdDelete" class="">
-                      <a href="#api-Organizer-eventsEventIdOrganizersUserIdDelete">eventsEventIdOrganizersUserIdDelete</a>
+                    <li data-group="Organizer" data-name="editionEditionIdOrganizersUserIdDelete" class="">
+                      <a href="#api-Organizer-editionEditionIdOrganizersUserIdDelete">editionEditionIdOrganizersUserIdDelete</a>
                     </li>
                   <li class="nav-header" data-group="Space"><a href="#api-Space">API Methods - Space</a></li>
                     <li data-group="Space" data-name="spacesGet" class="">
@@ -9011,10 +9011,10 @@ except ApiException as e:
                   </section>
                 <section id="api-Organizer">
                   <h1>Organizer</h1>
-                    <div id="api-Organizer-eventsEventIdOrganizersGet">
-                      <article id="api-Organizer-eventsEventIdOrganizersGet-0" data-group="User" data-name="eventsEventIdOrganizersGet" data-version="0">
+                    <div id="api-Organizer-editionEditionIdOrganizerGet">
+                      <article id="api-Organizer-editionEditionIdOrganizerGet-0" data-group="User" data-name="editionEditionIdOrganizerGet" data-version="0">
                         <div class="pull-left">
-                          <h1>eventsEventIdOrganizersGet</h1>
+                          <h1>editionEditionIdOrganizerGet</h1>
                           <p>Obter a lista de usuários que fazem parte de uma edição de evento</p>
                         </div>
                         <div class="pull-right"></div>
@@ -9023,31 +9023,31 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/events/{eventId}/organizers</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/edition/{editionId}/organizer</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Organizer-eventsEventIdOrganizersGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Organizer-eventsEventIdOrganizersGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Organizer-eventsEventIdOrganizersGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersGet-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Organizer-editionEditionIdOrganizerGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Organizer-editionEditionIdOrganizerGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Organizer-editionEditionIdOrganizerGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerGet-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Organizer-eventsEventIdOrganizersGet-0-curl">
+                          <div class="tab-pane active" id="examples-Organizer-editionEditionIdOrganizerGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
-"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}/organizers"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/edition/{editionId}/organizer"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersGet-0-java">
+                          <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -9061,47 +9061,47 @@ public class OrganizerApiExample {
     public static void main(String[] args) {
         
         OrganizerApi apiInstance = new OrganizerApi();
-        Long eventId = 789; // Long | ID do evento do qual obter os organizadores
+        Long editionId = 789; // Long | ID do evento do qual obter os organizadores
         try {
-            array[User] result = apiInstance.eventsEventIdOrganizersGet(eventId);
+            array[User] result = apiInstance.editionEditionIdOrganizerGet(editionId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling OrganizerApi#eventsEventIdOrganizersGet");
+            System.err.println("Exception when calling OrganizerApi#editionEditionIdOrganizerGet");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersGet-0-android">
+                          <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerGet-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.OrganizerApi;
 
 public class OrganizerApiExample {
 
     public static void main(String[] args) {
         OrganizerApi apiInstance = new OrganizerApi();
-        Long eventId = 789; // Long | ID do evento do qual obter os organizadores
+        Long editionId = 789; // Long | ID do evento do qual obter os organizadores
         try {
-            array[User] result = apiInstance.eventsEventIdOrganizersGet(eventId);
+            array[User] result = apiInstance.editionEditionIdOrganizerGet(editionId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling OrganizerApi#eventsEventIdOrganizersGet");
+            System.err.println("Exception when calling OrganizerApi#editionEditionIdOrganizerGet");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersGet-0-groovy">
+  <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerGet-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersGet-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Long *eventId = 789; // ID do evento do qual obter os organizadores
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Long *editionId = 789; // ID do evento do qual obter os organizadores
 
 OrganizerApi *apiInstance = [[OrganizerApi alloc] init];
 
 // Obter a lista de usuários que fazem parte de uma edição de evento
-[apiInstance eventsEventIdOrganizersGetWith:eventId
+[apiInstance editionEditionIdOrganizerGetWith:editionId
               completionHandler: ^(array[User] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -9113,11 +9113,11 @@ OrganizerApi *apiInstance = [[OrganizerApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersGet-0-javascript">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerGet-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var ApiDeGerenciamentoDeEventos = require('api_de_gerenciamento_de_eventos');
 
 var api = new ApiDeGerenciamentoDeEventos.OrganizerApi()
-var eventId = 789; // {{Long}} ID do evento do qual obter os organizadores
+var editionId = 789; // {{Long}} ID do evento do qual obter os organizadores
 
 var callback = function(error, data, response) {
   if (error) {
@@ -9126,14 +9126,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.eventsEventIdOrganizersGet(eventId, callback);
+api.editionEditionIdOrganizerGet(editionId, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerGet-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersGet-0-csharp">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerGet-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -9142,23 +9142,23 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class eventsEventIdOrganizersGetExample
+    public class editionEditionIdOrganizerGetExample
     {
         public void main()
         {
 
             var apiInstance = new OrganizerApi();
-            var eventId = 789;  // Long | ID do evento do qual obter os organizadores
+            var editionId = 789;  // Long | ID do evento do qual obter os organizadores
 
             try
             {
                 // Obter a lista de usuários que fazem parte de uma edição de evento
-                array[User] result = apiInstance.eventsEventIdOrganizersGet(eventId);
+                array[User] result = apiInstance.editionEditionIdOrganizerGet(editionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling OrganizerApi.eventsEventIdOrganizersGet: " + e.Message );
+                Debug.Print("Exception when calling OrganizerApi.editionEditionIdOrganizerGet: " + e.Message );
             }
         }
     }
@@ -9166,40 +9166,40 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersGet-0-php">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerGet-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiOrganizerApi();
-$eventId = 789; // Long | ID do evento do qual obter os organizadores
+$editionId = 789; // Long | ID do evento do qual obter os organizadores
 
 try {
-    $result = $api_instance->eventsEventIdOrganizersGet($eventId);
+    $result = $api_instance->editionEditionIdOrganizerGet($editionId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrganizerApi->eventsEventIdOrganizersGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrganizerApi->editionEditionIdOrganizerGet: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersGet-0-perl">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerGet-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::OrganizerApi;
 
 my $api_instance = WWW::SwaggerClient::OrganizerApi->new();
-my $eventId = 789; # Long | ID do evento do qual obter os organizadores
+my $editionId = 789; # Long | ID do evento do qual obter os organizadores
 
 eval { 
-    my $result = $api_instance->eventsEventIdOrganizersGet(eventId => $eventId);
+    my $result = $api_instance->editionEditionIdOrganizerGet(editionId => $editionId);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling OrganizerApi->eventsEventIdOrganizersGet: $@\n";
+    warn "Exception when calling OrganizerApi->editionEditionIdOrganizerGet: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersGet-0-python">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerGet-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -9208,14 +9208,14 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.OrganizerApi()
-eventId = 789 # Long | ID do evento do qual obter os organizadores
+editionId = 789 # Long | ID do evento do qual obter os organizadores
 
 try: 
     # Obter a lista de usuários que fazem parte de uma edição de evento
-    api_response = api_instance.events_event_id_organizers_get(eventId)
+    api_response = api_instance.edition_edition_id_organizer_get(editionId)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling OrganizerApi->eventsEventIdOrganizersGet: %s\n" % e)</code></pre>
+    print("Exception when calling OrganizerApi->editionEditionIdOrganizerGet: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -9227,11 +9227,11 @@ except ApiException as e:
                                   <th width="150px">Name</th>
                                   <th>Description</th>
                                 </tr>
-                                  <tr><td style="width:150px;">eventId*</td>
+                                  <tr><td style="width:150px;">editionId*</td>
                                   <td>
                                   
                                   
-                                      <div id="d2e199_eventsEventIdOrganizersGet_eventId">
+                                      <div id="d2e199_editionEditionIdOrganizerGet_editionId">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -9263,14 +9263,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersGet-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-editionEditionIdOrganizerGet-200-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersGet-200-schema">
-                                  <div id='responses-eventsEventIdOrganizersGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-editionEditionIdOrganizerGet-200-schema">
+                                  <div id='responses-editionEditionIdOrganizerGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -9318,14 +9318,14 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-eventsEventIdOrganizersGet-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-eventsEventIdOrganizersGet-200-schema-200');
+                                        $('#responses-editionEditionIdOrganizerGet-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionEditionIdOrganizerGet-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-eventsEventIdOrganizersGet-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-editionEditionIdOrganizerGet-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -9333,14 +9333,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersGet-404-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-editionEditionIdOrganizerGet-404-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersGet-404-schema">
-                                  <div id='responses-eventsEventIdOrganizersGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-editionEditionIdOrganizerGet-404-schema">
+                                  <div id='responses-editionEditionIdOrganizerGet-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -9375,14 +9375,14 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-eventsEventIdOrganizersGet-404-schema-data').val(stringify(schema));
-                                        var result = $('#responses-eventsEventIdOrganizersGet-404-schema-404');
+                                        $('#responses-editionEditionIdOrganizerGet-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionEditionIdOrganizerGet-404-schema-404');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-eventsEventIdOrganizersGet-404-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-editionEditionIdOrganizerGet-404-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -9390,14 +9390,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersGet-503-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-editionEditionIdOrganizerGet-503-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersGet-503-schema">
-                                  <div id='responses-eventsEventIdOrganizersGet-503-schema-503' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-editionEditionIdOrganizerGet-503-schema">
+                                  <div id='responses-editionEditionIdOrganizerGet-503-schema-503' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -9432,24 +9432,24 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-eventsEventIdOrganizersGet-503-schema-data').val(stringify(schema));
-                                        var result = $('#responses-eventsEventIdOrganizersGet-503-schema-503');
+                                        $('#responses-editionEditionIdOrganizerGet-503-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionEditionIdOrganizerGet-503-schema-503');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-eventsEventIdOrganizersGet-503-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-editionEditionIdOrganizerGet-503-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Organizer-eventsEventIdOrganizersPost">
-                      <article id="api-Organizer-eventsEventIdOrganizersPost-0" data-group="User" data-name="eventsEventIdOrganizersPost" data-version="0">
+                    <div id="api-Organizer-editionEditionIdOrganizerPost">
+                      <article id="api-Organizer-editionEditionIdOrganizerPost-0" data-group="User" data-name="editionEditionIdOrganizerPost" data-version="0">
                         <div class="pull-left">
-                          <h1>eventsEventIdOrganizersPost</h1>
+                          <h1>editionEditionIdOrganizerPost</h1>
                           <p>Adicionar um organizador a uma edição de evento</p>
                         </div>
                         <div class="pull-right"></div>
@@ -9458,32 +9458,32 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/events/{eventId}/organizers</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/edition/{editionId}/organizer</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Organizer-eventsEventIdOrganizersPost-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersPost-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersPost-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Organizer-eventsEventIdOrganizersPost-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersPost-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersPost-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Organizer-eventsEventIdOrganizersPost-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersPost-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersPost-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersPost-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersPost-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Organizer-editionEditionIdOrganizerPost-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerPost-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerPost-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Organizer-editionEditionIdOrganizerPost-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerPost-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerPost-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Organizer-editionEditionIdOrganizerPost-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerPost-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerPost-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerPost-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizerPost-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Organizer-eventsEventIdOrganizersPost-0-curl">
+                          <div class="tab-pane active" id="examples-Organizer-editionEditionIdOrganizerPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
 -H "Accept: application/json"\
 -H "Content-Type: application/json"\
-"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}/organizers"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/edition/{editionId}/organizer"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersPost-0-java">
+                          <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -9497,64 +9497,64 @@ public class OrganizerApiExample {
     public static void main(String[] args) {
         
         OrganizerApi apiInstance = new OrganizerApi();
-        EventId_organizers_body body = {
+        EditionId_organizer_body body = {
   "summary" : "Exemplo de adicionar um organizador",
   "value" : {
     "userId" : 4001
   }
-}; // EventId_organizers_body | 
-        Long eventId = 789; // Long | ID do evento para o qual um organizador está sendo adicionado
+}; // EditionId_organizer_body | 
+        Long editionId = 789; // Long | ID do edition para o qual um organizador está sendo adicionado
         try {
-            apiInstance.eventsEventIdOrganizersPost(body, eventId);
+            apiInstance.editionEditionIdOrganizerPost(body, editionId);
         } catch (ApiException e) {
-            System.err.println("Exception when calling OrganizerApi#eventsEventIdOrganizersPost");
+            System.err.println("Exception when calling OrganizerApi#editionEditionIdOrganizerPost");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersPost-0-android">
+                          <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerPost-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.OrganizerApi;
 
 public class OrganizerApiExample {
 
     public static void main(String[] args) {
         OrganizerApi apiInstance = new OrganizerApi();
-        EventId_organizers_body body = {
+        EditionId_organizer_body body = {
   "summary" : "Exemplo de adicionar um organizador",
   "value" : {
     "userId" : 4001
   }
-}; // EventId_organizers_body | 
-        Long eventId = 789; // Long | ID do evento para o qual um organizador está sendo adicionado
+}; // EditionId_organizer_body | 
+        Long editionId = 789; // Long | ID do edition para o qual um organizador está sendo adicionado
         try {
-            apiInstance.eventsEventIdOrganizersPost(body, eventId);
+            apiInstance.editionEditionIdOrganizerPost(body, editionId);
         } catch (ApiException e) {
-            System.err.println("Exception when calling OrganizerApi#eventsEventIdOrganizersPost");
+            System.err.println("Exception when calling OrganizerApi#editionEditionIdOrganizerPost");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersPost-0-groovy">
+  <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerPost-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersPost-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">EventId_organizers_body *body = {
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerPost-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">EditionId_organizer_body *body = {
   "summary" : "Exemplo de adicionar um organizador",
   "value" : {
     "userId" : 4001
   }
 }; // 
-Long *eventId = 789; // ID do evento para o qual um organizador está sendo adicionado
+Long *editionId = 789; // ID do edition para o qual um organizador está sendo adicionado
 
 OrganizerApi *apiInstance = [[OrganizerApi alloc] init];
 
 // Adicionar um organizador a uma edição de evento
-[apiInstance eventsEventIdOrganizersPostWith:body
-    eventId:eventId
+[apiInstance editionEditionIdOrganizerPostWith:body
+    editionId:editionId
               completionHandler: ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
@@ -9563,7 +9563,7 @@ OrganizerApi *apiInstance = [[OrganizerApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersPost-0-javascript">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerPost-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var ApiDeGerenciamentoDeEventos = require('api_de_gerenciamento_de_eventos');
 
 var api = new ApiDeGerenciamentoDeEventos.OrganizerApi()
@@ -9572,8 +9572,8 @@ var body = {
   "value" : {
     "userId" : 4001
   }
-}; // {{EventId_organizers_body}} 
-var eventId = 789; // {{Long}} ID do evento para o qual um organizador está sendo adicionado
+}; // {{EditionId_organizer_body}} 
+var editionId = 789; // {{Long}} ID do edition para o qual um organizador está sendo adicionado
 
 var callback = function(error, data, response) {
   if (error) {
@@ -9582,14 +9582,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.eventsEventIdOrganizersPost(bodyeventId, callback);
+api.editionEditionIdOrganizerPost(bodyeditionId, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersPost-0-angular">
+                            <!--<div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerPost-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersPost-0-csharp">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerPost-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -9598,23 +9598,23 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class eventsEventIdOrganizersPostExample
+    public class editionEditionIdOrganizerPostExample
     {
         public void main()
         {
 
             var apiInstance = new OrganizerApi();
-            var body = new EventId_organizers_body(); // EventId_organizers_body | 
-            var eventId = 789;  // Long | ID do evento para o qual um organizador está sendo adicionado
+            var body = new EditionId_organizer_body(); // EditionId_organizer_body | 
+            var editionId = 789;  // Long | ID do edition para o qual um organizador está sendo adicionado
 
             try
             {
                 // Adicionar um organizador a uma edição de evento
-                apiInstance.eventsEventIdOrganizersPost(body, eventId);
+                apiInstance.editionEditionIdOrganizerPost(body, editionId);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling OrganizerApi.eventsEventIdOrganizersPost: " + e.Message );
+                Debug.Print("Exception when calling OrganizerApi.editionEditionIdOrganizerPost: " + e.Message );
             }
         }
     }
@@ -9622,7 +9622,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersPost-0-php">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerPost-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -9632,35 +9632,35 @@ $body = {
   "value" : {
     "userId" : 4001
   }
-}; // EventId_organizers_body | 
-$eventId = 789; // Long | ID do evento para o qual um organizador está sendo adicionado
+}; // EditionId_organizer_body | 
+$editionId = 789; // Long | ID do edition para o qual um organizador está sendo adicionado
 
 try {
-    $api_instance->eventsEventIdOrganizersPost($body, $eventId);
+    $api_instance->editionEditionIdOrganizerPost($body, $editionId);
 } catch (Exception $e) {
-    echo 'Exception when calling OrganizerApi->eventsEventIdOrganizersPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrganizerApi->editionEditionIdOrganizerPost: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersPost-0-perl">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerPost-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::OrganizerApi;
 
 my $api_instance = WWW::SwaggerClient::OrganizerApi->new();
-my $body = WWW::SwaggerClient::Object::EventId_organizers_body->new(); # EventId_organizers_body | 
-my $eventId = 789; # Long | ID do evento para o qual um organizador está sendo adicionado
+my $body = WWW::SwaggerClient::Object::EditionId_organizer_body->new(); # EditionId_organizer_body | 
+my $editionId = 789; # Long | ID do edition para o qual um organizador está sendo adicionado
 
 eval { 
-    $api_instance->eventsEventIdOrganizersPost(body => $body, eventId => $eventId);
+    $api_instance->editionEditionIdOrganizerPost(body => $body, editionId => $editionId);
 };
 if ($@) {
-    warn "Exception when calling OrganizerApi->eventsEventIdOrganizersPost: $@\n";
+    warn "Exception when calling OrganizerApi->editionEditionIdOrganizerPost: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersPost-0-python">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerPost-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -9674,14 +9674,14 @@ body = {
   "value" : {
     "userId" : 4001
   }
-} # EventId_organizers_body | 
-eventId = 789 # Long | ID do evento para o qual um organizador está sendo adicionado
+} # EditionId_organizer_body | 
+editionId = 789 # Long | ID do edition para o qual um organizador está sendo adicionado
 
 try: 
     # Adicionar um organizador a uma edição de evento
-    api_instance.events_event_id_organizers_post(body, eventId)
+    api_instance.edition_edition_id_organizer_post(body, editionId)
 except ApiException as e:
-    print("Exception when calling OrganizerApi->eventsEventIdOrganizersPost: %s\n" % e)</code></pre>
+    print("Exception when calling OrganizerApi->editionEditionIdOrganizerPost: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -9693,11 +9693,11 @@ except ApiException as e:
                                   <th width="150px">Name</th>
                                   <th>Description</th>
                                 </tr>
-                                  <tr><td style="width:150px;">eventId*</td>
+                                  <tr><td style="width:150px;">editionId*</td>
                                   <td>
                                   
                                   
-                                      <div id="d2e199_eventsEventIdOrganizersPost_eventId">
+                                      <div id="d2e199_editionEditionIdOrganizerPost_editionId">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -9708,7 +9708,7 @@ except ApiException as e:
                                                       </span>
                                   
                                                       <div class="inner description">
-                                                          ID do evento para o qual um organizador está sendo adicionado
+                                                          ID do edition para o qual um organizador está sendo adicionado
                                                       </div>
                                               </div>
                                                   <div class="inner required">
@@ -9737,7 +9737,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/eventId_organizers_body"
+        "$ref" : "#/components/schemas/editionId_organizer_body"
       },
       "examples" : {
         "newOrganizer" : {
@@ -9763,12 +9763,12 @@ except ApiException as e:
                                   }
                                 
                                   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_eventsEventIdOrganizersPost_body');
+                                  var result = $('#d2e199_editionEditionIdOrganizerPost_body');
                                   result.empty();
                                   result.append(view.render());
                                 });
                                 </script>
-                                <div id="d2e199_eventsEventIdOrganizersPost_body"></div>
+                                <div id="d2e199_editionEditionIdOrganizerPost_body"></div>
                                 </td>
                                 </tr>
                             </table>
@@ -9788,14 +9788,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersPost-400-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-editionEditionIdOrganizerPost-400-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersPost-400-schema">
-                                  <div id='responses-eventsEventIdOrganizersPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-editionEditionIdOrganizerPost-400-schema">
+                                  <div id='responses-editionEditionIdOrganizerPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -9830,14 +9830,14 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-eventsEventIdOrganizersPost-400-schema-data').val(stringify(schema));
-                                        var result = $('#responses-eventsEventIdOrganizersPost-400-schema-400');
+                                        $('#responses-editionEditionIdOrganizerPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionEditionIdOrganizerPost-400-schema-400');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-eventsEventIdOrganizersPost-400-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-editionEditionIdOrganizerPost-400-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -9845,14 +9845,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersPost-404-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-editionEditionIdOrganizerPost-404-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersPost-404-schema">
-                                  <div id='responses-eventsEventIdOrganizersPost-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-editionEditionIdOrganizerPost-404-schema">
+                                  <div id='responses-editionEditionIdOrganizerPost-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -9887,14 +9887,14 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-eventsEventIdOrganizersPost-404-schema-data').val(stringify(schema));
-                                        var result = $('#responses-eventsEventIdOrganizersPost-404-schema-404');
+                                        $('#responses-editionEditionIdOrganizerPost-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionEditionIdOrganizerPost-404-schema-404');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-eventsEventIdOrganizersPost-404-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-editionEditionIdOrganizerPost-404-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -9902,14 +9902,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersPost-503-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-editionEditionIdOrganizerPost-503-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersPost-503-schema">
-                                  <div id='responses-eventsEventIdOrganizersPost-503-schema-503' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-editionEditionIdOrganizerPost-503-schema">
+                                  <div id='responses-editionEditionIdOrganizerPost-503-schema-503' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -9944,24 +9944,24 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-eventsEventIdOrganizersPost-503-schema-data').val(stringify(schema));
-                                        var result = $('#responses-eventsEventIdOrganizersPost-503-schema-503');
+                                        $('#responses-editionEditionIdOrganizerPost-503-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionEditionIdOrganizerPost-503-schema-503');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-eventsEventIdOrganizersPost-503-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-editionEditionIdOrganizerPost-503-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Organizer-eventsEventIdOrganizersUserIdDelete">
-                      <article id="api-Organizer-eventsEventIdOrganizersUserIdDelete-0" data-group="User" data-name="eventsEventIdOrganizersUserIdDelete" data-version="0">
+                    <div id="api-Organizer-editionEditionIdOrganizersUserIdDelete">
+                      <article id="api-Organizer-editionEditionIdOrganizersUserIdDelete-0" data-group="User" data-name="editionEditionIdOrganizersUserIdDelete" data-version="0">
                         <div class="pull-left">
-                          <h1>eventsEventIdOrganizersUserIdDelete</h1>
+                          <h1>editionEditionIdOrganizersUserIdDelete</h1>
                           <p>Remover um organizador de uma edição de evento</p>
                         </div>
                         <div class="pull-right"></div>
@@ -9970,31 +9970,31 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/events/{eventId}/organizers/{userId}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/edition/{editionId}/organizers/{userId}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-curl">
+                          <div class="tab-pane active" id="examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
 -H "Accept: application/json"\
-"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/events/{eventId}/organizers/{userId}"</code></pre>
+"https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0/edition/{editionId}/organizers/{userId}"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-java">
+                          <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -10008,48 +10008,48 @@ public class OrganizerApiExample {
     public static void main(String[] args) {
         
         OrganizerApi apiInstance = new OrganizerApi();
-        Long eventId = 789; // Long | ID do evento do qual o organizador será removido
+        Long editionId = 789; // Long | ID do evento do qual o organizador será removido
         Long userId = 789; // Long | ID do usuário organizador a ser removido
         try {
-            apiInstance.eventsEventIdOrganizersUserIdDelete(eventId, userId);
+            apiInstance.editionEditionIdOrganizersUserIdDelete(editionId, userId);
         } catch (ApiException e) {
-            System.err.println("Exception when calling OrganizerApi#eventsEventIdOrganizersUserIdDelete");
+            System.err.println("Exception when calling OrganizerApi#editionEditionIdOrganizersUserIdDelete");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-android">
+                          <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.OrganizerApi;
 
 public class OrganizerApiExample {
 
     public static void main(String[] args) {
         OrganizerApi apiInstance = new OrganizerApi();
-        Long eventId = 789; // Long | ID do evento do qual o organizador será removido
+        Long editionId = 789; // Long | ID do evento do qual o organizador será removido
         Long userId = 789; // Long | ID do usuário organizador a ser removido
         try {
-            apiInstance.eventsEventIdOrganizersUserIdDelete(eventId, userId);
+            apiInstance.editionEditionIdOrganizersUserIdDelete(editionId, userId);
         } catch (ApiException e) {
-            System.err.println("Exception when calling OrganizerApi#eventsEventIdOrganizersUserIdDelete");
+            System.err.println("Exception when calling OrganizerApi#editionEditionIdOrganizersUserIdDelete");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-groovy">
+  <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Long *eventId = 789; // ID do evento do qual o organizador será removido
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Long *editionId = 789; // ID do evento do qual o organizador será removido
 Long *userId = 789; // ID do usuário organizador a ser removido
 
 OrganizerApi *apiInstance = [[OrganizerApi alloc] init];
 
 // Remover um organizador de uma edição de evento
-[apiInstance eventsEventIdOrganizersUserIdDeleteWith:eventId
+[apiInstance editionEditionIdOrganizersUserIdDeleteWith:editionId
     userId:userId
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -10059,11 +10059,11 @@ OrganizerApi *apiInstance = [[OrganizerApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-javascript">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var ApiDeGerenciamentoDeEventos = require('api_de_gerenciamento_de_eventos');
 
 var api = new ApiDeGerenciamentoDeEventos.OrganizerApi()
-var eventId = 789; // {{Long}} ID do evento do qual o organizador será removido
+var editionId = 789; // {{Long}} ID do evento do qual o organizador será removido
 var userId = 789; // {{Long}} ID do usuário organizador a ser removido
 
 var callback = function(error, data, response) {
@@ -10073,14 +10073,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.eventsEventIdOrganizersUserIdDelete(eventId, userId, callback);
+api.editionEditionIdOrganizersUserIdDelete(editionId, userId, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-angular">
+                            <!--<div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-csharp">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -10089,23 +10089,23 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class eventsEventIdOrganizersUserIdDeleteExample
+    public class editionEditionIdOrganizersUserIdDeleteExample
     {
         public void main()
         {
 
             var apiInstance = new OrganizerApi();
-            var eventId = 789;  // Long | ID do evento do qual o organizador será removido
+            var editionId = 789;  // Long | ID do evento do qual o organizador será removido
             var userId = 789;  // Long | ID do usuário organizador a ser removido
 
             try
             {
                 // Remover um organizador de uma edição de evento
-                apiInstance.eventsEventIdOrganizersUserIdDelete(eventId, userId);
+                apiInstance.editionEditionIdOrganizersUserIdDelete(editionId, userId);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling OrganizerApi.eventsEventIdOrganizersUserIdDelete: " + e.Message );
+                Debug.Print("Exception when calling OrganizerApi.editionEditionIdOrganizersUserIdDelete: " + e.Message );
             }
         }
     }
@@ -10113,40 +10113,40 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-php">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiOrganizerApi();
-$eventId = 789; // Long | ID do evento do qual o organizador será removido
+$editionId = 789; // Long | ID do evento do qual o organizador será removido
 $userId = 789; // Long | ID do usuário organizador a ser removido
 
 try {
-    $api_instance->eventsEventIdOrganizersUserIdDelete($eventId, $userId);
+    $api_instance->editionEditionIdOrganizersUserIdDelete($editionId, $userId);
 } catch (Exception $e) {
-    echo 'Exception when calling OrganizerApi->eventsEventIdOrganizersUserIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrganizerApi->editionEditionIdOrganizersUserIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-perl">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::OrganizerApi;
 
 my $api_instance = WWW::SwaggerClient::OrganizerApi->new();
-my $eventId = 789; # Long | ID do evento do qual o organizador será removido
+my $editionId = 789; # Long | ID do evento do qual o organizador será removido
 my $userId = 789; # Long | ID do usuário organizador a ser removido
 
 eval { 
-    $api_instance->eventsEventIdOrganizersUserIdDelete(eventId => $eventId, userId => $userId);
+    $api_instance->editionEditionIdOrganizersUserIdDelete(editionId => $editionId, userId => $userId);
 };
 if ($@) {
-    warn "Exception when calling OrganizerApi->eventsEventIdOrganizersUserIdDelete: $@\n";
+    warn "Exception when calling OrganizerApi->editionEditionIdOrganizersUserIdDelete: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Organizer-eventsEventIdOrganizersUserIdDelete-0-python">
+                            <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizersUserIdDelete-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -10155,14 +10155,14 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.OrganizerApi()
-eventId = 789 # Long | ID do evento do qual o organizador será removido
+editionId = 789 # Long | ID do evento do qual o organizador será removido
 userId = 789 # Long | ID do usuário organizador a ser removido
 
 try: 
     # Remover um organizador de uma edição de evento
-    api_instance.events_event_id_organizers_user_id_delete(eventId, userId)
+    api_instance.edition_edition_id_organizers_user_id_delete(editionId, userId)
 except ApiException as e:
-    print("Exception when calling OrganizerApi->eventsEventIdOrganizersUserIdDelete: %s\n" % e)</code></pre>
+    print("Exception when calling OrganizerApi->editionEditionIdOrganizersUserIdDelete: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -10174,11 +10174,11 @@ except ApiException as e:
                                   <th width="150px">Name</th>
                                   <th>Description</th>
                                 </tr>
-                                  <tr><td style="width:150px;">eventId*</td>
+                                  <tr><td style="width:150px;">editionId*</td>
                                   <td>
                                   
                                   
-                                      <div id="d2e199_eventsEventIdOrganizersUserIdDelete_eventId">
+                                      <div id="d2e199_editionEditionIdOrganizersUserIdDelete_editionId">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -10203,7 +10203,7 @@ except ApiException as e:
                                   <td>
                                   
                                   
-                                      <div id="d2e199_eventsEventIdOrganizersUserIdDelete_userId">
+                                      <div id="d2e199_editionEditionIdOrganizersUserIdDelete_userId">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -10243,14 +10243,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersUserIdDelete-404-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-editionEditionIdOrganizersUserIdDelete-404-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersUserIdDelete-404-schema">
-                                  <div id='responses-eventsEventIdOrganizersUserIdDelete-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-editionEditionIdOrganizersUserIdDelete-404-schema">
+                                  <div id='responses-editionEditionIdOrganizersUserIdDelete-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -10285,14 +10285,14 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-eventsEventIdOrganizersUserIdDelete-404-schema-data').val(stringify(schema));
-                                        var result = $('#responses-eventsEventIdOrganizersUserIdDelete-404-schema-404');
+                                        $('#responses-editionEditionIdOrganizersUserIdDelete-404-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionEditionIdOrganizersUserIdDelete-404-schema-404');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-eventsEventIdOrganizersUserIdDelete-404-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-editionEditionIdOrganizersUserIdDelete-404-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -10300,14 +10300,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-eventsEventIdOrganizersUserIdDelete-503-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-editionEditionIdOrganizersUserIdDelete-503-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-eventsEventIdOrganizersUserIdDelete-503-schema">
-                                  <div id='responses-eventsEventIdOrganizersUserIdDelete-503-schema-503' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-editionEditionIdOrganizersUserIdDelete-503-schema">
+                                  <div id='responses-editionEditionIdOrganizersUserIdDelete-503-schema-503' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -10342,14 +10342,14 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-eventsEventIdOrganizersUserIdDelete-503-schema-data').val(stringify(schema));
-                                        var result = $('#responses-eventsEventIdOrganizersUserIdDelete-503-schema-503');
+                                        $('#responses-editionEditionIdOrganizersUserIdDelete-503-schema-data').val(stringify(schema));
+                                        var result = $('#responses-editionEditionIdOrganizersUserIdDelete-503-schema-503');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-eventsEventIdOrganizersUserIdDelete-503-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-editionEditionIdOrganizersUserIdDelete-503-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 

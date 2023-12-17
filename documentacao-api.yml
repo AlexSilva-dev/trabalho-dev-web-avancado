@@ -1,115 +1,87 @@
+---
 openapi: 3.0.3
 info:
-  version: "1.0.0"
   title: API de Gerenciamento de Eventos
-  description: >
-    A Sociedade Brasileira de Computação deseja adotar um novo sistema para
-    apoiar os organizadores dos eventos que realiza anualmente na criação dos
-    websites destes eventos. O novo sistema seria um CMS com o objetivo de
-    facilitar o registro pelos organizadores das informações sobre o evento que
-    devem constar do site, em especial, a lista de atividades que compõem o
-    evento, ou seja, a programação. Além disso, o sistema tem o objetivo de
-    permitir que os participantes planejem de quais atividades querem participar,
-    recebendo informações sobre estas.
-    O Administrador do sistema pode cadastrar/criar eventos específicos,
-    fornecendo o nome, uma descrição, uma sigla e um "caminho". Ele pode
-    também cadastrar uma edição anual de um evento, fornecendo o ano, o
-    número da edição, data inicial e data final da edição, e a cidade onde será
-    realizada. Além disso, pode autorizar a um usuário a se tornar responsável por
-    esta edição, assumindo o papel de Organizador da edição. Dessa forma,
-    quando o Organizador fornecer as informações necessárias, um site do evento
-    será disponibilizado no endereço "site do sistema"/"caminho do evento"/"ano da
-    edição".
-    O Organizador poderá fornecer informações adicionais sobre a edição
-    do evento sob a sua responsabilidade:
-    • A chamada de trabalhos do evento, que é um texto que descreve o tipo
-    de trabalhos que serão aceitos pelo evento;
-    • Os prazos para o evento, ou seja, as datas limites para submissão de
-    trabalhos, divulgação dos trabalhos aceitos e entrega da versão final;
-    • Informações sobre inscrições, incluindo os preços por lotes e link para o
-    sistema de inscrições;
-    • A lista de membros da organização do evento.
-    O organizador poderá também cadastrar as atividades que compõem a
-    programação do evento, indicando em que local serão realizadas. Para isso,
-    primeiramente o organizador deverá cadastrar todos os espaços disponíveis
-    (auditórios, anfiteatros, salas, etc). Depois deverá cadastrar cada atividade,
-    indicando o tipo (palestra, painel, sessão técnica, etc), nome, descrição, data,
-    horário inicial, horário final e o local em que será realizada (espaço).
-    Os usuários poderão consultar essas informações de forma anônima,
-    acessando o site do evento, que apresentará o conteúdo estruturado em
-    páginas. Na página principal (home) os usuários poderão ver a descrição, data
-    e local do evento. Na página "chamada" os usuários poderão ver a chamada de
-    trabalhos do evento e prazos. Na página "inscrições" os usuários poderão ver
-    informações gerais sobre como se inscrever no evento. Na página
-    "organização" os usuários poderão ver informações gerais sobre a equipe
-    envolvida na organização do evento.
-    Na página "programação", os usuários poderão ver uma tabela com a
-    programação diária do evento, mas sem detalhamento (sem apresentar a
-    descrição de cada atividade). Esta página deverá oferecer links para páginas
-    de detalhamento de cada atividade, na qual são apresentados todos os
-    detalhes sobre esta.
-    Os usuários poderão se cadastrar no sistema diretamente pela web e
-    quando estiverem logados, terão a opção de "favoritar" uma ou mais
-    atividades. Nesse caso, quando acessarem a página "programação" as
-    atividades favoritadas estarão assinaladas. Além disso, ao visitar a página de
-    detalhamento de uma atividade, ele verá também a lista dos usuários que
-    favoritaram esta atividade. Diariamente, 1 hora antes do início do evento, o
-    usuário cadastrado receberá uma mensagem com a lista de atividades que
-    acontecerão naquele dia e que ele marcou como favoritas.
-
+  description: |
+    A Sociedade Brasileira de Computação deseja adotar um novo sistema para apoiar os organizadores dos eventos que realiza anualmente na criação dos websites destes eventos. O novo sistema seria um CMS com o objetivo de facilitar o registro pelos organizadores das informações sobre o evento que devem constar do site, em especial, a lista de atividades que compõem o evento, ou seja, a programação. Além disso, o sistema tem o objetivo de permitir que os participantes planejem de quais atividades querem participar, recebendo informações sobre estas. O Administrador do sistema pode cadastrar/criar eventos específicos, fornecendo o nome, uma descrição, uma sigla e um "caminho". Ele pode também cadastrar uma edição anual de um evento, fornecendo o ano, o número da edição, data inicial e data final da edição, e a cidade onde será realizada. Além disso, pode autorizar a um usuário a se tornar responsável por esta edição, assumindo o papel de Organizador da edição. Dessa forma, quando o Organizador fornecer as informações necessárias, um site do evento será disponibilizado no endereço "site do sistema"/"caminho do evento"/"ano da edição". O Organizador poderá fornecer informações adicionais sobre a edição do evento sob a sua responsabilidade: • A chamada de trabalhos do evento, que é um texto que descreve o tipo de trabalhos que serão aceitos pelo evento; • Os prazos para o evento, ou seja, as datas limites para submissão de trabalhos, divulgação dos trabalhos aceitos e entrega da versão final; • Informações sobre inscrições, incluindo os preços por lotes e link para o sistema de inscrições; • A lista de membros da organização do evento. O organizador poderá também cadastrar as atividades que compõem a programação do evento, indicando em que local serão realizadas. Para isso, primeiramente o organizador deverá cadastrar todos os espaços disponíveis (auditórios, anfiteatros, salas, etc). Depois deverá cadastrar cada atividade, indicando o tipo (palestra, painel, sessão técnica, etc), nome, descrição, data, horário inicial, horário final e o local em que será realizada (espaço). Os usuários poderão consultar essas informações de forma anônima, acessando o site do evento, que apresentará o conteúdo estruturado em páginas. Na página principal (home) os usuários poderão ver a descrição, data e local do evento. Na página "chamada" os usuários poderão ver a chamada de trabalhos do evento e prazos. Na página "inscrições" os usuários poderão ver informações gerais sobre como se inscrever no evento. Na página "organização" os usuários poderão ver informações gerais sobre a equipe envolvida na organização do evento. Na página "programação", os usuários poderão ver uma tabela com a programação diária do evento, mas sem detalhamento (sem apresentar a descrição de cada atividade). Esta página deverá oferecer links para páginas de detalhamento de cada atividade, na qual são apresentados todos os detalhes sobre esta. Os usuários poderão se cadastrar no sistema diretamente pela web e quando estiverem logados, terão a opção de "favoritar" uma ou mais atividades. Nesse caso, quando acessarem a página "programação" as atividades favoritadas estarão assinaladas. Além disso, ao visitar a página de detalhamento de uma atividade, ele verá também a lista dos usuários que favoritaram esta atividade. Diariamente, 1 hora antes do início do evento, o usuário cadastrado receberá uma mensagem com a lista de atividades que acontecerão naquele dia e que ele marcou como favoritas.
+  version: 1.0.0
 servers:
-  # Added by API Auto Mocking Plugin
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0
-  - url: http://localhost:8000
-    description: Local server
+- url: https://virtserver.swaggerhub.com/ALEXALEQ321/dev/1.0.0
+  description: SwaggerHub API Auto Mocking
+- url: http://localhost:8000
+  description: Local server
 tags:
-  - name: Event
-    description: Operações relacionadas a eventos
-  - name: Space
-    description: Gerenciamento de espaços para eventos
-  - name: Edition
-    description: Gerenciamento de edições de eventos
-  - name: User
-    description: Operações de usuários
-  - name: Organizer
-    description: Operações específicas do organizador
-  - name: Activity
-    description: Gerenciamento de atividades dos eventos
+- name: Event
+  description: Operações relacionadas a eventos
+- name: Space
+  description: Gerenciamento de espaços para eventos
+- name: Edition
+  description: Gerenciamento de edições de eventos
+- name: User
+  description: Operações de usuários
+- name: Organizer
+  description: Operações específicas do organizador
+- name: Activity
+  description: Gerenciamento de atividades dos eventos
 paths:
   /events:
+    get:
+      tags:
+      - Event
+      summary: Listar todos os eventos
+      responses:
+        "200":
+          description: Lista de todos os eventos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+              examples:
+                eventList:
+                  summary: Exemplo de lista de eventos
+                  value:
+                  - id: 1
+                    name: Conferência Internacional sobre Computação
+                    acronym: CIC
+                    description: Evento sobre avanços na área de computação.
+                  - id: 2
+                    name: Simpósio de Segurança Cibernética
+                    acronym: SSC
+                    description: Discussão sobre segurança e privacidade na era digital.
     post:
       tags:
-        - Event
+      - Event
       summary: Criar um novo evento
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Event"
+              $ref: '#/components/schemas/Event'
             examples:
               newEvent:
                 summary: Exemplo de novo evento
                 value:
-                  name: "Conferência Internacional sobre Computação"
-                  acronym: "CIC"
-                  description: "Evento sobre avanços na área de computação."
+                  name: Conferência Internacional sobre Computação
+                  acronym: CIC
+                  description: Evento sobre avanços na área de computação.
+        required: true
       responses:
         "201":
           description: Novo evento criado
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Event"
+                $ref: '#/components/schemas/Event'
               examples:
                 newEventResponse:
                   summary: Exemplo de resposta de evento criado
                   value:
                     id: 1
-                    name: "Conferência Internacional sobre Computação"
-                    acronym: "CIC"
-                    description: "Evento sobre avanços na área de computação."
+                    name: Conferência Internacional sobre Computação
+                    acronym: CIC
+                    description: Evento sobre avanços na área de computação.
         "400":
           description: Formulário com dados incorretos
           content:
@@ -121,8 +93,8 @@ paths:
                   summary: Dados fornecidos não são validos.
                   value:
                     code: 400
-                    error: "Dados fornecidos não são validos."
-        '503':
+                    error: Dados fornecidos não são validos.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -133,62 +105,37 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
-    get:
-      tags:
-        - Event
-      summary: Listar todos os eventos
-      responses:
-        "200":
-          description: Lista de todos os eventos
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Event"
-              examples:
-                eventList:
-                  summary: Exemplo de lista de eventos
-                  value:
-                    - id: 1
-                      name: "Conferência Internacional sobre Computação"
-                      acronym: "CIC"
-                      description: "Evento sobre avanços na área de computação."
-                    - id: 2
-                      name: "Simpósio de Segurança Cibernética"
-                      acronym: "SSC"
-                      description: "Discussão sobre segurança e privacidade na era digital."
-
+                    error: Servidor Indisponível.
   /events/{eventId}:
     get:
       tags:
-        - Event
+      - Event
       summary: Obter detalhes de um evento específico
       parameters:
-        - name: eventId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID único do evento a ser obtido
+      - name: eventId
+        in: path
+        description: ID único do evento a ser obtido
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
         "200":
           description: Detalhes do evento
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Event"
+                $ref: '#/components/schemas/Event'
               examples:
                 specificEvent:
                   summary: Exemplo de um evento específico
                   value:
                     id: 1
-                    name: "Conferência Internacional sobre Computação"
-                    acronym: "CIC"
-                    description: "Evento sobre avanços na área de computação."
+                    name: Conferência Internacional sobre Computação
+                    acronym: CIC
+                    description: Evento sobre avanços na área de computação.
         "404":
           description: Erro ao localizar recurso
           content:
@@ -200,8 +147,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -212,33 +159,34 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
     put:
       tags:
-        - Event
+      - Event
       summary: Atualizar informações de um evento específico
       parameters:
-        - name: eventId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do evento a ser atualizado
-      requestBody:
+      - name: eventId
+        in: path
+        description: ID do evento a ser atualizado
         required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Event"
+              $ref: '#/components/schemas/Event'
             examples:
               updateEvent:
                 summary: Exemplo de atualização de evento
                 value:
-                  name: "Conferência Internacional de IA"
-                  acronym: "CIIA"
-                  description: "Evento atualizado para focar em Inteligência Artificial."
+                  name: Conferência Internacional de IA
+                  acronym: CIIA
+                  description: Evento atualizado para focar em Inteligência Artificial.
+        required: true
       responses:
         "200":
           description: Evento atualizado
@@ -253,7 +201,7 @@ paths:
                   summary: Dados fornecidos não são validos.
                   value:
                     code: 400
-                    error: "Dados fornecidos não são validos."
+                    error: Dados fornecidos não são validos.
         "404":
           description: Erro ao localizar recurso
           content:
@@ -265,8 +213,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -277,20 +225,21 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
     delete:
       tags:
-        - Event
+      - Event
       summary: Excluir um evento específico
       parameters:
-        - name: eventId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do evento a ser excluído
+      - name: eventId
+        in: path
+        description: ID do evento a ser excluído
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
         "200":
           description: Evento excluído
@@ -305,8 +254,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -317,89 +266,22 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
   /events/{eventId}/editions:
-    post:
-      tags:
-        - Event
-      summary: Criar uma nova edição para um evento específico
-      parameters:
-        - name: eventId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do evento para o qual a edição está sendo criada
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Edition"
-            examples:
-              newEdition:
-                summary: Exemplo de uma nova edição
-                value:
-                  number: 5
-                  year: 2023
-                  start_date: "2023-08-01"
-                  end_date: "2023-08-03"
-                  city: "Cidade da Tecnologia"
-      responses:
-        "201":
-          description: Nova edição criada
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Edition"
-              examples:
-                newEditionResponse:
-                  summary: Exemplo de uma nova edição
-                  value:
-                    number: 7
-                    year: 2023
-                    start_date: "2023-10-01"
-                    end_date: "2023-10-03"
-                    city: "Cidade da Inovação"
-        "400":
-          description: Formulário com dados incorretos
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidData'
-              examples:
-                newUserResponse:
-                  summary: Dados fornecidos não são validos.
-                  value:
-                    code: 400
-                    error: "Dados fornecidos não são validos."
-        '503':
-          description: Erro de servidor
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-              examples:
-                newUserResponse:
-                  summary: Servidor Indisponível
-                  value:
-                    code: 503
-                    error: "Servidor Indisponível."
-
     get:
       tags:
-        - Event
+      - Event
       summary: Listar todas as edições de um evento específico
       parameters:
-        - name: eventId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do evento para o qual as edições estão sendo listadas
+      - name: eventId
+        in: path
+        description: ID do evento para o qual as edições estão sendo listadas
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
         "200":
           description: Lista de todas as edições do evento
@@ -408,23 +290,23 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Edition"
+                  $ref: '#/components/schemas/Edition'
               examples:
                 editionList:
                   summary: Exemplo de lista de edições
                   value:
-                    - id: 101
-                      number: 4
-                      year: 2022
-                      start_date: "2022-08-01"
-                      end_date: "2022-08-03"
-                      city: "Cidade da Tecnologia"
-                    - id: 102
-                      number: 5
-                      year: 2023
-                      start_date: "2023-08-01"
-                      end_date: "2023-08-03"
-                      city: "Cidade da Tecnologia"
+                  - id: 101
+                    number: 4
+                    year: 2022
+                    start_date: 2022-08-01
+                    end_date: 2022-08-03
+                    city: Cidade da Tecnologia
+                  - id: 102
+                    number: 5
+                    year: 2023
+                    start_date: 2023-08-01
+                    end_date: 2023-08-03
+                    city: Cidade da Tecnologia
         "404":
           description: Erro ao localizar recurso
           content:
@@ -436,8 +318,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -448,23 +330,93 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
+    post:
+      tags:
+      - Event
+      summary: Criar uma nova edição para um evento específico
+      parameters:
+      - name: eventId
+        in: path
+        description: ID do evento para o qual a edição está sendo criada
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Edition'
+            examples:
+              newEdition:
+                summary: Exemplo de uma nova edição
+                value:
+                  number: 5
+                  year: 2023
+                  start_date: 2023-08-01
+                  end_date: 2023-08-03
+                  city: Cidade da Tecnologia
+        required: true
+      responses:
+        "201":
+          description: Nova edição criada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edition'
+              examples:
+                newEditionResponse:
+                  summary: Exemplo de uma nova edição
+                  value:
+                    number: 7
+                    year: 2023
+                    start_date: 2023-10-01
+                    end_date: 2023-10-03
+                    city: Cidade da Inovação
+        "400":
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: Dados fornecidos não são validos.
+        "503":
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: Servidor Indisponível.
   /editions/{editionId}:
     get:
       tags:
-        - Edition
+      - Edition
       summary: Obter detalhes de uma edição específica
       parameters:
-        - name: editionId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID único da edição a ser obtida
+      - name: editionId
+        in: path
+        description: ID único da edição a ser obtida
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Detalhes da edição
           content:
             application/json:
@@ -477,10 +429,10 @@ paths:
                     id: 1001
                     number: 5
                     year: 2023
-                    start_date: "2023-08-01"
-                    end_date: "2023-08-03"
-                    city: "Cidade da Tecnologia"
-        '404':
+                    start_date: 2023-08-01
+                    end_date: 2023-08-03
+                    city: Cidade da Tecnologia
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -491,8 +443,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -503,22 +455,22 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
     put:
       tags:
-        - Edition
+      - Edition
       summary: Atualizar informações de uma edição específica
       parameters:
-        - name: editionId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da edição a ser atualizada
-      requestBody:
+      - name: editionId
+        in: path
+        description: ID da edição a ser atualizada
         required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
         content:
           application/json:
             schema:
@@ -529,13 +481,14 @@ paths:
                 value:
                   number: 6
                   year: 2024
-                  start_date: "2024-08-15"
-                  end_date: "2024-08-17"
-                  city: "Nova Cidade da Tecnologia"
+                  start_date: 2024-08-15
+                  end_date: 2024-08-17
+                  city: Nova Cidade da Tecnologia
+        required: true
       responses:
-        '200':
+        "200":
           description: Edição atualizada
-        '400':
+        "400":
           description: Formulário com dados incorretos
           content:
             application/json:
@@ -546,8 +499,8 @@ paths:
                   summary: Dados fornecidos não são validos.
                   value:
                     code: 400
-                    error: "Dados fornecidos não são validos."
-        '404':
+                    error: Dados fornecidos não são validos.
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -558,8 +511,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -570,24 +523,25 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
     delete:
       tags:
-        - Edition
+      - Edition
       summary: Excluir uma edição específica
       parameters:
-        - name: editionId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da edição a ser excluída
+      - name: editionId
+        in: path
+        description: ID da edição a ser excluída
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Edição excluída
-        '404':
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -598,8 +552,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -610,75 +564,14 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
-
+                    error: Servidor Indisponível.
   /spaces:
-    post:
-      tags:
-        - Space
-      summary: Criar um novo espaço
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Space'
-            examples:
-              newSpace:
-                summary: Exemplo de novo espaço
-                value:
-                  name: "Auditório Principal"
-                  location: "Prédio 5, Campus Central"
-                  capacity: 500
-                  resources: ["Projetor", "Sistema de Som"]
-      responses:
-        '201':
-          description: Novo espaço criado
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Space'
-              examples:
-                newSpaceResponse:
-                  summary: Exemplo de resposta de espaço criado
-                  value:
-                    id: 3001
-                    name: "Auditório Principal"
-                    location: "Prédio 5, Campus Central"
-                    capacity: 500
-                    resources: ["Projetor", "Sistema de Som"]
-        '400':
-          description: Formulário com dados incorretos
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidData'
-              examples:
-                newUserResponse:
-                  summary: Dados fornecidos não são validos.
-                  value:
-                    code: 400
-                    error: "Dados fornecidos não são validos."
-        '503':
-          description: Erro de servidor
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-              examples:
-                newUserResponse:
-                  summary: Servidor Indisponível
-                  value:
-                    code: 503
-                    error: "Servidor Indisponível."
-
     get:
       tags:
-        - Space
+      - Space
       summary: Listar todos os espaços disponíveis
       responses:
-        '200':
+        "200":
           description: Lista de todos os espaços disponíveis
           content:
             application/json:
@@ -690,101 +583,59 @@ paths:
                 spacesList:
                   summary: Exemplo de lista de espaços
                   value:
-                    - id: 3001
-                      name: "Auditório Principal"
-                      location: "Prédio 5, Campus Central"
-                      capacity: 500
-                      resources: ["Projetor", "Sistema de Som"]
-                    - id: 3002
-                      name: "Sala de Conferências 2A"
-                      location: "Prédio 3, Campus Norte"
-                      capacity: 100
-                      resources: ["Quadro Branco", "Teleconferência"]
-
-  /spaces/{spaceId}:
-    get:
-      tags:
-        - Space
-      summary: Obter detalhes de um espaço específico
-      parameters:
-        - name: spaceId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID único do espaço a ser obtido
-      responses:
-        '200':
-          description: Detalhes do espaço
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Space'
-              examples:
-                specificSpace:
-                  summary: Exemplo de um espaço específico
-                  value:
-                    id: 3001
-                    name: "Auditório Principal"
+                  - id: 3001
+                    name: Auditório Principal
                     location: "Prédio 5, Campus Central"
                     capacity: 500
-                    resources: ["Projetor", "Sistema de Som"]
-        '404':
-          description: Erro ao localizar recurso
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-              examples:
-                newUserResponse:
-                  summary: Recurso não encontrado
-                  value:
-                    code: 404
-                    error: "Recurso não encontrado."
-        '503':
-          description: Erro de servidor
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-              examples:
-                newUserResponse:
-                  summary: Servidor Indisponível
-                  value:
-                    code: 503
-                    error: "Servidor Indisponível."
-
-    put:
+                    resources:
+                    - Projetor
+                    - Sistema de Som
+                  - id: 3002
+                    name: Sala de Conferências 2A
+                    location: "Prédio 3, Campus Norte"
+                    capacity: 100
+                    resources:
+                    - Quadro Branco
+                    - Teleconferência
+    post:
       tags:
-        - Space
-      summary: Atualizar informações de um espaço específico
-      parameters:
-        - name: spaceId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do espaço a ser atualizado
+      - Space
+      summary: Criar um novo espaço
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Space'
             examples:
-              updateSpace:
-                summary: Exemplo de atualização de um espaço
+              newSpace:
+                summary: Exemplo de novo espaço
                 value:
-                  name: "Auditório Secundário"
-                  location: "Prédio 5, Campus Central - Andar 2"
-                  capacity: 300
-                  resources: ["Projetor", "Sistema de Som", "Lousa Digital"]
+                  name: Auditório Principal
+                  location: "Prédio 5, Campus Central"
+                  capacity: 500
+                  resources:
+                  - Projetor
+                  - Sistema de Som
+        required: true
       responses:
-        '200':
-          description: Espaço atualizado
-        '400':
+        "201":
+          description: Novo espaço criado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Space'
+              examples:
+                newSpaceResponse:
+                  summary: Exemplo de resposta de espaço criado
+                  value:
+                    id: 3001
+                    name: Auditório Principal
+                    location: "Prédio 5, Campus Central"
+                    capacity: 500
+                    resources:
+                    - Projetor
+                    - Sistema de Som
+        "400":
           description: Formulário com dados incorretos
           content:
             application/json:
@@ -795,20 +646,8 @@ paths:
                   summary: Dados fornecidos não são validos.
                   value:
                     code: 400
-                    error: "Dados fornecidos não são validos."
-        '404':
-          description: Erro ao localizar recurso
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-              examples:
-                newUserResponse:
-                  summary: Recurso não encontrado
-                  value:
-                    code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Dados fornecidos não são validos.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -819,24 +658,152 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
+  /spaces/{spaceId}:
+    get:
+      tags:
+      - Space
+      summary: Obter detalhes de um espaço específico
+      parameters:
+      - name: spaceId
+        in: path
+        description: ID único do espaço a ser obtido
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Detalhes do espaço
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Space'
+              examples:
+                specificSpace:
+                  summary: Exemplo de um espaço específico
+                  value:
+                    id: 3001
+                    name: Auditório Principal
+                    location: "Prédio 5, Campus Central"
+                    capacity: 500
+                    resources:
+                    - Projetor
+                    - Sistema de Som
+        "404":
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: Recurso não encontrado.
+        "503":
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: Servidor Indisponível.
+    put:
+      tags:
+      - Space
+      summary: Atualizar informações de um espaço específico
+      parameters:
+      - name: spaceId
+        in: path
+        description: ID do espaço a ser atualizado
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Space'
+            examples:
+              updateSpace:
+                summary: Exemplo de atualização de um espaço
+                value:
+                  name: Auditório Secundário
+                  location: "Prédio 5, Campus Central - Andar 2"
+                  capacity: 300
+                  resources:
+                  - Projetor
+                  - Sistema de Som
+                  - Lousa Digital
+        required: true
+      responses:
+        "200":
+          description: Espaço atualizado
+        "400":
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: Dados fornecidos não são validos.
+        "404":
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: Recurso não encontrado.
+        "503":
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: Servidor Indisponível.
     delete:
       tags:
-        - Space
+      - Space
       summary: Excluir um espaço específico
       parameters:
-        - name: spaceId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do espaço a ser excluído
+      - name: spaceId
+        in: path
+        description: ID do espaço a ser excluído
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Espaço excluído
-        '404':
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -847,8 +814,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -859,23 +826,24 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
   /editions/{editionId}/users:
     get:
       tags:
-        - Edition
+      - Edition
       summary: Listar usuários que estão cadastrados em uma edição
       parameters:
-        - name: editionId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da edição para listar os usuários
+      - name: editionId
+        in: path
+        description: ID da edição para listar os usuários
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Lista de usuários cadastrados na edição
           content:
             application/json:
@@ -887,17 +855,17 @@ paths:
                 usersList:
                   summary: Exemplo de lista de usuários
                   value:
-                    - id: 5001
-                      login: "participante01"
-                      email: "participante01@evento.com"
-                      name: "Alex Souza"
-                      affiliation: "Tech Corp"
-                    - id: 5002
-                      login: "participante02"
-                      email: "participante02@evento.com"
-                      name: "Patricia Oliveira"
-                      affiliation: "Inovação LTDA"
-        '404':
+                  - id: 5001
+                    login: participante01
+                    email: participante01@evento.com
+                    name: Alex Souza
+                    affiliation: Tech Corp
+                  - id: 5002
+                    login: participante02
+                    email: participante02@evento.com
+                    name: Patricia Oliveira
+                    affiliation: Inovação LTDA
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -908,8 +876,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -920,22 +888,22 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
     post:
       tags:
-        - Edition
+      - Edition
       summary: Cadastrar usuários em uma edição
       parameters:
-        - name: editionId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da edição na qual o usuário será cadastrado
-      requestBody:
+      - name: editionId
+        in: path
+        description: ID da edição na qual o usuário será cadastrado
         required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
         content:
           application/json:
             schema:
@@ -944,26 +912,27 @@ paths:
               newUser:
                 summary: Exemplo de cadastro de um novo usuário em uma edição
                 value:
-                  login: "novo_participante"
-                  email: "novo_participante@evento.com"
-                  name: "João Lima"
-                  affiliation: "Universidade Federal"
+                  login: novo_participante
+                  email: novo_participante@evento.com
+                  name: João Lima
+                  affiliation: Universidade Federal
+        required: true
       responses:
-        '201':
+        "201":
           description: Usuário Cadastrado na Edição
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
+                $ref: '#/components/schemas/User'
               examples:
                 newUserResponse:
                   summary: Exemplo de cadastro de novo usuário
                   value:
-                    login: "novo_participante"
-                    email: "novo_participante@evento.com"
-                    name: "Lucas Cavalcanti"
-                    affiliation: "Instituto Federal"
-        '400':
+                    login: novo_participante
+                    email: novo_participante@evento.com
+                    name: Lucas Cavalcanti
+                    affiliation: Instituto Federal
+        "400":
           description: Formulário com dados incorretos
           content:
             application/json:
@@ -974,8 +943,8 @@ paths:
                   summary: Dados fornecidos não são validos.
                   value:
                     code: 400
-                    error: "Dados fornecidos não são validos."
-        '404':
+                    error: Dados fornecidos não são validos.
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -986,8 +955,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -998,92 +967,24 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
-  /events/{eventId}/organizers:
-    post:
-      tags:
-        - Organizer
-      summary: Adicionar um organizador a uma edição de evento
-      parameters:
-        - name: eventId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do evento para o qual um organizador está sendo adicionado
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                userId:
-                  type: integer
-                  format: int64
-              required:
-                - userId
-            examples:
-              newOrganizer:
-                summary: Exemplo de adicionar um organizador
-                value:
-                  userId: 4001
-      responses:
-        '201':
-          description: Organizador adicionado ao evento
-        '400':
-          description: Formulário com dados incorretos
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidData'
-              examples:
-                newUserResponse:
-                  summary: Dados fornecidos não são validos.
-                  value:
-                    code: 400
-                    error: "Dados fornecidos não são validos."
-        '404':
-          description: Erro ao localizar recurso
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-              examples:
-                newUserResponse:
-                  summary: Recurso não encontrado
-                  value:
-                    code: 404
-                    error: "Recurso não encontrado."
-        '503':
-          description: Erro de servidor
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-              examples:
-                newUserResponse:
-                  summary: Servidor Indisponível
-                  value:
-                    code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
+  /edition/{editionId}/organizer:
     get:
       tags:
-        - Organizer
+      - Organizer
       summary: Obter a lista de usuários que fazem parte de uma edição de evento
       parameters:
-        - name: eventId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do evento do qual obter os organizadores
+      - name: editionId
+        in: path
+        description: ID do evento do qual obter os organizadores
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Lista de organizadores do evento
           content:
             application/json:
@@ -1095,17 +996,17 @@ paths:
                 organizersList:
                   summary: Exemplo de lista de organizadores
                   value:
-                    - id: 4001
-                      login: "organizador01"
-                      email: "organizador01@evento.com"
-                      name: "Carlos Andrade"
-                      affiliation: "Comitê Organizador"
-                    - id: 4002
-                      login: "organizador02"
-                      email: "organizador02@evento.com"
-                      name: "Maria Costa"
-                      affiliation: "Comitê Organizador"
-        '404':
+                  - id: 4001
+                    login: organizador01
+                    email: organizador01@evento.com
+                    name: Carlos Andrade
+                    affiliation: Comitê Organizador
+                  - id: 4002
+                    login: organizador02
+                    email: organizador02@evento.com
+                    name: Maria Costa
+                    affiliation: Comitê Organizador
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -1116,8 +1017,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1128,32 +1029,99 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
-  /events/{eventId}/organizers/{userId}:
+                    error: Servidor Indisponível.
+    post:
+      tags:
+      - Organizer
+      summary: Adicionar um organizador a uma edição de evento
+      parameters:
+      - name: editionId
+        in: path
+        description: ID do edition para o qual um organizador está sendo adicionado
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/editionId_organizer_body'
+            examples:
+              newOrganizer:
+                summary: Exemplo de adicionar um organizador
+                value:
+                  userId: 4001
+        required: true
+      responses:
+        "201":
+          description: Organizador adicionado ao evento
+        "400":
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: Dados fornecidos não são validos.
+        "404":
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: Recurso não encontrado.
+        "503":
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: Servidor Indisponível.
+  /edition/{editionId}/organizers/{userId}:
     delete:
       tags:
-        - Organizer
+      - Organizer
       summary: Remover um organizador de uma edição de evento
       parameters:
-        - name: eventId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do evento do qual o organizador será removido
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do usuário organizador a ser removido
+      - name: editionId
+        in: path
+        description: ID do evento do qual o organizador será removido
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      - name: userId
+        in: path
+        description: ID do usuário organizador a ser removido
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Organizador removido do evento
-        '404':
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -1164,8 +1132,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1176,23 +1144,24 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
   /events/{eventId}/users/:
     get:
       tags:
-        - User
+      - User
       summary: Obtém a lista de membros de todas as edições de um evento
       parameters:
-        - name: eventId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do evento do qual obter a lista de membros
+      - name: eventId
+        in: path
+        description: ID do evento do qual obter a lista de membros
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Lista de membros do evento
           content:
             application/json:
@@ -1204,17 +1173,17 @@ paths:
                 usersList:
                   summary: Exemplo de lista de membros do evento
                   value:
-                    - id: 5001
-                      login: "membro01"
-                      email: "membro01@evento.com"
-                      name: "Roberto Nunes"
-                      affiliation: "Universidade ABC"
-                    - id: 5002
-                      login: "membro02"
-                      email: "membro02@evento.com"
-                      name: "Juliana Martins"
-                      affiliation: "Empresa XYZ"
-        '404':
+                  - id: 5001
+                    login: membro01
+                    email: membro01@evento.com
+                    name: Roberto Nunes
+                    affiliation: Universidade ABC
+                  - id: 5002
+                    login: membro02
+                    email: membro02@evento.com
+                    name: Juliana Martins
+                    affiliation: Empresa XYZ
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -1225,8 +1194,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1237,107 +1206,24 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
-
+                    error: Servidor Indisponível.
   /editions/{editionId}/activities:
-    post:
-      tags:
-        - Activity
-      summary: Criar uma nova atividade para uma edição de evento
-      parameters:
-        - name: editionId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da edição na qual a atividade será criada
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Activity'
-            examples:
-              newActivity:
-                summary: Exemplo de uma nova atividade
-                value:
-                  name: "Workshop de Segurança Cibernética"
-                  type: "Workshop"
-                  description: "Um workshop interativo sobre as últimas tendências em segurança cibernética."
-                  date: "2023-08-02"
-                  start_time: "10:00"
-                  end_time: "12:00"
-      responses:
-        '201':
-          description: Nova atividade criada
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Activity'
-              examples:
-                newActivityResponse:
-                  summary: Exemplo de resposta de atividade criada
-                  value:
-                    id: 2001
-                    name: "Workshop de Segurança Cibernética"
-                    type: "Workshop"
-                    description: "Um workshop interativo sobre as últimas tendências em segurança cibernética."
-                    date: "2023-08-02"
-                    start_time: "10:00"
-                    end_time: "12:00"
-        '400':
-          description: Formulário com dados incorretos
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidData'
-              examples:
-                newUserResponse:
-                  summary: Dados fornecidos não são validos.
-                  value:
-                    code: 400
-                    error: "Dados fornecidos não são validos."
-        '404':
-          description: Erro ao localizar recurso
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-              examples:
-                newUserResponse:
-                  summary: Recurso não encontrado
-                  value:
-                    code: 404
-                    error: "Recurso não encontrado."
-        '503':
-          description: Erro de servidor
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-              examples:
-                newUserResponse:
-                  summary: Servidor Indisponível
-                  value:
-                    code: 503
-                    error: "Servidor Indisponível."
-
     get:
       tags:
-        - Activity
+      - Activity
       summary: Listar todas as atividades de uma edição de evento
       parameters:
-        - name: editionId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da edição para listar atividades
+      - name: editionId
+        in: path
+        description: ID da edição para listar atividades
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Lista de atividades da edição
           content:
             application/json:
@@ -1349,21 +1235,21 @@ paths:
                 activitiesList:
                   summary: Exemplo de lista de atividades de uma edição
                   value:
-                    - id: 2001
-                      name: "Workshop de Segurança Cibernética"
-                      type: "Workshop"
-                      description: "Um workshop interativo sobre as últimas tendências em segurança cibernética."
-                      date: "2023-08-02"
-                      start_time: "10:00"
-                      end_time: "12:00"
-                    - id: 2002
-                      name: "Painel sobre Inovação Tecnológica"
-                      type: "Painel"
-                      description: "Discussão com líderes da indústria sobre o futuro da tecnologia."
-                      date: "2023-08-02"
-                      start_time: "14:00"
-                      end_time: "16:00"
-        '404':
+                  - id: 2001
+                    name: Workshop de Segurança Cibernética
+                    type: Workshop
+                    description: Um workshop interativo sobre as últimas tendências em segurança cibernética.
+                    date: 2023-08-02
+                    start_time: 10:00
+                    end_time: 12:00
+                  - id: 2002
+                    name: Painel sobre Inovação Tecnológica
+                    type: Painel
+                    description: Discussão com líderes da indústria sobre o futuro da tecnologia.
+                    date: 2023-08-02
+                    start_time: 14:00
+                    end_time: 16:00
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -1374,8 +1260,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1386,30 +1272,117 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
+    post:
+      tags:
+      - Activity
+      summary: Criar uma nova atividade para uma edição de evento
+      parameters:
+      - name: editionId
+        in: path
+        description: ID da edição na qual a atividade será criada
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Activity'
+            examples:
+              newActivity:
+                summary: Exemplo de uma nova atividade
+                value:
+                  name: Workshop de Segurança Cibernética
+                  type: Workshop
+                  description: Um workshop interativo sobre as últimas tendências em segurança cibernética.
+                  date: 2023-08-02
+                  start_time: 10:00
+                  end_time: 12:00
+        required: true
+      responses:
+        "201":
+          description: Nova atividade criada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+              examples:
+                newActivityResponse:
+                  summary: Exemplo de resposta de atividade criada
+                  value:
+                    id: 2001
+                    name: Workshop de Segurança Cibernética
+                    type: Workshop
+                    description: Um workshop interativo sobre as últimas tendências em segurança cibernética.
+                    date: 2023-08-02
+                    start_time: 10:00
+                    end_time: 12:00
+        "400":
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: Dados fornecidos não são validos.
+        "404":
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: Recurso não encontrado.
+        "503":
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: Servidor Indisponível.
   /editions/{editionId}/activities/{activityId}:
     get:
       tags:
-        - Activity
+      - Activity
       summary: Obter detalhes de uma atividade específica
       parameters:
-        - name: editionId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da edição à qual a atividade pertence
-        - name: activityId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da atividade a ser obtida
+      - name: editionId
+        in: path
+        description: ID da edição à qual a atividade pertence
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      - name: activityId
+        in: path
+        description: ID da atividade a ser obtida
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Detalhes da atividade
           content:
             application/json:
@@ -1420,13 +1393,13 @@ paths:
                   summary: Exemplo de uma atividade específica
                   value:
                     id: 2001
-                    name: "Workshop de Segurança Cibernética"
-                    type: "Workshop"
-                    description: "Um workshop interativo sobre as últimas tendências em segurança cibernética."
-                    date: "2023-08-02"
-                    start_time: "10:00"
-                    end_time: "12:00"
-        '404':
+                    name: Workshop de Segurança Cibernética
+                    type: Workshop
+                    description: Um workshop interativo sobre as últimas tendências em segurança cibernética.
+                    date: 2023-08-02
+                    start_time: 10:00
+                    end_time: 12:00
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -1437,8 +1410,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1449,29 +1422,31 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
     put:
       tags:
-        - Activity
+      - Activity
       summary: Atualizar informações de uma atividade específica
       parameters:
-        - name: editionId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da edição à qual a atividade pertence
-        - name: activityId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da atividade a ser atualizada
-      requestBody:
+      - name: editionId
+        in: path
+        description: ID da edição à qual a atividade pertence
         required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      - name: activityId
+        in: path
+        description: ID da atividade a ser atualizada
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
         content:
           application/json:
             schema:
@@ -1480,16 +1455,17 @@ paths:
               updateActivity:
                 summary: Exemplo de atualização de uma atividade
                 value:
-                  name: "Workshop de Inteligência Artificial"
-                  type: "Workshop"
-                  description: "Um workshop atualizado para explorar a IA no mundo moderno."
-                  date: "2023-08-03"
-                  start_time: "10:00"
-                  end_time: "13:00"
+                  name: Workshop de Inteligência Artificial
+                  type: Workshop
+                  description: Um workshop atualizado para explorar a IA no mundo moderno.
+                  date: 2023-08-03
+                  start_time: 10:00
+                  end_time: 13:00
+        required: true
       responses:
-        '200':
+        "200":
           description: Atividade atualizada
-        '400':
+        "400":
           description: Formulário com dados incorretos
           content:
             application/json:
@@ -1500,8 +1476,8 @@ paths:
                   summary: Dados fornecidos não são validos.
                   value:
                     code: 400
-                    error: "Dados fornecidos não são validos."
-        '404':
+                    error: Dados fornecidos não são validos.
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -1512,8 +1488,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1524,31 +1500,34 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
     delete:
       tags:
-        - Activity
+      - Activity
       summary: Excluir uma atividade específica
       parameters:
-        - name: editionId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da edição à qual a atividade pertence
-        - name: activityId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da atividade a ser excluída
+      - name: editionId
+        in: path
+        description: ID da edição à qual a atividade pertence
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      - name: activityId
+        in: path
+        description: ID da atividade a ser excluída
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Atividade excluída
-        '404':
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -1559,8 +1538,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1571,14 +1550,13 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
+                    error: Servidor Indisponível.
   /users:
     post:
       tags:
-        - User
+      - User
       summary: Criar um novo usuário
       requestBody:
-        required: true
         content:
           application/json:
             schema:
@@ -1587,12 +1565,13 @@ paths:
               newUser:
                 summary: Exemplo de um novo usuário
                 value:
-                  login: "novo_usuario"
-                  email: "novo_usuario@exemplo.com"
-                  name: "João Silva"
-                  affiliation: "Universidade X"
+                  login: novo_usuario
+                  email: novo_usuario@exemplo.com
+                  name: João Silva
+                  affiliation: Universidade X
+        required: true
       responses:
-        '201':
+        "201":
           description: Novo usuário criado
           content:
             application/json:
@@ -1603,11 +1582,11 @@ paths:
                   summary: Exemplo de resposta de usuário criado
                   value:
                     id: 4001
-                    login: "novo_usuario"
-                    email: "novo_usuario@exemplo.com"
-                    name: "João Silva"
-                    affiliation: "Universidade X"
-        '400':
+                    login: novo_usuario
+                    email: novo_usuario@exemplo.com
+                    name: João Silva
+                    affiliation: Universidade X
+        "400":
           description: Formulário com dados incorretos
           content:
             application/json:
@@ -1618,8 +1597,8 @@ paths:
                   summary: Dados fornecidos não são validos.
                   value:
                     code: 400
-                    error: "Dados fornecidos não são validos."
-        '503':
+                    error: Dados fornecidos não são validos.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1630,42 +1609,35 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
   /users/login:
     post:
       tags:
-        - User
+      - User
       summary: Autenticar um usuário
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                login:
-                  type: string
-                password:
-                  type: string
-              required:
-                - login
-                - password
+              $ref: '#/components/schemas/users_login_body'
             examples:
               loginCredentials:
                 summary: Exemplo de credenciais de login
                 value:
-                  login: "usuario_existente"
-                  password: "senha123"
+                  login: usuario_existente
+                  password: senha123
+        required: true
       responses:
-        '200':
+        "200":
           description: Usuário autenticado com sucesso
           headers:
             Set-Cookie:
               description: Token de sessão para autenticação de usuário
+              style: simple
+              explode: false
               schema:
                 type: string
-        '401':
+        "401":
           description: Credenciais de acesso inválidas
           content:
             application/json:
@@ -1676,8 +1648,8 @@ paths:
                   summary: Credenciais de acesso inválidas
                   value:
                     code: 401
-                    error: "As credenciais fornecidas são invalidas."
-        '503':
+                    error: As credenciais fornecidas são invalidas.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1688,23 +1660,24 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
   /users/{userId}:
     get:
       tags:
-        - User
+      - User
       summary: Obter detalhes do perfil de um usuário
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID único do usuário a ser obtido
+      - name: userId
+        in: path
+        description: ID único do usuário a ser obtido
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Detalhes do perfil do usuário
           content:
             application/json:
@@ -1715,11 +1688,11 @@ paths:
                   summary: Exemplo do perfil de um usuário
                   value:
                     id: 4002
-                    login: "usuario_existente"
-                    email: "usuario_existente@exemplo.com"
-                    name: "Ana Pereira"
-                    affiliation: "Empresa Y"
-        '404':
+                    login: usuario_existente
+                    email: usuario_existente@exemplo.com
+                    name: Ana Pereira
+                    affiliation: Empresa Y
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -1730,8 +1703,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1742,22 +1715,22 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
     put:
       tags:
-        - User
+      - User
       summary: Atualizar informações do perfil de um usuário
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do usuário a ser atualizado
-      requestBody:
+      - name: userId
+        in: path
+        description: ID do usuário a ser atualizado
         required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
         content:
           application/json:
             schema:
@@ -1766,83 +1739,14 @@ paths:
               updateUser:
                 summary: Exemplo de atualização de perfil de usuário
                 value:
-                  name: "Ana Pereira"
-                  email: "ana.pereira@exemplo.com"
-                  affiliation: "Empresa Z"
-      responses:
-        '200':
-          description: Perfil do usuário atualizado
-        '400':
-          description: Formulário com dados incorretos
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidData'
-              examples:
-                newUserResponse:
-                  summary: Dados fornecidos não são validos.
-                  value:
-                    code: 400
-                    error: "Dados fornecidos não são validos."
-        '404':
-          description: Erro ao localizar recurso
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-              examples:
-                newUserResponse:
-                  summary: Recurso não encontrado
-                  value:
-                    code: 404
-                    error: "Recurso não encontrado."
-        '503':
-          description: Erro de servidor
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-              examples:
-                newUserResponse:
-                  summary: Servidor Indisponível
-                  value:
-                    code: 503
-                    error: "Servidor Indisponível."
-
-  /users/{userId}/favorites:
-    post:
-      tags:
-        - User
-      summary: Adicionar uma atividade aos favoritos de um usuário
-      parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do usuário
-      requestBody:
+                  name: Ana Pereira
+                  email: ana.pereira@exemplo.com
+                  affiliation: Empresa Z
         required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                activityId:
-                  type: integer
-                  format: int64
-              required:
-                - activityId
-            examples:
-              favoriteActivity:
-                summary: Exemplo de adicionar uma atividade aos favoritos
-                value:
-                  activityId: 2001
       responses:
-        '201': 
-          description: Atividade adicionada aos favoritos
-        '400':
+        "200":
+          description: Perfil do usuário atualizado
+        "400":
           description: Formulário com dados incorretos
           content:
             application/json:
@@ -1853,8 +1757,8 @@ paths:
                   summary: Dados fornecidos não são validos.
                   value:
                     code: 400
-                    error: "Dados fornecidos não são validos."
-        '404':
+                    error: Dados fornecidos não são validos.
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -1865,8 +1769,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1877,22 +1781,24 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
+                    error: Servidor Indisponível.
+  /users/{userId}/favorites:
     get:
       tags:
-        - User
+      - User
       summary: Listar atividades favoritas de um usuário
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do usuário
+      - name: userId
+        in: path
+        description: ID do usuário
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       responses:
-        '200':
+        "200":
           description: Lista de atividades favoritas do usuário
           content:
             application/json:
@@ -1904,21 +1810,21 @@ paths:
                 favoriteActivitiesList:
                   summary: Exemplo de lista de atividades favoritas
                   value:
-                    - id: 2001
-                      name: "Workshop de Segurança Cibernética"
-                      type: "Workshop"
-                      description: "Um workshop interativo sobre as últimas tendências em segurança cibernética."
-                      date: "2023-08-02"
-                      start_time: "10:00"
-                      end_time: "12:00"
-                    - id: 2002
-                      name: "Painel sobre Inovação Tecnológica"
-                      type: "Painel"
-                      description: "Discussão com líderes da indústria sobre o futuro da tecnologia."
-                      date: "2023-08-03"
-                      start_time: "14:00"
-                      end_time: "16:00"
-        '404':
+                  - id: 2001
+                    name: Workshop de Segurança Cibernética
+                    type: Workshop
+                    description: Um workshop interativo sobre as últimas tendências em segurança cibernética.
+                    date: 2023-08-02
+                    start_time: 10:00
+                    end_time: 12:00
+                  - id: 2002
+                    name: Painel sobre Inovação Tecnológica
+                    type: Painel
+                    description: Discussão com líderes da indústria sobre o futuro da tecnologia.
+                    date: 2023-08-03
+                    start_time: 14:00
+                    end_time: 16:00
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -1929,8 +1835,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -1941,89 +1847,36 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
-  /users/{userId}/favorites/{activityId}:
-    delete:
-      tags:
-        - User
-      summary: Remover uma atividade dos favoritos de um usuário
-      parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do usuário
-        - name: activityId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID da atividade a ser removida dos favoritos
-      responses:
-        '200':
-          description: Atividade removida dos favoritos
-        '404':
-          description: Erro ao localizar recurso
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-              examples:
-                newUserResponse:
-                  summary: Recurso não encontrado
-                  value:
-                    code: 404
-                    error: "Recurso não encontrado."
-        '503':
-          description: Erro de servidor
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-              examples:
-                newUserResponse:
-                  summary: Servidor Indisponível
-                  value:
-                    code: 503
-                    error: "Servidor Indisponível."
-
-  /users/{userId}/notifications:
+                    error: Servidor Indisponível.
     post:
       tags:
-        - User
-      summary: Enviar mensagens aos usuários cadastrados com informações sobre atividades favoritas
+      - User
+      summary: Adicionar uma atividade aos favoritos de um usuário
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: ID do usuário
-      requestBody:
+      - name: userId
+        in: path
+        description: ID do usuário
         required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                message:
-                  type: string
-              required:
-                - message
+              $ref: '#/components/schemas/userId_favorites_body'
             examples:
-              notificationMessage:
-                summary: Exemplo de mensagem de notificação
+              favoriteActivity:
+                summary: Exemplo de adicionar uma atividade aos favoritos
                 value:
-                  message: "Lembrete: Seu workshop favorito começa em uma hora."
+                  activityId: 2001
+        required: true
       responses:
-        '200':
-          description: Mensagem enviada com sucesso
-        '400':
+        "201":
+          description: Atividade adicionada aos favoritos
+        "400":
           description: Formulário com dados incorretos
           content:
             application/json:
@@ -2034,8 +1887,8 @@ paths:
                   summary: Dados fornecidos não são validos.
                   value:
                     code: 400
-                    error: "Dados fornecidos não são validos."
-        '404':
+                    error: Dados fornecidos não são validos.
+        "404":
           description: Erro ao localizar recurso
           content:
             application/json:
@@ -2046,8 +1899,8 @@ paths:
                   summary: Recurso não encontrado
                   value:
                     code: 404
-                    error: "Recurso não encontrado."
-        '503':
+                    error: Recurso não encontrado.
+        "503":
           description: Erro de servidor
           content:
             application/json:
@@ -2058,15 +1911,129 @@ paths:
                   summary: Servidor Indisponível
                   value:
                     code: 503
-                    error: "Servidor Indisponível."
-
-
+                    error: Servidor Indisponível.
+  /users/{userId}/favorites/{activityId}:
+    delete:
+      tags:
+      - User
+      summary: Remover uma atividade dos favoritos de um usuário
+      parameters:
+      - name: userId
+        in: path
+        description: ID do usuário
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      - name: activityId
+        in: path
+        description: ID da atividade a ser removida dos favoritos
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Atividade removida dos favoritos
+        "404":
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: Recurso não encontrado.
+        "503":
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: Servidor Indisponível.
+  /users/{userId}/notifications:
+    post:
+      tags:
+      - User
+      summary: Enviar mensagens aos usuários cadastrados com informações sobre atividades favoritas
+      parameters:
+      - name: userId
+        in: path
+        description: ID do usuário
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userId_notifications_body'
+            examples:
+              notificationMessage:
+                summary: Exemplo de mensagem de notificação
+                value:
+                  message: "Lembrete: Seu workshop favorito começa em uma hora."
+        required: true
+      responses:
+        "200":
+          description: Mensagem enviada com sucesso
+        "400":
+          description: Formulário com dados incorretos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidData'
+              examples:
+                newUserResponse:
+                  summary: Dados fornecidos não são validos.
+                  value:
+                    code: 400
+                    error: Dados fornecidos não são validos.
+        "404":
+          description: Erro ao localizar recurso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+              examples:
+                newUserResponse:
+                  summary: Recurso não encontrado
+                  value:
+                    code: 404
+                    error: Recurso não encontrado.
+        "503":
+          description: Erro de servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+              examples:
+                newUserResponse:
+                  summary: Servidor Indisponível
+                  value:
+                    code: 503
+                    error: Servidor Indisponível.
 components:
-
-
   schemas:
-
     ErrorNotFound:
+      required:
+      - code
+      - message
       type: object
       properties:
         code:
@@ -2074,12 +2041,11 @@ components:
           example: "404"
         message:
           type: string
-          example: "Recurso não foi encontrado."
-      required:
-        - code
-        - message
-        
+          example: Recurso não foi encontrado.
     ErrorInvalidData:
+      required:
+      - code
+      - message
       type: object
       properties:
         code:
@@ -2087,12 +2053,11 @@ components:
           example: "400"
         message:
           type: string
-          example: "Dados fornecidos não são validos."
-      required:
-        - code
-        - message
-        
+          example: Dados fornecidos não são validos.
     ErrorInvalidCredentials:
+      required:
+      - code
+      - message
       type: object
       properties:
         code:
@@ -2100,12 +2065,11 @@ components:
           example: "401"
         message:
           type: string
-          example: "As credenciais fornecidas são invalidas."
-      required:
-        - code
-        - message
-        
+          example: As credenciais fornecidas são invalidas.
     ErrorServiceUnavailable:
+      required:
+      - code
+      - message
       type: object
       properties:
         code:
@@ -2113,11 +2077,7 @@ components:
           example: "503"
         message:
           type: string
-          example: "Serviço Indisponível."
-      required:
-        - code
-        - message
-
+          example: Serviço Indisponível.
     Event:
       type: object
       properties:
@@ -2127,14 +2087,13 @@ components:
           example: 123456789
         name:
           type: string
-          example: "Conferência Anual de Tecnologia"
+          example: Conferência Anual de Tecnologia
         acronym:
           type: string
-          example: "CAT"
+          example: CAT
         description:
           type: string
-          example: "Conferência focada nas últimas tendências da tecnologia."
-
+          example: Conferência focada nas últimas tendências da tecnologia.
     Space:
       type: object
       properties:
@@ -2144,7 +2103,7 @@ components:
           example: 987654321
         name:
           type: string
-          example: "Salão Principal"
+          example: Salão Principal
         location:
           type: string
           example: "Rua Principal 123, Cidade da Tecnologia"
@@ -2154,10 +2113,12 @@ components:
           example: 250
         resources:
           type: array
+          example:
+          - Projetor
+          - Sistema de Som
+          - Microfones
           items:
             type: string
-          example: ["Projetor", "Sistema de Som", "Microfones"]
-
     Edition:
       type: object
       properties:
@@ -2176,15 +2137,14 @@ components:
         start_date:
           type: string
           format: date
-          example: "2023-08-01"
+          example: 2023-08-01
         end_date:
           type: string
           format: date
-          example: "2023-08-03"
+          example: 2023-08-03
         city:
           type: string
-          example: "Cidade da Tecnologia"
-
+          example: Cidade da Tecnologia
     User:
       type: object
       properties:
@@ -2194,28 +2154,26 @@ components:
           example: 123123123
         login:
           type: string
-          example: "entusiasta_tech"
+          example: entusiasta_tech
         email:
           type: string
-          example: "usuario@exemplo.com"
+          example: usuario@exemplo.com
         name:
           type: string
-          example: "Alex Souza"
+          example: Alex Souza
         affiliation:
           type: string
-          example: "Tech Corp"
-
+          example: Tech Corp
     Organizer:
       type: object
-      allOf:
-        - $ref: "#/components/schemas/User"
       example:
         id: 123123124
-        login: "organizador_evento"
-        email: "organizador@exemplo.com"
-        name: "Camila Santos"
-        affiliation: "Serviços de Gestão de Eventos"
-
+        login: organizador_evento
+        email: organizador@exemplo.com
+        name: Camila Santos
+        affiliation: Serviços de Gestão de Eventos
+      allOf:
+      - $ref: '#/components/schemas/User'
     Activity:
       type: object
       properties:
@@ -2225,23 +2183,59 @@ components:
           example: 555666777
         name:
           type: string
-          example: "Palestra Principal"
+          example: Palestra Principal
         type:
           type: string
-          enum: ["Workshop", "Lecture", "Panel"]
-          example: "Workshop"
+          example: Workshop
+          enum:
+          - Workshop
+          - Lecture
+          - Panel
         description:
           type: string
-          example: "Oficina interativa sobre segurança em IoT."
+          example: Oficina interativa sobre segurança em IoT.
         date:
           type: string
           format: date
-          example: "2023-08-02"
+          example: 2023-08-02
         start_time:
           type: string
           format: time
-          example: "10:00"
+          example: 10:00
         end_time:
           type: string
           format: time
-          example: "12:00"
+          example: 12:00
+    editionId_organizer_body:
+      required:
+      - userId
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+    users_login_body:
+      required:
+      - login
+      - password
+      type: object
+      properties:
+        login:
+          type: string
+        password:
+          type: string
+    userId_favorites_body:
+      required:
+      - activityId
+      type: object
+      properties:
+        activityId:
+          type: integer
+          format: int64
+    userId_notifications_body:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string

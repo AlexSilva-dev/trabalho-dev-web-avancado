@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.projeto.api.modelo.Activitie;
 import br.com.projeto.api.modelo.Edition;
-import br.com.projeto.api.modelo.User;
 import br.com.projeto.api.repositorio.ActivitieRepository;
 import br.com.projeto.api.repositorio.EditionRepository;
 
@@ -19,6 +18,9 @@ public class ActivitieController {
 
     @Autowired
     private ActivitieRepository activitiesRepository;
+    /**
+     *
+     */
     private EditionRepository editionRepository;
 
     @PostMapping("/editions/{editionId}/activities")
@@ -27,23 +29,23 @@ public class ActivitieController {
 
         if (edition != null) {
             //a.setEdition(edition); // Configura a edição na atividade
-            edition.addActivitie(a);// Adiciona a atividade à lista de atividades da edição
+            edition.addActivitie(a); // Adiciona a atividade à lista de atividades da edição
             editionRepository.save(edition); // Atualiza a edição no banco de dados 
         }
         return activitiesRepository.save(a);
     }
 
+    //pecriso do metodo de edition que pega a lista de atividades de uma edition
     @GetMapping("/editions/{editionId}/activities")
     public Iterable<Activitie> searchAll(@PathVariable int editionId) {
         Edition edition = editionRepository.findById(editionId);
         return edition.getActivities();
     }
     
-    //precisa adequar o metodo para pegar as activities favoritadas pelo user
+    //pecriso do metodo de edition para pegar users
     @GetMapping("/editions/{editionId}/activities/{activitiesId}")
-    public User[] searchUser(@PathVariable int editionId,@PathVariable int activitiesId) {
-        Edition edition = editionRepository.findById(editionId);
-        return edition.getUsers();
+    public Activitie searchUser(@PathVariable int activitiesId) {
+        return activitiesRepository.findById(activitiesId);
     }
 
     @PutMapping("/editions/{editionId}/activities/{activitiesId}")
@@ -68,6 +70,7 @@ public class ActivitieController {
                 editionRepository.save(edition); // Atualiza a edição no banco de dados
             }
         activitiesRepository.deleteById(activitiesId);
+    
     }
     
 }
