@@ -2,6 +2,7 @@ package br.com.projeto.api.controle;
 
 import br.com.projeto.api.modelo.Activitie;
 import br.com.projeto.api.repositorio.ActivitieRepository;
+import br.com.projeto.api.repositorio.EventRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,6 +29,8 @@ public class EditionController {
     private EditionRepository editionRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private EventRepository eventRepository;
 
 
 
@@ -95,8 +98,15 @@ public class EditionController {
     public List<Edition> buscaEdicoes(@PathVariable int eventId) {
         var u = editionRepository.findAll();
         var edition = new Edition();
-        edition.getEventInEdition(u, eventId);
-        return null;
+        return edition.getEventInEdition(u, eventId);
+    }
+
+    @PostMapping("/events/{eventId}/editions/{editionId}")
+    public void addEvent(@PathVariable("eventId") int eventId, @PathVariable("eventId") int editionId, @RequestBody User user){
+        var ev = eventRepository.findById(eventId);
+        var ed = editionRepository.findById(eventId);
+        ed.setEvent(ev);
+        editionRepository.save(ed);
     }
 
 

@@ -25,6 +25,9 @@ public class Edition{
     @OneToOne
     private User organizer;
 
+    @OneToOne
+    private Event event;
+
     @OneToMany
     @JoinColumn(name = "User_ID", referencedColumnName = "id")
     private List<User> users = new ArrayList<>();
@@ -32,10 +35,6 @@ public class Edition{
     @OneToMany
     @JoinColumn(name = "Edition_ID", referencedColumnName = "id")
     private List<Activitie> activities = new ArrayList<>();
-
-    @OneToMany
-    @JoinColumn(name = "Events_ID", referencedColumnName = "id")
-    private List<Event> events = new ArrayList<>();
 
     public Edition() {
     }
@@ -109,13 +108,14 @@ public class Edition{
         this.activities = activities;
     }
 
-    public List<Event> getEvents() {
-        return events;
+    public Event getEvent() {
+        return event;
     }
 
-    public void setEvents(List<Event> events) {
-        this.events = events;
+    public void setEvent(Event event) {
+        this.event = event;
     }
+
 
     public Activitie getActivitieById(int id) {
         for (Activitie atividade : activities) {
@@ -127,8 +127,15 @@ public class Edition{
         return null;
     }
 
-    public Edition getEventInEdition(Iterable<Edition> ed, int id){
-        return null;
+    public List<Edition> getEventInEdition(Iterable<Edition> editions, int id) {
+        List<Edition> result = new ArrayList<>();
+        for (Edition edition : editions) {
+            Event event = edition.getEvent();
+            if (event != null && event.getId() == id) {
+                result.add(edition);
+            }
+        }
+        return result;
     }
 
     public void adicionaUsuario(User user){
