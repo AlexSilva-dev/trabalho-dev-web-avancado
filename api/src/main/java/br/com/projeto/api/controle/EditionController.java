@@ -25,6 +25,8 @@ public class EditionController {
     @Autowired
     private EditionRepository editionRepository;
 
+
+
     @PostMapping("/editions")
     public void save(HttpServletResponse response, @RequestBody Edition edition){
         editionRepository.save(edition);
@@ -55,6 +57,23 @@ public class EditionController {
     @DeleteMapping("/editions/{editionId}")
     public void delete(@PathVariable int editionId) {
         editionRepository.deleteById(editionId);
+    }
+
+    @GetMapping("/edition/{editionId}/organizer")
+    public Edition editionById(@PathVariable("editionId") int editionId) {
+        return editionRepository.findById(editionId);
+    }
+
+    @PostMapping("/edition/{editionId}/organizer")
+    public void organizerSave(@PathVariable("editionId") int editionId, @RequestBody int userId){
+        editionRepository.organizerSave(userId, editionId);
+
+    }
+
+
+    @DeleteMapping("/edition/{editionId}/organizers/{userId}")
+    public void organizerDelete(@PathVariable("editionId") int editionId, @PathVariable("userId") int userId){
+        editionRepository.organizerDelete(editionId, userId);
     }
 
 }
