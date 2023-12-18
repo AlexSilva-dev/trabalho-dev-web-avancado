@@ -1,5 +1,6 @@
 package br.com.projeto.api.controle;
 
+import br.com.projeto.api.modelo.Edition;
 import br.com.projeto.api.modelo.User;
 import br.com.projeto.api.repositorio.IEventRepository;
 import jakarta.servlet.http.HttpServletResponse;
@@ -9,11 +10,14 @@ import br.com.projeto.api.modelo.Event;
 import br.com.projeto.api.repositorio.EventRepository;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 public class EventController {
     @Autowired
     private EventRepository eventRepository;
+
+
 
     @PostMapping("/events")
     public void save(HttpServletResponse response, @RequestBody Event ev){
@@ -58,5 +62,18 @@ public class EventController {
         }
 
          */
+    }
+
+    @GetMapping("/events/{eventId}/editions")
+    public List<Edition> buscaEdicoes(@PathVariable int eventId) {
+        var e = eventRepository.findById(eventId);
+        return e.getEdition();
+    }
+
+    @PostMapping("/events/{eventId}/editions")
+    public void addEvent(@PathVariable("eventId") int eventId, @PathVariable("eventId") int editionId, @RequestBody Edition edition){
+        var ev = eventRepository.findById(eventId);
+        ev.getEdition().add(edition);
+        eventRepository.save(ev);
     }
 }

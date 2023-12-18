@@ -2,6 +2,9 @@ package br.com.projeto.api.modelo;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "events")
 public class Event {
@@ -11,6 +14,10 @@ public class Event {
     private String name;
     private String acronym;
     private String description;
+
+    @OneToMany
+    @JoinColumn(name = "Edition_ID", referencedColumnName = "id")
+    private List<Edition> edition = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -42,5 +49,13 @@ public class Event {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Edition> getEdition() {
+        return edition;
+    }
+
+    public void setEdition(List<Edition> edition) {
+        this.edition = edition;
     }
 }

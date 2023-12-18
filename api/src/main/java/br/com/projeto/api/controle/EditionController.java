@@ -94,20 +94,8 @@ public class EditionController {
         editionRepository.save(u);
     }
 
-    @GetMapping("/events/{eventId}/editions")
-    public List<Edition> buscaEdicoes(@PathVariable int eventId) {
-        var u = editionRepository.findAll();
-        var edition = new Edition();
-        return edition.getEventInEdition(u, eventId);
-    }
 
-    @PostMapping("/events/{eventId}/editions/{editionId}")
-    public void addEvent(@PathVariable("eventId") int eventId, @PathVariable("eventId") int editionId, @RequestBody User user){
-        var ev = eventRepository.findById(eventId);
-        var ed = editionRepository.findById(eventId);
-        ed.setEvent(ev);
-        editionRepository.save(ed);
-    }
+
 
 
 }
