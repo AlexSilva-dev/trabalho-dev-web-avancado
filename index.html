@@ -712,8 +712,7 @@
     },
     "date" : {
       "type" : "string",
-      "format" : "date",
-      "example" : "2023-08-02"
+      "format" : "date"
     },
     "start_time" : {
       "type" : "string",
@@ -724,6 +723,12 @@
       "type" : "string",
       "format" : "time",
       "example" : "12:00"
+    },
+    "spaces" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Space"
+      }
     }
   }
 };
@@ -747,17 +752,21 @@
     },
     "start_date" : {
       "type" : "string",
-      "format" : "date",
-      "example" : "2023-08-01"
+      "format" : "date"
     },
     "end_date" : {
       "type" : "string",
-      "format" : "date",
-      "example" : "2023-08-03"
+      "format" : "date"
     },
     "city" : {
       "type" : "string",
       "example" : "Cidade da Tecnologia"
+    },
+    "organizer" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Organizer"
+      }
     }
   }
 };
@@ -850,7 +859,6 @@
   }
 };
             defs["Organizer"] = {
-  "type" : "object",
   "example" : {
     "id" : 123123124,
     "login" : "organizador_evento",
@@ -1803,7 +1811,7 @@ except ApiException as e:
             "name" : "Workshop de Segurança Cibernética",
             "type" : "Workshop",
             "description" : "Um workshop interativo sobre as últimas tendências em segurança cibernética.",
-            "date" : "2023-08-02",
+            "date" : "2023-08-02T00:00:00.000Z",
             "start_time" : "10:00",
             "end_time" : "12:00"
           }
@@ -2010,7 +2018,7 @@ public class ActivityApiExample {
     "name" : "Workshop de Inteligência Artificial",
     "type" : "Workshop",
     "description" : "Um workshop atualizado para explorar a IA no mundo moderno.",
-    "date" : "2023-08-03",
+    "date" : "2023-08-03T00:00:00.000Z",
     "start_time" : "10:00",
     "end_time" : "13:00"
   }
@@ -2040,7 +2048,7 @@ public class ActivityApiExample {
     "name" : "Workshop de Inteligência Artificial",
     "type" : "Workshop",
     "description" : "Um workshop atualizado para explorar a IA no mundo moderno.",
-    "date" : "2023-08-03",
+    "date" : "2023-08-03T00:00:00.000Z",
     "start_time" : "10:00",
     "end_time" : "13:00"
   }
@@ -2067,7 +2075,7 @@ public class ActivityApiExample {
     "name" : "Workshop de Inteligência Artificial",
     "type" : "Workshop",
     "description" : "Um workshop atualizado para explorar a IA no mundo moderno.",
-    "date" : "2023-08-03",
+    "date" : "2023-08-03T00:00:00.000Z",
     "start_time" : "10:00",
     "end_time" : "13:00"
   }
@@ -2099,7 +2107,7 @@ var body = {
     "name" : "Workshop de Inteligência Artificial",
     "type" : "Workshop",
     "description" : "Um workshop atualizado para explorar a IA no mundo moderno.",
-    "date" : "2023-08-03",
+    "date" : "2023-08-03T00:00:00.000Z",
     "start_time" : "10:00",
     "end_time" : "13:00"
   }
@@ -2166,7 +2174,7 @@ $body = {
     "name" : "Workshop de Inteligência Artificial",
     "type" : "Workshop",
     "description" : "Um workshop atualizado para explorar a IA no mundo moderno.",
-    "date" : "2023-08-03",
+    "date" : "2023-08-03T00:00:00.000Z",
     "start_time" : "10:00",
     "end_time" : "13:00"
   }
@@ -2215,7 +2223,7 @@ body = {
     "name" : "Workshop de Inteligência Artificial",
     "type" : "Workshop",
     "description" : "Um workshop atualizado para explorar a IA no mundo moderno.",
-    "date" : "2023-08-03",
+    "date" : "2023-08-03T00:00:00.000Z",
     "start_time" : "10:00",
     "end_time" : "13:00"
   }
@@ -2317,7 +2325,7 @@ except ApiException as e:
             "name" : "Workshop de Inteligência Artificial",
             "type" : "Workshop",
             "description" : "Um workshop atualizado para explorar a IA no mundo moderno.",
-            "date" : "2023-08-03",
+            "date" : "2023-08-03T00:00:00.000Z",
             "start_time" : "10:00",
             "end_time" : "13:00"
           }
@@ -2815,7 +2823,7 @@ except ApiException as e:
             "name" : "Workshop de Segurança Cibernética",
             "type" : "Workshop",
             "description" : "Um workshop interativo sobre as últimas tendências em segurança cibernética.",
-            "date" : "2023-08-02",
+            "date" : "2023-08-02T00:00:00.000Z",
             "start_time" : "10:00",
             "end_time" : "12:00"
           }, {
@@ -2823,7 +2831,7 @@ except ApiException as e:
             "name" : "Painel sobre Inovação Tecnológica",
             "type" : "Painel",
             "description" : "Discussão com líderes da indústria sobre o futuro da tecnologia.",
-            "date" : "2023-08-02",
+            "date" : "2023-08-02T00:00:00.000Z",
             "start_time" : "14:00",
             "end_time" : "16:00"
           } ]
@@ -3030,9 +3038,16 @@ public class ActivityApiExample {
     "name" : "Workshop de Segurança Cibernética",
     "type" : "Workshop",
     "description" : "Um workshop interativo sobre as últimas tendências em segurança cibernética.",
-    "date" : "2023-08-02",
+    "date" : "2023-08-02T00:00:00.000Z",
     "start_time" : "10:00",
-    "end_time" : "12:00"
+    "end_time" : "12:00",
+    "space" : [ {
+      "id" : 987654321,
+      "name" : "Salão Principal",
+      "location" : "Rua Principal 123, Cidade da Tecnologia",
+      "capacity" : 250,
+      "resources" : [ "Projetor", "Sistema de Som", "Microfones" ]
+    } ]
   }
 }; // Activity | 
         Long editionId = 789; // Long | ID da edição na qual a atividade será criada
@@ -3060,9 +3075,16 @@ public class ActivityApiExample {
     "name" : "Workshop de Segurança Cibernética",
     "type" : "Workshop",
     "description" : "Um workshop interativo sobre as últimas tendências em segurança cibernética.",
-    "date" : "2023-08-02",
+    "date" : "2023-08-02T00:00:00.000Z",
     "start_time" : "10:00",
-    "end_time" : "12:00"
+    "end_time" : "12:00",
+    "space" : [ {
+      "id" : 987654321,
+      "name" : "Salão Principal",
+      "location" : "Rua Principal 123, Cidade da Tecnologia",
+      "capacity" : 250,
+      "resources" : [ "Projetor", "Sistema de Som", "Microfones" ]
+    } ]
   }
 }; // Activity | 
         Long editionId = 789; // Long | ID da edição na qual a atividade será criada
@@ -3087,9 +3109,16 @@ public class ActivityApiExample {
     "name" : "Workshop de Segurança Cibernética",
     "type" : "Workshop",
     "description" : "Um workshop interativo sobre as últimas tendências em segurança cibernética.",
-    "date" : "2023-08-02",
+    "date" : "2023-08-02T00:00:00.000Z",
     "start_time" : "10:00",
-    "end_time" : "12:00"
+    "end_time" : "12:00",
+    "space" : [ {
+      "id" : 987654321,
+      "name" : "Salão Principal",
+      "location" : "Rua Principal 123, Cidade da Tecnologia",
+      "capacity" : 250,
+      "resources" : [ "Projetor", "Sistema de Som", "Microfones" ]
+    } ]
   }
 }; // 
 Long *editionId = 789; // ID da edição na qual a atividade será criada
@@ -3120,9 +3149,16 @@ var body = {
     "name" : "Workshop de Segurança Cibernética",
     "type" : "Workshop",
     "description" : "Um workshop interativo sobre as últimas tendências em segurança cibernética.",
-    "date" : "2023-08-02",
+    "date" : "2023-08-02T00:00:00.000Z",
     "start_time" : "10:00",
-    "end_time" : "12:00"
+    "end_time" : "12:00",
+    "space" : [ {
+      "id" : 987654321,
+      "name" : "Salão Principal",
+      "location" : "Rua Principal 123, Cidade da Tecnologia",
+      "capacity" : 250,
+      "resources" : [ "Projetor", "Sistema de Som", "Microfones" ]
+    } ]
   }
 }; // {{Activity}} 
 var editionId = 789; // {{Long}} ID da edição na qual a atividade será criada
@@ -3186,9 +3222,16 @@ $body = {
     "name" : "Workshop de Segurança Cibernética",
     "type" : "Workshop",
     "description" : "Um workshop interativo sobre as últimas tendências em segurança cibernética.",
-    "date" : "2023-08-02",
+    "date" : "2023-08-02T00:00:00.000Z",
     "start_time" : "10:00",
-    "end_time" : "12:00"
+    "end_time" : "12:00",
+    "space" : [ {
+      "id" : 987654321,
+      "name" : "Salão Principal",
+      "location" : "Rua Principal 123, Cidade da Tecnologia",
+      "capacity" : 250,
+      "resources" : [ "Projetor", "Sistema de Som", "Microfones" ]
+    } ]
   }
 }; // Activity | 
 $editionId = 789; // Long | ID da edição na qual a atividade será criada
@@ -3235,9 +3278,16 @@ body = {
     "name" : "Workshop de Segurança Cibernética",
     "type" : "Workshop",
     "description" : "Um workshop interativo sobre as últimas tendências em segurança cibernética.",
-    "date" : "2023-08-02",
+    "date" : "2023-08-02T00:00:00.000Z",
     "start_time" : "10:00",
-    "end_time" : "12:00"
+    "end_time" : "12:00",
+    "space" : [ {
+      "id" : 987654321,
+      "name" : "Salão Principal",
+      "location" : "Rua Principal 123, Cidade da Tecnologia",
+      "capacity" : 250,
+      "resources" : [ "Projetor", "Sistema de Som", "Microfones" ]
+    } ]
   }
 } # Activity | 
 editionId = 789 # Long | ID da edição na qual a atividade será criada
@@ -3312,9 +3362,16 @@ except ApiException as e:
             "name" : "Workshop de Segurança Cibernética",
             "type" : "Workshop",
             "description" : "Um workshop interativo sobre as últimas tendências em segurança cibernética.",
-            "date" : "2023-08-02",
+            "date" : "2023-08-02T00:00:00.000Z",
             "start_time" : "10:00",
-            "end_time" : "12:00"
+            "end_time" : "12:00",
+            "space" : [ {
+              "id" : 987654321,
+              "name" : "Salão Principal",
+              "location" : "Rua Principal 123, Cidade da Tecnologia",
+              "capacity" : 250,
+              "resources" : [ "Projetor", "Sistema de Som", "Microfones" ]
+            } ]
           }
         }
       }
@@ -3376,7 +3433,7 @@ except ApiException as e:
             "name" : "Workshop de Segurança Cibernética",
             "type" : "Workshop",
             "description" : "Um workshop interativo sobre as últimas tendências em segurança cibernética.",
-            "date" : "2023-08-02",
+            "date" : "2023-08-02T00:00:00.000Z",
             "start_time" : "10:00",
             "end_time" : "12:00"
           }
@@ -4226,8 +4283,8 @@ except ApiException as e:
             "id" : 1001,
             "number" : 5,
             "year" : 2023,
-            "start_date" : "2023-08-01",
-            "end_date" : "2023-08-03",
+            "start_date" : "2023-08-01T00:00:00.000Z",
+            "end_date" : "2023-08-03T00:00:00.000Z",
             "city" : "Cidade da Tecnologia"
           }
         }
@@ -4432,8 +4489,8 @@ public class EditionApiExample {
   "value" : {
     "number" : 6,
     "year" : 2024,
-    "start_date" : "2024-08-15",
-    "end_date" : "2024-08-17",
+    "start_date" : "2024-08-15T00:00:00.000Z",
+    "end_date" : "2024-08-17T00:00:00.000Z",
     "city" : "Nova Cidade da Tecnologia"
   }
 }; // Edition | 
@@ -4460,8 +4517,8 @@ public class EditionApiExample {
   "value" : {
     "number" : 6,
     "year" : 2024,
-    "start_date" : "2024-08-15",
-    "end_date" : "2024-08-17",
+    "start_date" : "2024-08-15T00:00:00.000Z",
+    "end_date" : "2024-08-17T00:00:00.000Z",
     "city" : "Nova Cidade da Tecnologia"
   }
 }; // Edition | 
@@ -4485,8 +4542,8 @@ public class EditionApiExample {
   "value" : {
     "number" : 6,
     "year" : 2024,
-    "start_date" : "2024-08-15",
-    "end_date" : "2024-08-17",
+    "start_date" : "2024-08-15T00:00:00.000Z",
+    "end_date" : "2024-08-17T00:00:00.000Z",
     "city" : "Nova Cidade da Tecnologia"
   }
 }; // 
@@ -4514,8 +4571,8 @@ var body = {
   "value" : {
     "number" : 6,
     "year" : 2024,
-    "start_date" : "2024-08-15",
-    "end_date" : "2024-08-17",
+    "start_date" : "2024-08-15T00:00:00.000Z",
+    "end_date" : "2024-08-17T00:00:00.000Z",
     "city" : "Nova Cidade da Tecnologia"
   }
 }; // {{Edition}} 
@@ -4578,8 +4635,8 @@ $body = {
   "value" : {
     "number" : 6,
     "year" : 2024,
-    "start_date" : "2024-08-15",
-    "end_date" : "2024-08-17",
+    "start_date" : "2024-08-15T00:00:00.000Z",
+    "end_date" : "2024-08-17T00:00:00.000Z",
     "city" : "Nova Cidade da Tecnologia"
   }
 }; // Edition | 
@@ -4624,8 +4681,8 @@ body = {
   "value" : {
     "number" : 6,
     "year" : 2024,
-    "start_date" : "2024-08-15",
-    "end_date" : "2024-08-17",
+    "start_date" : "2024-08-15T00:00:00.000Z",
+    "end_date" : "2024-08-17T00:00:00.000Z",
     "city" : "Nova Cidade da Tecnologia"
   }
 } # Edition | 
@@ -4699,8 +4756,8 @@ except ApiException as e:
           "value" : {
             "number" : 6,
             "year" : 2024,
-            "start_date" : "2024-08-15",
-            "end_date" : "2024-08-17",
+            "start_date" : "2024-08-15T00:00:00.000Z",
+            "end_date" : "2024-08-17T00:00:00.000Z",
             "city" : "Nova Cidade da Tecnologia"
           }
         }
@@ -6591,15 +6648,15 @@ except ApiException as e:
             "id" : 101,
             "number" : 4,
             "year" : 2022,
-            "start_date" : "2022-08-01",
-            "end_date" : "2022-08-03",
+            "start_date" : "2022-08-01T00:00:00.000Z",
+            "end_date" : "2022-08-03T00:00:00.000Z",
             "city" : "Cidade da Tecnologia"
           }, {
             "id" : 102,
             "number" : 5,
             "year" : 2023,
-            "start_date" : "2023-08-01",
-            "end_date" : "2023-08-03",
+            "start_date" : "2023-08-01T00:00:00.000Z",
+            "end_date" : "2023-08-03T00:00:00.000Z",
             "city" : "Cidade da Tecnologia"
           } ]
         }
@@ -6804,8 +6861,8 @@ public class EventApiExample {
   "value" : {
     "number" : 5,
     "year" : 2023,
-    "start_date" : "2023-08-01",
-    "end_date" : "2023-08-03",
+    "start_date" : "2023-08-01T00:00:00.000Z",
+    "end_date" : "2023-08-03T00:00:00.000Z",
     "city" : "Cidade da Tecnologia"
   }
 }; // Edition | 
@@ -6833,8 +6890,8 @@ public class EventApiExample {
   "value" : {
     "number" : 5,
     "year" : 2023,
-    "start_date" : "2023-08-01",
-    "end_date" : "2023-08-03",
+    "start_date" : "2023-08-01T00:00:00.000Z",
+    "end_date" : "2023-08-03T00:00:00.000Z",
     "city" : "Cidade da Tecnologia"
   }
 }; // Edition | 
@@ -6859,8 +6916,8 @@ public class EventApiExample {
   "value" : {
     "number" : 5,
     "year" : 2023,
-    "start_date" : "2023-08-01",
-    "end_date" : "2023-08-03",
+    "start_date" : "2023-08-01T00:00:00.000Z",
+    "end_date" : "2023-08-03T00:00:00.000Z",
     "city" : "Cidade da Tecnologia"
   }
 }; // 
@@ -6891,8 +6948,8 @@ var body = {
   "value" : {
     "number" : 5,
     "year" : 2023,
-    "start_date" : "2023-08-01",
-    "end_date" : "2023-08-03",
+    "start_date" : "2023-08-01T00:00:00.000Z",
+    "end_date" : "2023-08-03T00:00:00.000Z",
     "city" : "Cidade da Tecnologia"
   }
 }; // {{Edition}} 
@@ -6956,8 +7013,8 @@ $body = {
   "value" : {
     "number" : 5,
     "year" : 2023,
-    "start_date" : "2023-08-01",
-    "end_date" : "2023-08-03",
+    "start_date" : "2023-08-01T00:00:00.000Z",
+    "end_date" : "2023-08-03T00:00:00.000Z",
     "city" : "Cidade da Tecnologia"
   }
 }; // Edition | 
@@ -7004,8 +7061,8 @@ body = {
   "value" : {
     "number" : 5,
     "year" : 2023,
-    "start_date" : "2023-08-01",
-    "end_date" : "2023-08-03",
+    "start_date" : "2023-08-01T00:00:00.000Z",
+    "end_date" : "2023-08-03T00:00:00.000Z",
     "city" : "Cidade da Tecnologia"
   }
 } # Edition | 
@@ -7080,8 +7137,8 @@ except ApiException as e:
           "value" : {
             "number" : 5,
             "year" : 2023,
-            "start_date" : "2023-08-01",
-            "end_date" : "2023-08-03",
+            "start_date" : "2023-08-01T00:00:00.000Z",
+            "end_date" : "2023-08-03T00:00:00.000Z",
             "city" : "Cidade da Tecnologia"
           }
         }
@@ -7142,8 +7199,8 @@ except ApiException as e:
           "value" : {
             "number" : 7,
             "year" : 2023,
-            "start_date" : "2023-10-01",
-            "end_date" : "2023-10-03",
+            "start_date" : "2023-10-01T00:00:00.000Z",
+            "end_date" : "2023-10-03T00:00:00.000Z",
             "city" : "Cidade da Inovação"
           }
         }
@@ -9498,10 +9555,11 @@ public class OrganizerApiExample {
         
         OrganizerApi apiInstance = new OrganizerApi();
         EditionId_organizer_body body = {
-  "summary" : "Exemplo de adicionar um organizador",
-  "value" : {
-    "userId" : 4001
-  }
+  "id" : 123123124,
+  "login" : "organizador_evento",
+  "email" : "organizador@exemplo.com",
+  "name" : "Camila Santos",
+  "affiliation" : "Serviços de Gestão de Eventos"
 }; // EditionId_organizer_body | 
         Long editionId = 789; // Long | ID do edition para o qual um organizador está sendo adicionado
         try {
@@ -9522,10 +9580,11 @@ public class OrganizerApiExample {
     public static void main(String[] args) {
         OrganizerApi apiInstance = new OrganizerApi();
         EditionId_organizer_body body = {
-  "summary" : "Exemplo de adicionar um organizador",
-  "value" : {
-    "userId" : 4001
-  }
+  "id" : 123123124,
+  "login" : "organizador_evento",
+  "email" : "organizador@exemplo.com",
+  "name" : "Camila Santos",
+  "affiliation" : "Serviços de Gestão de Eventos"
 }; // EditionId_organizer_body | 
         Long editionId = 789; // Long | ID do edition para o qual um organizador está sendo adicionado
         try {
@@ -9543,10 +9602,11 @@ public class OrganizerApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Organizer-editionEditionIdOrganizerPost-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">EditionId_organizer_body *body = {
-  "summary" : "Exemplo de adicionar um organizador",
-  "value" : {
-    "userId" : 4001
-  }
+  "id" : 123123124,
+  "login" : "organizador_evento",
+  "email" : "organizador@exemplo.com",
+  "name" : "Camila Santos",
+  "affiliation" : "Serviços de Gestão de Eventos"
 }; // 
 Long *editionId = 789; // ID do edition para o qual um organizador está sendo adicionado
 
@@ -9568,10 +9628,11 @@ OrganizerApi *apiInstance = [[OrganizerApi alloc] init];
 
 var api = new ApiDeGerenciamentoDeEventos.OrganizerApi()
 var body = {
-  "summary" : "Exemplo de adicionar um organizador",
-  "value" : {
-    "userId" : 4001
-  }
+  "id" : 123123124,
+  "login" : "organizador_evento",
+  "email" : "organizador@exemplo.com",
+  "name" : "Camila Santos",
+  "affiliation" : "Serviços de Gestão de Eventos"
 }; // {{EditionId_organizer_body}} 
 var editionId = 789; // {{Long}} ID do edition para o qual um organizador está sendo adicionado
 
@@ -9628,10 +9689,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiOrganizerApi();
 $body = {
-  "summary" : "Exemplo de adicionar um organizador",
-  "value" : {
-    "userId" : 4001
-  }
+  "id" : 123123124,
+  "login" : "organizador_evento",
+  "email" : "organizador@exemplo.com",
+  "name" : "Camila Santos",
+  "affiliation" : "Serviços de Gestão de Eventos"
 }; // EditionId_organizer_body | 
 $editionId = 789; // Long | ID do edition para o qual um organizador está sendo adicionado
 
@@ -9670,10 +9732,11 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = swagger_client.OrganizerApi()
 body = {
-  "summary" : "Exemplo de adicionar um organizador",
-  "value" : {
-    "userId" : 4001
-  }
+  "id" : 123123124,
+  "login" : "organizador_evento",
+  "email" : "organizador@exemplo.com",
+  "name" : "Camila Santos",
+  "affiliation" : "Serviços de Gestão de Eventos"
 } # EditionId_organizer_body | 
 editionId = 789 # Long | ID do edition para o qual um organizador está sendo adicionado
 
@@ -9739,13 +9802,12 @@ except ApiException as e:
       "schema" : {
         "$ref" : "#/components/schemas/editionId_organizer_body"
       },
-      "examples" : {
-        "newOrganizer" : {
-          "summary" : "Exemplo de adicionar um organizador",
-          "value" : {
-            "userId" : 4001
-          }
-        }
+      "example" : {
+        "id" : 123123124,
+        "login" : "organizador_evento",
+        "email" : "organizador@exemplo.com",
+        "name" : "Camila Santos",
+        "affiliation" : "Serviços de Gestão de Eventos"
       }
     }
   },
@@ -14510,7 +14572,7 @@ except ApiException as e:
             "name" : "Workshop de Segurança Cibernética",
             "type" : "Workshop",
             "description" : "Um workshop interativo sobre as últimas tendências em segurança cibernética.",
-            "date" : "2023-08-02",
+            "date" : "2023-08-02T00:00:00.000Z",
             "start_time" : "10:00",
             "end_time" : "12:00"
           }, {
@@ -14518,7 +14580,7 @@ except ApiException as e:
             "name" : "Painel sobre Inovação Tecnológica",
             "type" : "Painel",
             "description" : "Discussão com líderes da indústria sobre o futuro da tecnologia.",
-            "date" : "2023-08-03",
+            "date" : "2023-08-03T00:00:00.000Z",
             "start_time" : "14:00",
             "end_time" : "16:00"
           } ]
