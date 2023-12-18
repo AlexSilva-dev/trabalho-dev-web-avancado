@@ -2,6 +2,7 @@ package br.com.projeto.api.controle;
 
 import br.com.projeto.api.modelo.Edition;
 import br.com.projeto.api.modelo.User;
+import br.com.projeto.api.repositorio.EditionRepository;
 import br.com.projeto.api.repositorio.IEventRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,15 @@ import br.com.projeto.api.repositorio.EventRepository;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class EventController {
     @Autowired
     private EventRepository eventRepository;
+
+    @Autowired
+    private EditionRepository editionRepository;
 
 
 
@@ -50,20 +55,6 @@ public class EventController {
         return eventRepository.save(event);
     }
 
-    @PostMapping("/events/{eventId}/organizers")
-    public void eventsEventIdOrganizersPost(HttpServletResponse response, @PathVariable int eventId) {
-        System.out.print(eventId);
-        response.setStatus(201);
-        /* - para mandar uma mensagem no corpo da resposta:
-        try {
-            response.getWriter().println("Hello World!");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-         */
-    }
-
     @GetMapping("/events/{eventId}/editions")
     public List<Edition> buscaEdicoes(@PathVariable int eventId) {
         var e = eventRepository.findById(eventId);
@@ -71,9 +62,17 @@ public class EventController {
     }
 
     @PostMapping("/events/{eventId}/editions")
-    public void addEvent(@PathVariable("eventId") int eventId, @PathVariable("eventId") int editionId, @RequestBody Edition edition){
+    public void addEdition(@PathVariable("eventId") int eventId, @RequestBody Edition edition){
         var ev = eventRepository.findById(eventId);
-        ev.getEdition().add(edition);
+        var created = editionRepository.save(edition);
+        ev.getEdition().add(created);
         eventRepository.save(ev);
     }
+
+
+    @GetMapping("/events/{eventId}/users")
+    public List<User> buscarFavoritos(@PathVariable int eventId) {
+        return eventRepository.findById(eventId).getUsers();
+    }
+
 }

@@ -14,7 +14,7 @@ public class Activitie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    //private Enum type;
+    private String type;
     private String description;
     private Date date;
     private Time start_time;
@@ -39,14 +39,14 @@ public class Activitie {
         this.name = name;
     }
 
-    /* public Enum getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Enum type) {
-        this.type = type;
-    } */
-    
+    public void setType(String type) {
+    	this.type = type;
+    }
+
     public String getDescription() {
         return description;
     }

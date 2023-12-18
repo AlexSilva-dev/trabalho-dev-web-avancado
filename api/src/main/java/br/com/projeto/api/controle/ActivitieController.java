@@ -22,26 +22,15 @@ public class ActivitieController {
     @Autowired
     private EditionRepository editionRepository;
 
-    @PostMapping("/activities")
-    public void save(HttpServletResponse response, @RequestBody Activitie activitie){
-        activitiesRepository.save(activitie);
-        response.setStatus(201);
-    }
-
-    @GetMapping("/activities")
-    public Iterable<Activitie> searchAll() {
-        return activitiesRepository.findAll();
-    }
 
     @PostMapping("/editions/{editionId}/activities")
-    public Activitie save(@PathVariable int editionId,@RequestBody Activitie a) {
+    public Activitie save(@PathVariable int editionId,@RequestBody Activitie activitie) {
         Edition edition = editionRepository.findById(editionId);
 
-        if (edition != null) {
-            edition.addActivitie(a); // Adiciona a atividade à lista de atividades da edição
-            editionRepository.save(edition); // Atualiza a edição no banco de dados 
-        }
-        return activitiesRepository.save(a);
+        var created = activitiesRepository.save(activitie);
+        edition.addActivitie(created);
+        editionRepository.save(edition);
+        return activitie;
     }
 
     @GetMapping("/editions/{editionId}/activities")
@@ -52,17 +41,16 @@ public class ActivitieController {
     
     
     @GetMapping("/editions/{editionId}/activities/{activitiesId}")
-    public String searchActivitieDescription(@PathVariable int editionId,@PathVariable int activitiesId) {
+    public Activitie searchActivitieDescription(@PathVariable int editionId,@PathVariable int activitiesId) {
         Edition edition = editionRepository.findById(editionId);
-        Activitie activitie = edition.getActivitieById(activitiesId);
-        return activitie.getDescription();
+        return edition.getActivitieById(activitiesId);
     }
 
     @PutMapping("/editions/{editionId}/activities/{activitiesId}")
     public Activitie update(@PathVariable int activitiesId, @RequestBody Activitie a) {
         Activitie activities = activitiesRepository.findById(activitiesId);
         activities.setName(a.getName());
-        //activities.setType(a.getType());
+        activities.setType(a.getType());
         activities.setDescription(a.getDescription());
         activities.setDate(a.getDate());
         activities.setStart_time(a.getStart_time());

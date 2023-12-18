@@ -22,8 +22,12 @@ public class User {
     private String name;
     private String affiliation;
 
-    @OneToMany
-    @JoinColumn(name = "activitieID", referencedColumnName = "id")
+    @ManyToMany
+    @JoinTable(
+            name = "favorites",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "activitie_id")
+    )
     private List<Activitie> favorites = new ArrayList<>();
 
     public int getId() {

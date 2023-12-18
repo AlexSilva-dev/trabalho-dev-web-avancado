@@ -16,7 +16,7 @@ public class Event {
     private String description;
 
     @OneToMany
-    @JoinColumn(name = "Edition_ID", referencedColumnName = "id")
+    @JoinColumn(name = "Event_id", referencedColumnName = "id")
     private List<Edition> edition = new ArrayList<>();
 
     public int getId() {
@@ -57,5 +57,13 @@ public class Event {
 
     public void setEdition(List<Edition> edition) {
         this.edition = edition;
+    }
+
+    public List<User> getUsers() {
+        List<User> users = new ArrayList<>();
+        for (Edition e : this.edition) {
+            users.addAll(e.getUsers());
+        }
+        return users;
     }
 }
